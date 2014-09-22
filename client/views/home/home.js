@@ -22,18 +22,6 @@
     //register-----------------------------------------------
     $scope.newUser = {};
 
-    /*function newSuccess(response){
-      toastr.success('User successfully registered.');
-      $scope.login = function(){
-        User.login($scope.newUser).then(function(response){
-          toastr.success('Successful login.');
-          $location.path('/tutorial');
-        }, function(response){
-          toastr.error('Error during login, try again.');
-          $scope.user = {};
-        });
-      };
-    }*/
     function newSuccess(response){
       toastr.success('User successfully registered.');
       $location.path('/tutorial');
