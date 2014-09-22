@@ -16,8 +16,8 @@ describe('users', function(){
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [process.env.DB], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       request(app)
-      .post('/login')
-      .send('email=bob@aol.com')
+      .post('/register')
+      .send('email=jeremy@aol.com')
       .send('password=1234')
       .end(function(err, res){
         cookie = res.headers['set-cookie'][0];
