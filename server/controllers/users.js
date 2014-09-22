@@ -4,6 +4,7 @@ var User = require('../models/user');
 
 exports.register = function(req, res){
   User.register(req.body, function(err, user){
+    console.log(req.body);
     if(user){
       res.status(200).end();
     }else{
