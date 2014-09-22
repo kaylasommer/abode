@@ -3,13 +3,24 @@
 var User = require('../models/user');
 
 exports.register = function(req, res){
-  User.register(req.body, function(err, user){
-    console.log(req.body);
-    if(user){
-      res.status(200).end();
-    }else{
-      res.status(400).end();
-    }
+  var credentials = {
+    email: req.body.email,
+    password: req.body.password
+  };
+  User.register(req.body, function(err, newUser){
+    User.login(credentials, function(err, user){
+      if(user){
+        req.session.regenerate(function(){
+          req.session.userId = user._id;
+          req.session.save(function(){
+            res.setHeader('X-Authenticated-User', user.email);
+            res.status(200).end();
+          });
+        });
+      }else{
+        res.status(400).end();
+      }
+    });
   });
 };
 
