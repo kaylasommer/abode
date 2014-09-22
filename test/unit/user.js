@@ -31,7 +31,15 @@ describe('User', function(){
     });
   });
 
-  describe('.save', function(){
+  describe('.findById', function(){
+    it('should find a user', function(done){
+      var id = '000000000000000000000001';
+      User.findById(id, function(err, user){
+        expect(user._id).to.be.instanceof(Mongo.ObjectID);
+        expect(user.email).to.be.equal('bob@aol.com');
+        done();
+      });
+    });
   });
 
 });

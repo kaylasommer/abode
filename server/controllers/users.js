@@ -47,3 +47,9 @@ exports.logout = function(req, res){
   });
 };
 
+exports.show =function(req,res){
+  User.findById(req.user._id, function(err, user){
+    res.send({user:user});
+  });
+};
+

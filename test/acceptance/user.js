@@ -37,4 +37,26 @@ describe('users', function(){
     });
   });
 
+  describe('get /dashboard', function(){
+    it('should bounce an unauthorized user', function(done){
+      request(app)
+      .get('/dashboard')
+      .end(function(err, res){
+        expect(res.status).to.equal(401);
+        done();
+      });
+    });
+  });
+
+  describe('get /dashboard', function(){
+    it('should take a user to their Dashboard', function(done){
+      request(app)
+      .get('/dashboard')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        done();
+      });
+    });
+  });
 });
