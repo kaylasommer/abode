@@ -1,14 +1,14 @@
-## name of project
+## Abode
 ### Code Badges
-build status icon
-coverage status icon
+[![Build Status](https://travis-ci.org/kaylalynjones/abode.svg)](https://travis-ci.org/kaylalynjones/abode)
+[![Coverage Status](https://coveralls.io/repos/kaylalynjones/abode/badge.png)](https://coveralls.io/r/kaylalynjones/abode)
 
 ### Screenshots
-![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
 ![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
 
 ### Description
-write a description about your project
+#Your Home, Inspired.
+This is an application for homeowners who are remodeling their homes. The homeowners can manage their goals and inspirations all in one place.
 
 ### Models
 ```
@@ -29,18 +29,19 @@ Collection 2
 ```
 
 ### Features
-- [x] Feature 1
-- [ ] Feature 2
-- [x] Feature 3
+- [ ] Goals each with their individually nested to-dos
+- [ ] Inspiration Book
+- [ ] Upload or Download Images
+- [ ] Relevant Twiiter Feed
+- [ ] RSS Feed
 
 ### Running Tests
 ```bash
 $ npm install
 $ npm test
+bower install
 ```
 
-### Contributors
-- [Chyld Medford](https://github.com/chyld)
 
 ### License
 [MIT](LICENSE)
