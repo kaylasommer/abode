@@ -1,4 +1,30 @@
-h3 The MEAN Stack
-ul(ng-show='mean')
-  li(ng-repeat='technology in mean') {{technology}}
+.banner
+  h1 Abode
+  h3 Your Home, Inspired.
+.row
+  .col-xs-12.forms
+    .col-xs-6.register
+      h4 Join Us
+      #registration
+      form(role='form', novalidate, name='newUserForm')
+        .form-group
+          label(for='newEmail') Email
+          input.form-control#newEmail(type='email', name='newEmail', ng-model='newUser.email', autofocus, required)
+        .form-group
+          label(for='newPassword') Password
+          input.form-control#newPassword(type='password', name='newPassword', ng-model='newuser.password', required, ng-minlength='3')
+        button.btn.btn-primary(ng-show='newUserForm.$valid', ng-click='register()') Register
+
+    .col-xs-6.login
+      h4 Login
+      #authentication
+      form(role='form', novalidate, name='userForm')
+        .form-group
+          label(for='email') Email
+          input.form-control#email(type='email', name='email', ng-model='user.email', autofocus, required)
+        .form-group
+          label(for='password') Password
+          input.form-control#password(type='password', name='password', ng-model='user.password', required, ng-minlength='3')
+        button.btn.btn-primary(ng-show='userForm.$valid', ng-click='login()') Login
+
 

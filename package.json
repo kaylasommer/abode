@@ -1,17 +1,17 @@
 {
-  "name": "mean-template",
+  "name": "abode",
   "version": "0.0.0",
-  "description": "The MEAN Template",
+  "description": "App for homeowners who are remodeling their house",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nss-cohort-2014-06-07/mean-template"
+    "url": "https://github.com/kaylalyjones/abode"
   },
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "Kayla Jones <kaylalyne424@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nss-cohort-2014-06-07/mean-template/issues"
+    "url": "https://github.com/kaylalynjones/abode/issues"
   },
-  "homepage": "https://github.com/nss-cohort-2014-06-07/mean-template",
+  "homepage": "https://github.com/kaylalynjones/abode",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.0",
