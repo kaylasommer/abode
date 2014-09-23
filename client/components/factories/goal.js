@@ -12,11 +12,11 @@
       return $http.get('/goal');
     }
 
-    function addTask(task){
+    function add(task){
       return $http.post('/task', task);
     }
 
-    return {create:create, index:index, addTask:addTask};
+    return {create:create, index:index, add:add};
   }]);
 })();
 

@@ -5,8 +5,6 @@
   .controller('GoalCtrl', ['$scope', 'Goal', function($scope, Goal){
     $scope.goal = {};
     $scope.goals = [];
-    $scope.task = {};
-    $scope.tasks = [];
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){
@@ -19,10 +17,13 @@
       $scope.goals = response.data.goals;
     });
 
-    $scope.addTask = function(){
-      Goal.addTask($scope.task).then(function(response){
-        $scope.tasks.push(response.data.task);
-        $scope.task = {};
+    $scope.addTask = function(goal){
+      goal.task.goalId = goal._id;
+      Goal.add(goal.task).then(function(response){
+        if (response.status === 200) {
+          goal.tasks.push(goal.task);
+        }
+        goal.task = {};
       });
     };
 

@@ -18,7 +18,6 @@ describe('Task', function(){
         };
       Task.create(t, function(err, response){
         Goal.findById(t.goalId, function(err, goal){
-          console.log('goal from test', goal);
           expect(goal.tasks).to.have.length(1);
           expect(response).to.be.equal(1);
           done();
