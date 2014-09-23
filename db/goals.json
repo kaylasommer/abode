@@ -3,6 +3,7 @@
   "title" : "Tile the Kitchen Floor",
   "due" : {"$date":1449727200000},
   "dateCreated" : {"$date":1411490768782},
+  "tags" : ["flooring", "kitchen", "tile"],
   "tasks" : [],
   "userId" : {"$oid":"000000000000000000000001"}
 }
@@ -11,6 +12,7 @@
   "title" : "Mulch Flower Beds",
   "due" : {"$date":1412226000000},
   "dateCreated" : {"$date":1411189200000},
+  "tags" : ["garden", "outdoors"],
   "tasks" : [],
   "userId" : {"$oid":"000000000000000000000001"}
 }

@@ -11,6 +11,9 @@ h3.text-center GOAL FORM
         label(for='goalTitle') Goal
         input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Tile the Kitchen Floor')
       .form-group
+        label(for='goalTags') Tags
+        input.form-control#goal-tag(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Kitchen, Flooring')
+      .form-group
         label(for='link') Complete By
         input.form-control#due(type='date', name='due', ng-model='goal.due', required)
       button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
