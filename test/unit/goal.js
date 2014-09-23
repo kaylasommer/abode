@@ -61,7 +61,6 @@ describe('Goal', function(){
     it('should find a goal by its id', function(done){
       var id = '100000000000000000000001';
       Goal.findById(id, function(err, goal){
-        console.log(goal);
         expect(goal._id).to.be.instanceof(Mongo.ObjectID);
         expect(goal.title).to.be.equal('Tile the Kitchen Floor');
         done();

@@ -29,7 +29,6 @@ Goal.findAllByUserId = function(id, cb){
   var userId = Mongo.ObjectID(id),
       goal;
   Goal.collection.find({userId:userId}).toArray(function(err, response){
-    console.log(response);
     var goals = response.map(function(res){
       goal = Object.create(Goal.prototype);
       _.extend(goal, res);
