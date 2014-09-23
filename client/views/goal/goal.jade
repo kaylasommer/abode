@@ -14,4 +14,29 @@ h3.text-center GOAL FORM
         label(for='link') Complete By
         input.form-control#due(type='date', name='due', ng-model='goal.due', required)
       button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
+    .goals(ng-repeat='goal in goals')
+      p {{goal.title}}
+        button.btn Add a Task?
+      .reveal
+      form.form.task-form(role='form', name='taskForm', novalidate)
+        .form-group#task-group
+          .form-group.clone
+            label(for='taskName')
+            input.form-control#task-name(type='text', name='taskName', ng-model='task.name', ng-minlength='3', required)
+            input(type='hidden', value='{{goal._id}}')
+          .form-group.clone
+            label(for='taskRank')
+            select#task-rank(name='taskRank', ng-model='task.rank', required)
+              option(value='') Select the Rank
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+              option 8
+              option 9
+              option 10
+          button.btn(ng-click='addTask()') +
 
