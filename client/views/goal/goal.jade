@@ -1,1 +1,17 @@
-h3 GOAL FORM
+h3.text-center GOAL FORM
+.row
+  .col-xs-6.reccomendations
+    h3 Suggested Goals
+    p I would tell you things you need to do here.
+
+  .col-xs-6
+    h3 Set a goal
+    form.form#goal-form(role='form', name='goalForm', novalidate)
+      .form-group
+        label(for='goalTitle') Goal
+        input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Tile the Kitchen Floor')
+      .form-group
+        label(for='link') Complete By
+        input.form-control#due(type='date', name='due', ng-model='goal.due', required)
+      button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
+

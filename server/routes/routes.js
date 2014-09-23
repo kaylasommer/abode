@@ -8,7 +8,8 @@ var morgan         = require('morgan'),
     debug          = require('../lib/debug'),
     security       = require('../lib/security'),
     home           = require('../controllers/home'),
-    users          = require('../controllers/users');
+    users          = require('../controllers/users'),
+    goals          = require('../controllers/goals');
 
 module.exports = function(app, express){
   app.use(morgan('dev'));
@@ -29,6 +30,8 @@ module.exports = function(app, express){
   app.delete('/logout', users.logout);
   //app.post('/register', users.update);
   app.get('/dashboard', users.show);
+  app.post('/goal', goals.create);
+  app.get('/goal', goals.index);
   //app.get('/book', users.index);
   //app.post('/book', users.create);
 
