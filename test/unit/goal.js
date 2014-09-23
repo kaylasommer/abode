@@ -50,7 +50,6 @@ describe('Goal', function(){
     it('should find a goal by its userId', function(done){
       var id = '000000000000000000000001';
       Goal.findAllByUserId(id, function(err, goals){
-        console.log(goals);
         expect(goals).not.to.be.null;
         done();
       });
