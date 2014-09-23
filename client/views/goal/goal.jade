@@ -23,7 +23,7 @@ h3.text-center GOAL FORM
           .form-group.clone
             label(for='taskName')
             input.form-control#task-name(type='text', name='taskName', ng-model='task.name', ng-minlength='3', required)
-            input(type='hidden', value='{{goal._id}}')
+            input(type='hidden', name='goalId', value='{{goal._id}}')
           .form-group.clone
             label(for='taskRank')
             select#task-rank(name='taskRank', ng-model='task.rank', required)
