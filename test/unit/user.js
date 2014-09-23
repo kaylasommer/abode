@@ -5,7 +5,7 @@ var expect    = require('chai').expect,
     dbConnect = require('../../server/lib/mongodb'),
     cp        = require('child_process'),
     Mongo     = require('mongodb'),
-    db        = 'enlighTN-test';
+    db        = 'abode-test';
 
 describe('User', function(){
   before(function(done){

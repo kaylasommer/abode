@@ -45,17 +45,29 @@ describe('Goal', function(){
       });
     });
   });
-  
-/*  describe('.findById', function(){
-    it('should find a user', function(done){
+
+  describe('.findAllByUserId', function(){
+    it('should find a goal by its userId', function(done){
       var id = '000000000000000000000001';
-      User.findById(id, function(err, user){
-        expect(user._id).to.be.instanceof(Mongo.ObjectID);
-        expect(user.email).to.be.equal('bob@aol.com');
+      Goal.findAllByUserId(id, function(err, goals){
+        console.log(goals);
+        expect(goals).not.to.be.null;
         done();
       });
     });
-  });*/
+  });
+
+  describe('.findById', function(){
+    it('should find a goal by its id', function(done){
+      var id = '100000000000000000000001';
+      Goal.findById(id, function(err, goal){
+        console.log(goal);
+        expect(goal._id).to.be.instanceof(Mongo.ObjectID);
+        expect(goal.title).to.be.equal('Tile the Kitchen Floor');
+        done();
+      });
+    });
+  });
 
 });
 

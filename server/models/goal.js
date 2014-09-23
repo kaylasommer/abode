@@ -1,6 +1,7 @@
 'use strict';
 
-var Mongo  = require('mongodb');
+var Mongo  = require('mongodb'),
+    _      = require('underscore');
 
 function Goal(o, userId){
   this.title       = o.title;
@@ -25,9 +26,16 @@ Goal.findById = function(id, cb){
 };
 
 Goal.findAllByUserId = function(id, cb){
-  var userId = Mongo.ObjectID(id);
-  Goal.collection.find({userId:userId}).toArray(function(err, goals){
-    //maybe fix prototype.
+  var userId = Mongo.ObjectID(id),
+      goal;
+  Goal.collection.find({userId:userId}).toArray(function(err, response){
+    console.log(response);
+    var goals = response.map(function(res){
+      goal = Object.create(Goal.prototype);
+      _.extend(goal, res);
+      return goal;
+    });
+    cb(err, goals);
   });
 };
 module.exports = Goal;

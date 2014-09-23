@@ -9,5 +9,7 @@ exports.create = function(req, res){
 };
 
 exports.index = function(req, res){
-
+  Goal.findAllByUserId(req.user._id, function(err, goals){
+    res.send({goals:goals});
+  });
 };
