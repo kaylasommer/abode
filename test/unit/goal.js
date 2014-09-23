@@ -32,7 +32,20 @@ describe('Goal', function(){
     });
   });
 
-  describe('.findById', function(){
+  describe('.create', function(){
+    it('should creatre and save a goal object', function(done){
+      var o = {
+        title : 'New Light Fixture',
+        due : '12/10/14'
+      },
+      userId = '000000000000000000000001',
+      Goal.create(o, userId, function(err, goal){
+        expect(goal._id).to.be.instanceof(MongoObjectID);
+      });
+    });
+  });
+  
+/*  describe('.findById', function(){
     it('should find a user', function(done){
       var id = '000000000000000000000001';
       User.findById(id, function(err, user){
@@ -41,7 +54,7 @@ describe('Goal', function(){
         done();
       });
     });
-  });
+  });*/
 
 });
 
