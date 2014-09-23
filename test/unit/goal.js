@@ -33,14 +33,15 @@ describe('Goal', function(){
   });
 
   describe('.create', function(){
-    it('should creatre and save a goal object', function(done){
+    it('should create and save a goal object', function(done){
       var o = {
         title : 'New Light Fixture',
         due : '12/10/14'
       },
-      userId = '000000000000000000000001',
+      userId = '000000000000000000000001';
       Goal.create(o, userId, function(err, goal){
-        expect(goal._id).to.be.instanceof(MongoObjectID);
+        expect(goal._id).to.be.instanceof(Mongo.ObjectID);
+        done();
       });
     });
   });
