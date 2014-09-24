@@ -28,9 +28,7 @@ describe('Goal', function(){
         tags: 'Living Room, Extra'
       },
       userId = '000000000000000000000001';
-      console.log(o);
       var g = new Goal(o, userId);
-      console.log(g);
       expect(g).to.be.instanceof(Goal);
     });
   });
@@ -39,7 +37,8 @@ describe('Goal', function(){
     it('should create and save a goal object', function(done){
       var o = {
         title : 'New Light Fixture',
-        due : '12/10/14'
+        due : '12/10/14',
+        tags: 'Living Room, Extra'
       },
       userId = '000000000000000000000001';
       Goal.create(o, userId, function(err, goal){
