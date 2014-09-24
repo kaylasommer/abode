@@ -16,7 +16,15 @@
       return $http.post('/task', task);
     }
 
-    return {create:create, index:index, add:add};
+    function goalComplete(goalId){
+      return $http.post('/goal/complete', {goalId:goalId});
+    }
+
+    function taskComplete(){
+      return $http.post('/task/complete');
+    }
+
+    return {create:create, index:index, add:add, goalComplete:goalComplete, taskComplete:taskComplete};
   }]);
 })();
 

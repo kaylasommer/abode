@@ -24,3 +24,15 @@ exports.createTask = function(req, res){
     }
   });
 };
+
+exports.remove = function(req, res){
+  Goal.remove(req.body, function(err, response){
+   console.log('ERR>>>>', err);
+   console.log('RES>>>>', response);
+    if(response) {
+      res.status(200).end();
+    } else {
+      res.status(500).end();
+    }
+  });
+};

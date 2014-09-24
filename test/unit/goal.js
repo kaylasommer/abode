@@ -24,10 +24,13 @@ describe('Goal', function(){
     it('should create a new goal object', function(){
       var o = {
         title : 'New Light Fixture',
-        due : '12/10/14'
+        due : '12/10/14',
+        tags: 'Living Room, Extra'
       },
-      userId = '000000000000000000000001',
-      g = new Goal(o, userId);
+      userId = '000000000000000000000001';
+      console.log(o);
+      var g = new Goal(o, userId);
+      console.log(g);
       expect(g).to.be.instanceof(Goal);
     });
   });
@@ -63,6 +66,18 @@ describe('Goal', function(){
         expect(goal._id).to.be.instanceof(Mongo.ObjectID);
         expect(goal.title).to.be.equal('Tile the Kitchen Floor');
         done();
+      });
+    });
+  });
+
+  describe('.remove', function(){
+    it('should delete a goal', function(done){
+      var id = '100000000000000000000001';
+      Goal.remove(id, function(err, response){
+        Goal.findById(id, function(err, goal){
+          expect(goal).to.be.null;
+          done();
+        });
       });
     });
   });

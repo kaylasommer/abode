@@ -1,13 +1,11 @@
 'use strict';
 
-var Mongo = require('mongodb'),
-    Goal  = require('../models/goal');
+    var Goal  = require('../models/goal');
 
 function Task(o){
   this.name = o.name;
   this.rank = o.rank;
   this.isComplete = false;
-  this.goalId =  new Mongo.ObjectID(o.goalId);
 }
 
 Task.create = function(o, cb){

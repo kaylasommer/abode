@@ -40,6 +40,13 @@ Goal.findAllByUserId = function(id, cb){
     cb(err, goals);
   });
 };
+
+Goal.remove = function(id, cb){
+  Goal.collection.findOne({_id:id}, function(err, goal){
+    Goal.collection.remove(goal, cb);
+  });
+};
+
 module.exports = Goal;
 
 

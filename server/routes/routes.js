@@ -32,6 +32,7 @@ module.exports = function(app, express){
   app.get('/dashboard', users.show);
   app.post('/goal', goals.create);
   app.get('/goal', goals.index);
+  app.post('/goal/complete', goals.remove);
   app.post('/task', goals.createTask);
   //app.get('/book', users.index);
   //app.post('/book', users.create);
