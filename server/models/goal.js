@@ -42,9 +42,7 @@ Goal.findAllByUserId = function(id, cb){
 };
 
 Goal.remove = function(id, cb){
-  Goal.collection.findOne({_id:id}, function(err, goal){
-    Goal.collection.remove(goal, cb);
-  });
+  Goal.collection.remove({_id: Mongo.ObjectID(id)}, cb);
 };
 
 module.exports = Goal;

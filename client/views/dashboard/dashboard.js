@@ -11,9 +11,9 @@
       $scope.goals = response.data.goals;
     });
 
-    $scope.goalComplete = function('goal._id'){
+    $scope.goalComplete = function(goal){
       var goalId = goal._id,
-      index = _.indexOf($scope.goals, {_id:goalId});
+      index = _.indexOf($scope.goals, goal);
       Goal.goalComplete(goalId).then(function(response){
         $scope.goals.splice(index, 1);
       });
