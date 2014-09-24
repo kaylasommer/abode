@@ -14,7 +14,8 @@
         input.form-control#goal-tag(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Kitchen, Flooring')
       .form-group
         label(for='link') Complete By
-        input.form-control#due(type='date', name='due', ng-model='goal.due', required)
+        div#due(style='display:inline-block; min-height:290px;')
+          datepicker(min-date='minDate' show-weeks='true' class='well well-sm', name='due', ng-model='goal.due', required)
       button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
 
     h2 Your Goals

@@ -7,6 +7,11 @@
     $scope.goals = [];
     $scope.oneAtATime = true;
 
+    $scope.today = function(){
+      $scope.goal.due = new Date();
+    };
+    $scope.today();
+
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){
         $scope.goals.push(response.data.goal);
