@@ -1,7 +1,36 @@
 h3 DASHBOARD
 a(href='/#/goal') Add a goal
-div#hzroot9290900(style='width:300px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
-div(style='font-size:14px;margin-bottom:3px;') Today's Ideabooks
-  div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
-  iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:300px;height:275px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=300")
-
+.header
+  .col-xs-3
+    .img.thumbnail
+  .col-xs-9
+    .row
+      .col-xs-12.reccomendation
+    .row
+      .col-xs-4
+        .profile-pic
+      .col-xs-4
+        p User Name
+          .edit
+        p location
+      .col-xs-4
+        button.btn.btn-primary Inspiration Board
+.row
+  .col-xs-6
+    .goal
+      h3 Goals
+      .add.pull-right
+        i.fa.fa-fw.fa-plus
+    .house
+      h3 House Specs
+      .edit.pull-right
+        i.fa.fa-fw.fa-pencil
+  .col-xs-6
+    .trending
+      .twitter
+      .houzz
+        div#hzroot9290900(style='width:300px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
+        div(style='font-size:14px;margin-bottom:3px;') Today's Ideabooks
+          div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
+          iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:300px;height:275px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=300")
+      .rss
