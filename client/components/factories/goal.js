@@ -17,14 +17,14 @@
     }
 
     function goalComplete(goalId){
-      return $http.post('/goal/complete', {goalId:goalId});
+      return $http.delete('/goal/' + goalId);
     }
 
-    function taskComplete(){
-      return $http.post('/task/complete');
+    function update(goal){
+      return $http.put('/goal/' + goal._id, {goal:goal});
     }
 
-    return {create:create, index:index, add:add, goalComplete:goalComplete, taskComplete:taskComplete};
+    return {create:create, index:index, add:add, goalComplete:goalComplete, update:update};
   }]);
 })();
 

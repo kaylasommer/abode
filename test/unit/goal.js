@@ -81,5 +81,20 @@ describe('Goal', function(){
     });
   });
 
+  describe('.update', function(){
+    it('should update a goal', function(done){
+      var goal = {
+        _id: '100000000000000000000001',
+        title: 'Tile the Kitchen Floor',
+        userId: '000000000000000000000001'
+      };
+      Goal.update(goal, function(err, response){
+        Goal.findById(goal._id, function(err, goal){
+          expect(goal._id).to.be.instanceof(Mongo.ObjectID);
+          done();
+        });
+      });
+    });
+  });
 });
 

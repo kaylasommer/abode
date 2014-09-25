@@ -26,7 +26,17 @@ exports.createTask = function(req, res){
 };
 
 exports.remove = function(req, res){
-  Goal.remove(req.body.goalId, function(err, response){
+  Goal.remove(req.params.goalId, function(err, response){
+    if(response) {
+      res.status(200).end();
+    } else {
+      res.status(500).end();
+    }
+  });
+};
+
+exports.update = function(req, res){
+  Goal.update(req.body.goal, function(err, response){
     if(response) {
       res.status(200).end();
     } else {

@@ -19,11 +19,14 @@
       });
     };
 
-    /*$scope.taskComplete = function(){
-      Goal.taskComplete().then(function(response){
-
+    $scope.taskComplete = function(goal){
+      Goal.update(goal).then(function(){
+        //if error, toggle checkbox
+      },
+      function(err){
+        alert('So sorry, there was an error or something.');
       });
-    };*/
+    };
 
   }]);
 })();

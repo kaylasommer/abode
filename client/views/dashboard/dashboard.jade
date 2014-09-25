@@ -27,9 +27,9 @@
             i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
           p: a(ng-click='goalComplete(goal)') I completed this goal!
           form.form(role='form', name='taskToggleForm')
-          p(ng-repeat='task in goal.tasks | orderBy:sort', ng-class='{complete:t.isComplete}') {{task.name}}
+          p(ng-repeat='task in goal.tasks | orderBy:sort', ng-class='{complete:task.isComplete}') {{task.name}}
             label.checkbox-inline.pull-right
-              input#inlineCheckbox(type='checkbox', value='true', ng-model='t.isComplete', ng-click='taskComplete()')
+              input#inlineCheckbox(type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
     .house
       h3 House Specs
         .edit.pull-right

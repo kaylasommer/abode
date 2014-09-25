@@ -45,6 +45,13 @@ Goal.remove = function(id, cb){
   Goal.collection.remove({_id: Mongo.ObjectID(id)}, cb);
 };
 
+Goal.update = function(goal, cb){
+  goal._id = Mongo.ObjectID(goal._id);
+  goal.userId = Mongo.ObjectID(goal.userId);
+
+  Goal.collection.save(goal, cb);
+};
+
 module.exports = Goal;
 
 
