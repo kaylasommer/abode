@@ -1,15 +1,69 @@
 #dashboard {
 
-  .header{}
+  .header{
+    height: 300px;
+    width: 100%;
+
+    .img {
+      width: 250px;
+      height: 250px;
+    }
+    .reccomendation {
+      width: 100%;
+      height: 70px;
+      background-color: white;
+      margin: 10px;
+      padding: 10px;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: white;
+    }
+    .user-info {
+      font-size: 30px;
+    }
+  }
   .goal{
     .goal-list{
-      p.goal-complete-btn {
-        margin-bottom: 20px;
-        overflow: visible;
+      .complete{
+        color: grey;
+      }
+      input[type=checkbox] {
+        //display: none;
+      }
+      input[type=checkbox]:before {
+        border-radius: 3px;
+      }
+      input[type=checkbox]:checked + label:before {
+        content: "\2713";
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+        font-size: 15px;
+        color: #f3f3f3;
+        text-align: center;
+        line-height: 15px;
       }
     }
   }
   .house{}
-  .trending{}
+  .trending{
+    .twitter {
+      width: 100%;
+      height: 300px;
+      background-color: white;
+      padding: 20px;
+    }
+    .houzz {
+      text-align: center;
+      margin: 0 auto;
+    }
+    .rss {
+      width: 100%;
+      height: 300px;
+      background-color: white;
+      padding: 20px;
+    }
+  }
 }
 
