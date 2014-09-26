@@ -26,23 +26,12 @@
     }
   }
   .goal{
+    .panel-default > .panel-heading {
+      cursor: pointer;
+    }
     .goal-list{
       .complete{
         color: grey;
-      }
-      input[type=checkbox] {
-        //display: none;
-      }
-      input[type=checkbox]:before {
-        border-radius: 3px;
-      }
-      input[type=checkbox]:checked + label:before {
-        content: "\2713";
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-        font-size: 15px;
-        color: #f3f3f3;
-        text-align: center;
-        line-height: 15px;
       }
     }
   }
