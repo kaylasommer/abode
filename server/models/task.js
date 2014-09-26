@@ -4,7 +4,6 @@
 
 function Task(o){
   this.name = o.name;
-  this.rank = o.rank;
   this.isComplete = false;
 }
 

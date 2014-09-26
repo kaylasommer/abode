@@ -5,8 +5,6 @@ var Mongo  = require('mongodb'),
 
 function Goal(o, userId){
   this.title       = o.title;
-  this.due         = new Date(o.due);
-  this.dateCreated = new Date();
   this.tags        = o.tags.split(',').map(function(t){
                       return t.trim();
                     });
