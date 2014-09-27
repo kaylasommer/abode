@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('abode', ['ngRoute', 'LocalForageModule', 'ui.bootstrap'])
+  angular.module('abode', ['ngRoute', 'LocalForageModule', 'ui.bootstrap', 'ui.sortable'])
   .config(['$routeProvider', '$httpProvider', '$localForageProvider', function($routeProvider, $httpProvider, $localForageProvider){
     $routeProvider
     .when('/', {templateUrl:'/views/home/home.html', controller:'HomeCtrl'})

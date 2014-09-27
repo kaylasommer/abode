@@ -1,1 +1,51 @@
-h4 HOUSE SPECS FORM
+h4 HOUSE SPECS
+form.form(role='form', name='houseSpecs', novalidate)
+  fieldset.general
+    .form-group
+      label(for='built') Year Built
+        input.form-control(name='built', model='house.general.built', type='number', placeholder='1950')
+    .form-group
+      label(for='type') Type
+        select.form-control(name='type', model='house.general.type')
+          option(ng-repeat='type in types') {{type}}
+    .form-group
+      label(for='sqft') Square Foot
+        input.form-control(name='sqft', model='house.general.sqft', type='number', placeholder='1000')
+    .form-group
+      label(for='acreage') Acreage
+        input.form-control(name='acreage', model='house.general.acreage', type='number', placeholder='2.0', step='any')
+  fieldset.misc
+    .form-group
+      label(for='airFilter') Size of Air Filter
+        input.form-control(name='airFilter', model='house.misc.airFilter', type='text', placeholder='25x40')
+    .form-group
+      label(for='stoveWidth') Width of Stove
+        input.form-control(name='stoveWidth', model='house.misc.stoveWidth', type='text', placeholder='30 inches')
+    .form-group
+      label(for='fridgeWidth') Width of Fridgerator
+        input.form-control(name='fridgeWidth', model='house.misc.fridgeWidth', type='text', placeholder='36 inches')
+    .form-group
+      label(for='fridgeHeight') Height of Fridgerator
+        input.form-control(name='fridgeHeight', model='house.misc.fridgeHeight', type='text', placeholder='69 inches')
+    .form-group
+      label(for='airFilter') Size of Air Filter
+        input.form-control(name='airFilter', model='house.misc.airFilter', type='text', placeholder='25x40')
+    .form-group
+      label(for='airFilter') Size of Air Filter
+        input.form-control(name='airFilter', model='house.misc.airFilter', type='text', placeholder='25x40')
+  fieldset.features
+    .form-group
+      label(for='isGutters') Gutters? &nbsp
+        input(name='isGutters', model='house.feat.isGutters', type='checkbox')
+    .form-group
+      label(for='isFireplace') Fireplace? &nbsp
+        input(name='isFireplace', model='house.feat.isFireplace', type='checkbox')
+    .form-group
+      label(for='isBasement') Basement? &nbsp
+        input(name='isBasement', model='house.feat.isBasement', type='checkbox')
+    .form-group
+      label(for='isFenced') Fenced? &nbsp
+        input(name='isFenced', model='house.feat.isFenced', type='checkbox')
+    .form-group
+      label(for='isPool') Pool? &nbsp
+        input(name='isPool', model='house.feat.isPool', type='checkbox')

@@ -11,23 +11,20 @@
       $scope.goals = response.data.goals;
     });
 
-    /*$scope.goal.tasks.sort(function(a, b){
-      return a.i > b.i;
-    });
-
-    $scope.sortableOptions ={
-      stop: function(e, ui){
-        for (var index in $scope.goal.tasks){
-          $scope.goals.task[index].i = index;
-        }
-      }
-    };*/
-
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){
         $scope.goals.push(response.data.goal);
         $scope.goal = {};
       });
+    };
+
+    $scope.sortableOptions = {
+      stop: function(e, ui){
+        var goal = ui.item.scope().$parent.$parent.goal;
+        Goal.update(goal).then(function(){
+          console.log('hooray!');
+        });
+      }
     };
 
     $scope.addTask = function(goal){

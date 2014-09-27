@@ -2,25 +2,15 @@
   .header
     .col-xs-3
       .img.thumbnail
-    .col-xs-9
-      .row
-        .col-xs-12.reccomendation
-      .row
-        .col-xs-4
-          .profile-pic
-        .col-xs-4.user-info
-          p User Name
+    .row
+      .col-xs-4
+        .profile-pic
+      .col-xs-4.user-info
+        p User Name
           a.edit(href='/#/register'): i.fa.fa-fw.fa-pencil
-          p location
-        .col-xs-4
-          a.btn.btn-primary.pull-right(href='/#/book') Inspiration Book
-  // .row
-  //  .col-xs-6
-  //    form.form#filter(role='form', name='filterForm')
-  //      .form-group.col-xs-3
-  //        label: i.fa.fa-fw.fa-filter &nbsp Filter
-  //          input(type='text', name='filter')
-  //  .col-xs-6
+        p location
+      .col-xs-4
+        a.btn.btn-primary.pull-right(href='/#/book') Inspiration Book
   .clearfix
   .row
     .col-xs-6
@@ -38,35 +28,40 @@
               .form-group
                 button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
         h3 Goals
+        .filter
+          form.form-inline#filter(role='form', name='filterForm')
+          .form-group
+            label.sr-only(for='filter')
+            .input-group
+              .input-group-addon: i.fa.fa-fw.fa-filter
+              input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
         div.goal-list(accordion, close-others='oneAtATime')
-          accordion-group(ng-repeat='goal in goals')
+          accordion-group(ng-repeat='goal in goals | filter:searchGoals')
             accordion-heading
               | {{goal.title}}
               i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
             p.goal-complete-btn: a.btn.btn-warning.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
              i.fa.fa-fw.fa-trash-o
-            form.form.task-form(role='form', name='taskForm', novalidate)
-              .form-group
-                .form-group.col-xs-11.task-name
+            form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
+              .form-group.no-margin
+                .col-xs-11.task-name
                   label(for='taskName')
                   input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
-                .form-group.col-xs-1.task-add-btn
+                .col-xs-1.task-add-btn
                   button.btn(ng-click='addTask(goal)') +
             form.form(role='form', name='taskToggleForm')
-            p.task-list(ng-repeat='task in goal.tasks | orderBy:sort', ng-class='{complete:task.isComplete}', ng-model='goals.tasks') {{task.name}}
-              label.checkbox-inline.pull-right(for='taskComplete')
-                input#inlineCheckbox(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
+            ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
+              li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
+                label(for='taskComplete') {{task.name}}
+                  input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
       .house
-        h3 House Specs
-          .edit.pull-right
-            a(href='/#/specs')
-              i.fa.fa-fw.fa-pencil
+        h3 Reccomendations
     .col-xs-6
       .trending
         .houzz
-          div#hzroot9290900(style='width:300px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
+          div#hzroot9290900(style='width:480px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
             div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
-            iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:300px;height:275px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=300")
+            iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:385px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
         .twitter
           h3 TWITTER FEED
         .rss
