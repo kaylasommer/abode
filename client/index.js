@@ -9,7 +9,7 @@
     .when('/dashboard',   {templateUrl:'/views/dashboard/dashboard.html', controller:'DashboardCtrl'})
     .when('/tutorial',   {templateUrl:'/views/tutorial/tutorial.html', controller:'TutorialCtrl'})
     .when('/book',   {templateUrl:'/views/book/book.html', controller:'BookCtrl'})
-    .when('/goal',   {templateUrl:'/views/goal/goal.html', controller:'GoalCtrl'})
+    .when('/edit',   {templateUrl:'/views/edit/edit.html', controller:'EditCtrl'})
     .when('/specs',   {templateUrl:'/views/specs/specs.html', controller:'SpecsCtrl'})
     .otherwise({redirectTo:'/'});
 
