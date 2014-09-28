@@ -2,7 +2,6 @@
   'use strict';
 
   angular.module('abode')
-  .controller('RegisterCtrl', ['$scope', function($scope){
+  .controller('TutorialCtrl', ['$scope', function($scope){
   }]);
 })();
-

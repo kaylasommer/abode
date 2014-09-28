@@ -1,14 +1,16 @@
 doctype html
-html(ng-app='mean-template', lang='en')
+html(ng-app='abode', lang='en')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title MEAN Template
+    title Abode
     link(href='/vendor/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
     link(href='/vendor/fontawesome/css/font-awesome.css', rel='stylesheet')
     link(href='/vendor/toastr/toastr.css', rel='stylesheet')
     link(href='/index.css', rel='stylesheet')
+    link(href='/views/goal/goal.css', rel='stylesheet')
+    link(href='/views/dashboard/dashboard.css', rel='stylesheet')
   body
     include nav
     .container
@@ -17,21 +19,28 @@ html(ng-app='mean-template', lang='en')
           #container(ng-view)
 
     script(src='/vendor/jquery/dist/jquery.js')
+    script(src='/vendor/jquery-ui/jquery-ui.min.js')
     script(src='/vendor/angular/angular.js')
     script(src='/vendor/angular-route/angular-route.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    script(src='/vendor/angular-bootstrap/ui-bootstrap-tpls.js')
     script(src='/vendor/underscore/underscore.js')
     script(src='/vendor/toastr/toastr.js')
     script(src='/vendor/localforage/dist/localforage.js')
     script(src='/vendor/angular-localforage/dist/angular-localForage.js')
+    script(src='/vendor/angular-ui-sortable/sortable.min.js')
     script(src='/config/toastr.js')
     script(src='/index.js')
     script(src='/nav.js')
     script(src='/views/home/home.js')
-    script(src='/views/register/register.js')
-    script(src='/views/login/login.js')
     script(src='/views/logout/logout.js')
+    script(src='/views/dashboard/dashboard.js')
+    script(src='/views/tutorial/tutorial.js')
+    script(src='/views/book/book.js')
+    script(src='/views/goal/goal.js')
+    script(src='/views/specs/specs.js')
     script(src='/components/factories/home.js')
     script(src='/components/factories/user.js')
+    script(src='/components/factories/goal.js')
     script(src='/components/factories/http-interceptor.js')
 

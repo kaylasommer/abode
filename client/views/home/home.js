@@ -1,15 +1,41 @@
 (function(){
   'use strict';
 
-  angular.module('mean-template')
-  .controller('HomeCtrl', ['$scope', '$interval', 'Home', function($scope, $interval, Home){
-    Home.getMessage().then(function(response){
-      $scope.mean = response.data.mean;
+  angular.module('abode')
+  .controller('HomeCtrl', ['$scope', '$location', 'User', function($scope, $location, User){
+    //login________________________________________________
+    $scope.user = {};
 
-      $interval(function(){
-        $scope.mean = _.shuffle($scope.mean);
-      }, 500);
-    });
+    function success(response){
+      toastr.success('Successful login.');
+      $location.path('/dashboard');
+    }
+
+    function failure(response){
+      toastr.error('Error during login, try again.');
+      $scope.user = {};
+    }
+
+    $scope.login = function(){
+      User.login($scope.user).then(success, failure);
+    };
+    //register-----------------------------------------------
+    $scope.newUser = {};
+
+    function newSuccess(response){
+      toastr.success('User successfully registered.');
+      $location.path('/tutorial');
+    }
+
+    function newFailure(response){
+      toastr.error('Error during user registration, try again.');
+      $scope.newUser = {};
+    }
+
+    $scope.register = function(){
+      User.register($scope.newUser).then(newSuccess, newFailure);
+    };
+
   }]);
 })();
 
