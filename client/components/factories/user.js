@@ -16,7 +16,11 @@
       return $http.delete('/logout');
     }
 
-    return {register:register, login:login, logout:logout};
+    function getCurrent(){
+      return $http.get('/user');
+    }
+
+    return {register:register, login:login, logout:logout, getCurrent:getCurrent};
   }]);
 })();
 

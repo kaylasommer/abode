@@ -8,11 +8,14 @@
       #registration
       form(role='form', novalidate, name='newUserForm')
         .form-group
+          label(for='newName') Name
+          input.form-control#newName(type='text', name='newName', ng-model='newUser.name', required, ng-minlength='3')
+        .form-group
           label(for='newEmail') Email
           input.form-control#newEmail(type='email', name='newEmail', ng-model='newUser.email', required)
         .form-group
           label(for='newPassword') Password
-          input.form-control#newPassword(type='password', name='newPassword', ng-model='newUser.password', required, ng-minlength='3')
+          input.form-control#newPassword(type='password', name='newPassword', ng-model='newUser.password', required, ng-minlength='4')
         button.btn.btn-primary(ng-show='newUserForm.$valid', ng-click='register()') Register
 
     .col-xs-6.login

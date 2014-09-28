@@ -2,10 +2,14 @@
   'use strict';
 
   angular.module('abode')
-  .controller('DashboardCtrl', ['$scope', 'Goal', function($scope, Goal){
+  .controller('DashboardCtrl', ['$scope', 'User', 'Goal', function($scope, User, Goal){
     $scope.oneAtATime = true;
     $scope.goals = [];
     $scope.goal = {};
+
+    User.getCurrent().then(function(response){
+      $scope.user = response.data.user;
+    });
 
     Goal.index().then(function(response){
       $scope.goals = response.data.goals;
@@ -22,7 +26,6 @@
       stop: function(e, ui){
         var goal = ui.item.scope().$parent.$parent.goal;
         Goal.update(goal).then(function(){
-          console.log('hooray!');
         });
       }
     };

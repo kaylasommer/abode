@@ -1,1 +1,67 @@
-h4 TUTORIAL DASHBOARD
+#dashboard
+  .header
+    .col-xs-3
+      .img.thumbnail
+    .row
+      .col-xs-4
+        .profile-pic
+      .col-xs-4.user-info
+        p {{user.name}}
+      .col-xs-4
+        a.btn.btn-primary.pull-right(href='/#/book') Inspiration Book
+        a.btn.btn-primary.pull-right(href='/#/house') Homefolio
+  .clearfix
+  .row
+    .col-xs-6
+      .goal
+        div(accordion close-others='oneAtATime')
+          accordion-group
+            accordion-heading
+              | Set a Goal
+              i.fa.fa-fw.fa-plus.pull-right
+            form.form#goal-form(role='form', name='goalForm', novalidate)
+              .form-group
+                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title')
+              .form-group
+                input.form-control#goal-tag(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tags')
+              .form-group
+                button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
+        h3 Goals
+        .filter
+          form.form-inline#filter(role='form', name='filterForm')
+          .form-group
+            label.sr-only(for='filter')
+            .input-group
+              .input-group-addon: i.fa.fa-fw.fa-filter
+              input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
+        div.goal-list(accordion, close-others='oneAtATime')
+          accordion-group(ng-repeat='goal in goals | filter:searchGoals')
+            accordion-heading
+              | {{goal.title}}
+              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
+            p.goal-complete-btn: a.btn.btn-warning.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
+             i.fa.fa-fw.fa-trash-o
+            form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
+              .form-group.no-margin
+                .col-xs-11.task-name
+                  label(for='taskName')
+                  input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
+                .col-xs-1.task-add-btn
+                  button.btn(ng-click='addTask(goal)') +
+            form.form(role='form', name='taskToggleForm')
+            ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
+              li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
+                label(for='taskComplete') {{task.name}}
+                  input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
+      .house
+        h3 Reccomendations
+    .col-xs-6
+      .trending
+        .houzz
+          div#hzroot9290900(style='width:480px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
+            div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
+            iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:385px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
+        .twitter
+          h3 TWITTER FEED
+        .rss
+          h3 RSS-FEED

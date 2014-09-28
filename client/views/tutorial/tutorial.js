@@ -3,5 +3,6 @@
 
   angular.module('abode')
   .controller('TutorialCtrl', ['$scope', function($scope){
+
   }]);
 })();
