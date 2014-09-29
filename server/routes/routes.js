@@ -33,6 +33,7 @@ module.exports = function(app, express){
   app.get('/user', users.show);
   app.get('/house', houses.show);
   app.post('/house', houses.create);
+  app.put('/house/:houseId', houses.update);
   app.post('/task', goals.createTask);
   app.post('/goal', goals.create);
   app.get('/goal', goals.index);

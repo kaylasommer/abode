@@ -24,7 +24,9 @@ exports.create = function(req, res){
 };
 
 exports.update = function(req, res){
+  console.log(req.params.houseId);
   House.findById(req.params.houseId, function(err, house){
+    console.log('HOUSE>>>>>>', house);
     house.update(function(err, response){
       if(response) {
         res.status(200).end();

@@ -1,5 +1,5 @@
 h4 General
-form.form(role='form', name='generalHouseForm', novalidate)
+form.form(role='form', name='generalHouseForm', novalidate, ng-model='general')
   fieldset
     .form-group
       label(for='built') Year Built
@@ -44,4 +44,4 @@ form.form(role='form', name='generalHouseForm', novalidate)
     .form-group
       label(for='isYard') Yard? &nbsp
         input.form-control(name='isYard', model='general.isYard', type='checkbox')
-    button.btn.btn-primary(ng-click='updateGeneral()')
+    button.btn.btn-primary(ng-click='updateGeneral()') Save

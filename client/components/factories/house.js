@@ -18,6 +18,10 @@
       return $http.get('/house');
     }
 
-    return{create:create, getUsersHouse:getUsersHouse};
+    function update(houseId){
+      return $http.put('/house/' + houseId);
+    }
+
+    return{create:create, getUsersHouse:getUsersHouse, update:update};
   }]);
 })();
