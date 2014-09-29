@@ -12,5 +12,10 @@
         $scope.house = response.data.house;
       });
     };
+
+    House.getUsersHouse().then(function(response){
+      $scope.house = response.data.house;
+    });
+
   }]);
 })();

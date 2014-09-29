@@ -14,6 +14,10 @@
       });
     }
 
-    return{create:create};
+    function getUsersHouse(){
+      return $http.get('/house');
+    }
+
+    return{create:create, getUsersHouse:getUsersHouse};
   }]);
 })();

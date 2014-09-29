@@ -6,7 +6,7 @@ var Mongo  = require('mongodb'),
     path   = require('path');
 
 function House(o, userId){
-  this.loc      = o.loc;
+  this.loc      = o.loc * 1;
   this.userId   = userId;
   this.specs    = {};
 }
