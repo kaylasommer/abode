@@ -33,8 +33,6 @@ House.findByUserId = function(id, cb){
   var userId = Mongo.ObjectID(id),
    house;
   House.collection.findOne({userId:userId}, function(err, response){
-    console.log('RESPONSE>>>>', response);
-
     house = Object.create(House.prototype);
     _.extend(house, response);
     cb(err, house);
