@@ -31,18 +31,13 @@ House.prototype.update = function(cb){
 
 House.findByUserId = function(id, cb){
   var userId = Mongo.ObjectID(id),
-      house;
+   house;
   House.collection.findOne({userId:userId}, function(err, response){
-    var houses = null;
-    if (response) {
-      houses = response.map(function(res){
-        house = Object.create(House.prototype);
-        _.extend(house, res);
-        return house;
-      });
-    }
+    console.log('RESPONSE>>>>', response);
 
-    cb(err, houses);
+    house = Object.create(House.prototype);
+    _.extend(house, response);
+    cb(err, house);
   });
 };
 

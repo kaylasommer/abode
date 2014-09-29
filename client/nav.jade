@@ -12,9 +12,10 @@
       ul.nav.navbar-nav.navbar-right(ng-hide='email')
         li: a(href='/#/') Home
       ul.nav.navbar-nav.navbar-right(ng-show='email')
+        li: a(href='javascript.void(0)') {{email}}
         li: a(href='/#/') Home
-        li: a(href='/#/logout') {{email}}
+        li: a(href='/#/logout') Logout
         li: a(href='/#/dashboard') Dashboard
         li: a(href='/#/book') Inspiration
-        li: a(href='/#/goal') Add a Goal
+        li: a(href='/#/house') Homefolio
 

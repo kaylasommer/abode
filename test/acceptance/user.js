@@ -17,7 +17,7 @@ describe('users', function(){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [process.env.DB], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       request(app)
       .post('/register')
-      .send('email=jeremy@aol.com')
+      .send('email=bob@aol.com')
       .send('password=1234')
       .end(function(err, res){
         cookie = res.headers['set-cookie'][0];
@@ -37,10 +37,10 @@ describe('users', function(){
     });
   });
 
-  describe('get /dashboard', function(){
+  describe('get /house', function(){
     it('should bounce an unauthorized user', function(done){
       request(app)
-      .get('/dashboard')
+      .get('/house')
       .end(function(err, res){
         expect(res.status).to.equal(401);
         done();
@@ -48,10 +48,10 @@ describe('users', function(){
     });
   });
 
-  describe('get /dashboard', function(){
-    it('should take a user to their Dashboard', function(done){
+  describe('get /house', function(){
+    it('should take a user to their Homefolio', function(done){
       request(app)
-      .get('/dashboard')
+      .get('/house')
       .set('cookie', cookie)
       .end(function(err, res){
         expect(res.status).to.equal(200);
