@@ -16,3 +16,24 @@ pre {{house}}
       button.btn.btn-primary(type='submit', ng-show='addHouseForm.$valid',ng-click='addHouse()') Add
 
 .row
+  a#general(href='/#/general/{{house._id}}')
+    h3 General
+  a#extras(href='/#/extras/{{house._id}}')
+    h3 Extras
+  a#systems(href='/#/systems/{{house._id}}')
+    h3 Systems
+  a#kitchen(href='/#/kitchen/{{house._id}}')
+    h3 Kitchen
+  a#bathroom(href='/#/bathroom/{{house._id}}')
+    h3 Bathroom
+  a#living(href='/#/livingroom/{{house._id}}')
+    h3 Living
+  a#laundry(href='/#/laundry/{{house._id}}')
+    h3 Laundry
+  a#dining(href='/#/dining/{{house._id}}')
+    h3 Dining
+  a#bedroom-one(href='/#/bedroomOne/{{house._id}}')
+    h3 Bedroom One
+  a#bedroom-two(href='/#/bedroomTwo/{{house._id}}')
+    h3 Bedroom Two
+

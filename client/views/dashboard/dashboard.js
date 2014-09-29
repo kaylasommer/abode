@@ -14,11 +14,6 @@
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
     });
-    /*User.getCurrent().then(function(response){
-    });
-
-    Goal.index().then(function(response){
-    });*/
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){

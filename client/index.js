@@ -11,6 +11,17 @@
     .when('/book',   {templateUrl:'/views/book/book.html', controller:'BookCtrl'})
     .when('/edit',   {templateUrl:'/views/edit/edit.html', controller:'EditCtrl'})
     .when('/house',   {templateUrl:'/views/house/house.html', controller:'HouseCtrl'})
+    .when('/house',   {templateUrl:'/views/house/house.html', controller:'HouseCtrl'})
+    .when('/general/:houseId',   {templateUrl:'/views/general/general.html', controller:'GeneralCtrl'})
+    .when('/extras/:houseId',   {templateUrl:'/views/extras/extras.html', controller:'ExtrasCtrl'})
+    .when('/systems/:houseId',   {templateUrl:'/views/systems/systems.html', controller:'SystemsCtrl'})
+    .when('/kitchen/:houseId',   {templateUrl:'/views/kitchen/kitchen.html', controller:'KitchenCtrl'})
+    .when('/bathroom/:houseId',   {templateUrl:'/views/bathroom/bathroom.html', controller:'BathroomCtrl'})
+    .when('/livingroom/:houseId',   {templateUrl:'/views/livingroom/livingroom.html', controller:'LivingroomCtrl'})
+    .when('/laundry/:houseId',   {templateUrl:'/views/laundry/laundry.html', controller:'LaundryCtrl'})
+    .when('/dining/:houseId',   {templateUrl:'/views/dining/dining.html', controller:'DiningCtrl'})
+    .when('/bedroomOne/:houseId',   {templateUrl:'/views/bedroomOne/bedroomOne.html', controller:'BedroomOneCtrl'})
+    .when('/bedroomTwo/:houseId',   {templateUrl:'/views/bedroomTwo/bedroomTwo.html', controller:'BedroomTwoCtrl'})
     .otherwise({redirectTo:'/'});
 
     $httpProvider.interceptors.push('HttpInterceptor');

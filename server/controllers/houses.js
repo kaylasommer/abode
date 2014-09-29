@@ -24,11 +24,13 @@ exports.create = function(req, res){
 };
 
 exports.update = function(req, res){
-  House.update(req.body.house, function(err, response){
-    if(response) {
-      res.status(200).end();
-    } else {
-      res.status(500).end();
-    }
+  House.findById(req.params.houseId, function(err, house){
+    house.update(function(err, response){
+      if(response) {
+        res.status(200).end();
+      } else {
+        res.status(500).end();
+      }
+    });
   });
 };
