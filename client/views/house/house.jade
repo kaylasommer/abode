@@ -1,13 +1,18 @@
-
-
-h4 Tell Us About Your House
 pre {{house}}
+.row
+  .col-xs-6(ng-show='house')
+    .col-xs-6
+      img.house-img.img-rounded(src='{{house.photo}}')
+      button.btn.btn-default(ng-click='toggleHouseForm()'): i.fa.fa-fw.fa-pencil
+  .col-xs-6(ng-hide='house', ng-show='showHouseForm')
+    h4 Tell Us About Your House
+    form.form(role='form', ng-model='house', name='addHouseForm', novalidate)
+      .form-group
+        label(for='loc') Zip Code
+          input.form-control(name='loc', ng-model='house.loc', type='number', required, ng-minlength='5', placeholder='{{house.loc}}' || '37216')
+      .form-group
+        label(for='photo') Photo
+          input.form-control(name='photo', kj-file-model='house.photo', type='file')
+      button.btn.btn-primary(type='submit', ng-show='addHouseForm.$valid',ng-click='addHouse()') Add
 
-form.form(role='form', ng-model='house', name='addHouseForm', novalidate)
-  .form-group
-    label(for='loc') Zip Code
-      input.form-control(name='loc', ng-model='house.loc', type='number', placeholder='37216')
-  .form-group
-    label(for='photo') Photo
-      input.form-control(name='photo', kj-file-model='house.photo', type='file')
-  button.btn.btn-primary(type='submit', ng-click='addHouse()') Add
+.row

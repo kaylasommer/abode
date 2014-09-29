@@ -2,18 +2,23 @@
   'use strict';
 
   angular.module('abode')
-  .controller('DashboardCtrl', ['$scope', 'User', 'Goal', function($scope, User, Goal){
+  .controller('DashboardCtrl', ['$scope', 'User', 'Goal', 'Dashboard', function($scope, User, Goal, Dashboard){
     $scope.oneAtATime = true;
     $scope.goals = [];
     $scope.goal = {};
+    $scope.user = {};
+    $scope.house = {};
 
-    User.getCurrent().then(function(response){
+    Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
+      $scope.house = response.data.house;
+      $scope.goals = response.data.goals;
+    });
+    /*User.getCurrent().then(function(response){
     });
 
     Goal.index().then(function(response){
-      $scope.goals = response.data.goals;
-    });
+    });*/
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){
@@ -52,7 +57,7 @@
       Goal.update(goal).then(function(){
       },
       function(err){
-        alert('So sorry, there was an error or something.');
+        alert('Sorry, we aren\'t able to access the server at this time.');
       });
     };
 

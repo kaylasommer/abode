@@ -10,6 +10,7 @@ var morgan         = require('morgan'),
     home           = require('../controllers/home'),
     users          = require('../controllers/users'),
     goals          = require('../controllers/goals'),
+    dashboards     = require('../controllers/dashboards'),
     houses         = require('../controllers/houses');
 
 module.exports = function(app, express){
@@ -29,15 +30,15 @@ module.exports = function(app, express){
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
-  //app.post('/register', users.update);
-  app.post('/goal', goals.create);
-  app.get('/goal', goals.index);
-  app.delete('/goal/:goalId', goals.remove);
-  app.put('/goal/:goalId', goals.update);
-  app.post('/task', goals.createTask);
   app.get('/user', users.show);
   app.get('/house', houses.show);
   app.post('/house', houses.create);
+  app.post('/task', goals.createTask);
+  app.post('/goal', goals.create);
+  app.get('/goal', goals.index);
+  app.get('/dashboard', dashboards.show);
+  app.delete('/goal/:goalId', goals.remove);
+  app.put('/goal/:goalId', goals.update);
   //app.get('/book', users.index);
   //app.post('/book', users.create);
 

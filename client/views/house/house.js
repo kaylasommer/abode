@@ -17,5 +17,9 @@
       $scope.house = response.data.house;
     });
 
+    $scope.toggleHouseForm = function(){
+      $scope.showHouseForm = !!!$scope.showHouseForm;
+    };
+
   }]);
 })();
