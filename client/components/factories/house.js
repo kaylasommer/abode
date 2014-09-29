@@ -5,10 +5,15 @@
   .factory('House', ['$http', function($http){
 
     function create(house){
-      return $http.post('/house', house);
+      var fd = new FormData();
+      fd.append('photo', house.photo);
+      fd.append('loc', house.loc);
+      return $http.post('/house', fd, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+      });
     }
+
     return{create:create};
   }]);
 })();
-
-

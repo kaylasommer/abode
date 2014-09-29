@@ -7,9 +7,8 @@ var Mongo  = require('mongodb'),
 
 function House(o, userId){
   this.loc      = o.loc;
-  this.photo    = o.photo;
-  this.specs    = o.specs;
   this.userId   = userId;
+  this.specs    = {};
 }
 
 Object.defineProperty(House, 'collection', {
@@ -18,9 +17,10 @@ Object.defineProperty(House, 'collection', {
 
 House.create = function(o, userId, cb){
   var house = new House(o, userId);
-  House.collection.save(house, cb);
+  House.collection.save(house, function(err, house){
+    house.addPhoto(o.photo, cb);
+  });
 };
-
 
 House.prototype.update = function(cb){
   this._id = Mongo.ObjectID(this._id);
@@ -46,5 +46,23 @@ House.findByUserId = function(id, cb){
   });
 };
 
+House.prototype.addPhoto = function(file, cb){
+  var dir = __dirname + '/../../client/assets/img/' + this._id,
+  exist = fs.existsSync(dir),
+  self = this;
+
+  if(!exist){
+    fs.mkdirSync(dir);
+  }
+
+  var ext = path.extname(file.path),
+      rel = '/assets/img/' + self._id + '/0' + ext,
+      abs = dir + '/' + 0 + ext;
+
+  fs.renameSync(file.path, abs);
+  self.photo = rel;
+
+  House.collection.save(this, cb);
+};
 
 module.exports = House;
