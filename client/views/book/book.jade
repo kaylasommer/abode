@@ -3,15 +3,7 @@
     h2 IdeaBook
     h3 Here you upload photos
     h4 and tell us why you like them.
+    button.btn.btn-default(ng-click='open()') Add an Idea!
+
   .col-xs-8
     div(kj-slick='pages')
-
-.row
-  form.form(role='form', name='addPageForm', ng-model='page')
-    .form-group
-      label(for='photo') Photo
-        input.form-control(name='photo', kj-file-model='page.photo', type='file')
-      .form-group
-        label(for='desc') Why do you like this?
-          textarea.form-control(name='desc', ng-model='page.desc', rows='3', ng-minlength='5')
-      button.btn.btn-primary(ng-click='addPage()') Add

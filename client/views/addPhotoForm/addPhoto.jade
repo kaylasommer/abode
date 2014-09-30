@@ -1,0 +1,12 @@
+form.form(role='form', name='addPageForm', ng-model='page')
+  .form-group
+    label(for='photo') Photo
+      input.form-control(name='photo', kj-file-model='page.photo', type='file')
+    .form-group
+      label(for='desc') Why do you like this?
+        textarea.form-control(name='desc', ng-model='page.desc', rows='3', ng-minlength='5')
+    button.btn.btn-success(ng-click='addPage()') Add
+
+    button.btn.btn-primary(ng-click='ok()') Dismiss
+    button.btn.btn-danger(ng-click='cancel()') Cancel
+
