@@ -14,7 +14,11 @@
       });
     }
 
-    return{create:create};
+    function getUsersPages(){
+      return $http.get('/book');
+    }
+
+    return{create:create, getUsersPages:getUsersPages};
   }]);
 })();
 

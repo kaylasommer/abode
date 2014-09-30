@@ -11,5 +11,7 @@ h2 IdeaBook
         .form-group
           label(for='desc') Why do you like this?
             textarea.form-control(name='desc', ng-model='page.desc', rows='3', ng-minlength='5')
-      button.btn.btn-primary(ng-click='addPage()') Add
+        button.btn.btn-primary(ng-click='addPage()') Add
 
+.row
+  kj-slick(slides='pages')
