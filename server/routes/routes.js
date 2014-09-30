@@ -11,7 +11,8 @@ var morgan         = require('morgan'),
     users          = require('../controllers/users'),
     goals          = require('../controllers/goals'),
     dashboards     = require('../controllers/dashboards'),
-    houses         = require('../controllers/houses');
+    houses         = require('../controllers/houses'),
+    pages          = require('../controllers/pages');
 
 module.exports = function(app, express){
   app.use(morgan('dev'));
@@ -40,8 +41,8 @@ module.exports = function(app, express){
   app.get('/dashboard', dashboards.show);
   app.delete('/goal/:goalId', goals.remove);
   app.put('/goal/:goalId', goals.update);
-  //app.get('/book', users.index);
-  //app.post('/book', users.create);
+  app.get('/book', pages.show);
+  app.post('/book', pages.create);
 
   console.log('Express: Routes Loaded');
 };

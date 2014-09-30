@@ -49,6 +49,7 @@ House.findByUserId = function(id, cb){
 };
 
 House.prototype.addPhoto = function(file, cb){
+  if (!file || !file.size) { return; }
   var dir = __dirname + '/../../client/assets/img/' + this._id,
   exist = fs.existsSync(dir),
   self = this;
@@ -58,8 +59,9 @@ House.prototype.addPhoto = function(file, cb){
   }
 
   var ext = path.extname(file.path),
-      rel = '/assets/img/' + self._id + '/0' + ext,
-      abs = dir + '/' + 0 + ext;
+      name = '/house',
+      rel = '/assets/img/' + self._id + name + ext,
+      abs = dir + name + ext;
 
   fs.renameSync(file.path, abs);
   self.photo = rel;
