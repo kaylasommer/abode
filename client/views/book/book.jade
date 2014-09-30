@@ -1,17 +1,17 @@
-h2 IdeaBook
 .row
-  .col-xs-6
+  .col-xs-4
+    h2 IdeaBook
     h3 Here you upload photos
     h4 and tell us why you like them.
-  .col-xs-6
-    form.form(role='form', name='addPageForm', ng-model='page')
-      .form-group
-        label(for='photo') Photo
-          input.form-control(name='photo', kj-file-model='page.photo', type='file')
-        .form-group
-          label(for='desc') Why do you like this?
-            textarea.form-control(name='desc', ng-model='page.desc', rows='3', ng-minlength='5')
-        button.btn.btn-primary(ng-click='addPage()') Add
+  .col-xs-8
+    div(kj-slick='pages')
 
 .row
-  div(kj-slick='pages')
+  form.form(role='form', name='addPageForm', ng-model='page')
+    .form-group
+      label(for='photo') Photo
+        input.form-control(name='photo', kj-file-model='page.photo', type='file')
+      .form-group
+        label(for='desc') Why do you like this?
+          textarea.form-control(name='desc', ng-model='page.desc', rows='3', ng-minlength='5')
+      button.btn.btn-primary(ng-click='addPage()') Add

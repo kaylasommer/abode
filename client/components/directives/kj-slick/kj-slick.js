@@ -15,7 +15,9 @@
             elem.slick({
               infinite: true,
               arrows: true,
-              fade:true
+              fade:true,
+              accessibility: true,
+              cssEase: 'ease-in-out'
             });
           }
         });
