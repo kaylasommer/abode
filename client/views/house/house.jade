@@ -1,39 +1,78 @@
-pre {{house}}
+h2.text-center Homefolio
 .row
   .col-xs-6(ng-show='house')
     .col-xs-6
       img.house-img.img-rounded(src='{{house.photo}}')
+  .col-xs-6
+    h4 Help us cater our recommendations, tell us more about your house!
+    p Edit your House Photo &nbsp
       button.btn.btn-default(ng-click='toggleHouseForm()'): i.fa.fa-fw.fa-pencil
-  .col-xs-6(ng-hide='house', ng-show='showHouseForm')
-    h4 Tell Us About Your House
-    form.form(role='form', ng-model='house', name='addHouseForm', novalidate)
-      .form-group
-        label(for='loc') Zip Code
-          input.form-control(name='loc', ng-model='house.loc', type='number', required, ng-minlength='5', placeholder='{{house.loc}}' || '37216')
-      .form-group
-        label(for='photo') Photo
-          input.form-control(name='photo', kj-file-model='house.photo', type='file')
-      button.btn.btn-primary(type='submit', ng-show='addHouseForm.$valid', ng-click='addHouse()') Add
+    .col-xs-12(ng-hide='house', ng-show='showHouseForm')
+      h4 Tell Us About Your House
+      form.form(role='form', ng-model='house', name='addHouseForm', novalidate)
+        .form-group
+          label(for='loc') Zip Code
+            input.form-control(name='loc', ng-model='house.loc', type='number', required, ng-minlength='5', placeholder='{{house.loc}}' || '37216')
+        .form-group
+          label(for='photo') Photo
+            input.form-control(name='photo', kj-file-model='house.photo', type='file')
+        button.btn.btn-primary(type='submit', ng-show='addHouseForm.$valid', ng-click='addHouse()') Add
 
 .row
-  a#general(href='/#/general/{{house._id}}')
-    h3 General
-  a#extras(href='/#/extras/{{house._id}}')
-    h3 Extras
-  a#systems(href='/#/systems/{{house._id}}')
-    h3 Systems
-  a#kitchen(href='/#/kitchen/{{house._id}}')
-    h3 Kitchen
-  a#bathroom(href='/#/bathroom/{{house._id}}')
-    h3 Bathroom
-  a#living(href='/#/livingroom/{{house._id}}')
-    h3 Living
-  a#laundry(href='/#/laundry/{{house._id}}')
-    h3 Laundry
-  a#dining(href='/#/dining/{{house._id}}')
-    h3 Dining
-  a#bedroom-one(href='/#/bedroomOne/{{house._id}}')
-    h3 Bedroom One
-  a#bedroom-two(href='/#/bedroomTwo/{{house._id}}')
-    h3 Bedroom Two
+  tabset(justified='true')
+    tab(heading='Edit House', active='tab.active')
+      .specForms
+        a#general(href='/#/general/{{house._id}}')
+          h3 General
+        a#extras(href='/#/extras/{{house._id}}')
+          h3 Extras
+        a#systems(href='/#/systems/{{house._id}}')
+          h3 Systems
+        a#kitchen(href='/#/kitchen/{{house._id}}')
+          h3 Kitchen
+        a#bathroom(href='/#/bathroom/{{house._id}}')
+          h3 Bathroom
+        a#living(href='/#/livingroom/{{house._id}}')
+          h3 Living
+        a#laundry(href='/#/laundry/{{house._id}}')
+          h3 Laundry
+        a#dining(href='/#/dining/{{house._id}}')
+          h3 Dining
+        a#bedroom-one(href='/#/bedroomOne/{{house._id}}')
+          h3 Bedroom One
+        a#bedroom-two(href='/#/bedroomTwo/{{house._id}}')
+          h3 Bedroom Two
+
+    tab(heading='House Details')
+      .specInfo
+        #general
+          h3 General
+          a.pull-right(href='/#/general/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #extras
+          h3 Extras
+          a.pull-right(href='/#/extras/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #systems
+          h3 Systems
+          a.pull-right(href='/#/systems/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #kitchen
+          h3 Kitchen
+          a.pull-right(href='/#/kitchen/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #bathroom
+          h3 Bathroom
+          a.pull-right(href='/#/bathroom/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #living
+          h3 Living
+          a.pull-right(href='/#/livingroom/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #laundry
+          h3 Laundry
+          a.pull-right(href='/#/laundry/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #dining
+          h3 Dining
+          a.pull-right(href='/#/dining/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #bedroom-one
+          h3 Bedroom One
+          a.pull-right(href='/#/bedroomOne/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        #bedroom-two
+          h3 Bedroom Two
+          a.pull-right(href='/#/bedroomTwo/{{house._id}}'): i.fa.fa-fw.fa-pencil
 
