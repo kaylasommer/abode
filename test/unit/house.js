@@ -59,7 +59,7 @@ describe('House', function(){
       var id = '000000000000000000000001';
       House.findByUserId(id, function(err, house){
         house.loc = 38732;
-        house.update(function(err, house){});
+        House.update(house, function(err, house){});
 
         expect(house._id).to.be.instanceof(Mongo.ObjectID);
         expect(house.loc).to.equal(38732);

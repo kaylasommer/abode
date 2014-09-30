@@ -24,15 +24,12 @@ exports.create = function(req, res){
 };
 
 exports.update = function(req, res){
-  console.log(req.params.houseId);
-  House.findById(req.params.houseId, function(err, house){
-    console.log('HOUSE>>>>>>', house);
-    house.update(function(err, response){
+  console.log(req.body);
+  House.update(req.body, function(err, response){
       if(response) {
         res.status(200).end();
       } else {
         res.status(500).end();
       }
-    });
   });
 };

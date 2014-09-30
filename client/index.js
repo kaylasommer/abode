@@ -11,7 +11,6 @@
     .when('/book',   {templateUrl:'/views/book/book.html', controller:'BookCtrl'})
     .when('/edit',   {templateUrl:'/views/edit/edit.html', controller:'EditCtrl'})
     .when('/house',   {templateUrl:'/views/house/house.html', controller:'HouseCtrl'})
-    .when('/house',   {templateUrl:'/views/house/house.html', controller:'HouseCtrl'})
     .when('/general/:houseId',   {templateUrl:'/views/general/general.html', controller:'GeneralCtrl'})
     .when('/extras/:houseId',   {templateUrl:'/views/extras/extras.html', controller:'ExtrasCtrl'})
     .when('/systems/:houseId',   {templateUrl:'/views/systems/systems.html', controller:'SystemsCtrl'})

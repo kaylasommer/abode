@@ -8,7 +8,7 @@ var Mongo  = require('mongodb'),
 function House(o, userId){
   this.loc      = o.loc * 1;
   this.userId   = userId;
-  this.specs    = [];
+  this.specs    = {};
 }
 
 Object.defineProperty(House, 'collection', {
@@ -24,14 +24,18 @@ House.create = function(o, userId, cb){
 
 House.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
-  House.collection.findOne({_id:_id}, cb);
+  House.collection.findOne({_id:_id}, function(err, response){
+    var house = Object.create(House.prototype);
+    _.extend(house, response);
+    cb(err, house);
+  });
 };
 
-House.prototype.update = function(cb){
-  this._id = Mongo.ObjectID(this._id);
-  this.userId = Mongo.ObjectID(this.userId);
+House.update = function(house, cb){
+  house._id = Mongo.ObjectID(house._id);
+  house.userId = Mongo.ObjectID(house.userId);
 
-  House.collection.save(this, cb);
+  House.collection.save(house, cb);
 };
 
 House.findByUserId = function(id, cb){

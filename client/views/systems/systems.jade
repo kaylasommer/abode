@@ -1,51 +1,41 @@
-h4 HOUSE SPECS
-form.form(role='form', name='houseSpecs', novalidate)
-  fieldset.general
+h4 Systems
+form.form(role='form', name='systemsHouseForm', novalidate, ng-ng-model='systems')
+  fieldset
     .form-group
-      label(for='built') Year Built
-        input.form-control(name='built', model='house.general.built', type='number', placeholder='1950')
+      label(for='security') Security System &nbsp
+        input.form-control(name='security', ng-model='systems.security', type='text')
     .form-group
-      label(for='type') Type
-        select.form-control(name='type', model='house.general.type')
-          option(ng-repeat='type in types') {{type}}
+      label(for='waterHeater') Water Heater Brand &nbsp
+        input.form-control(name='waterHeater', ng-model='systems.waterHeater', type='text')
     .form-group
-      label(for='sqft') Square Foot
-        input.form-control(name='sqft', model='house.general.sqft', type='number', placeholder='1000')
+      label(for='waterHeaterModel') Water Heater Model &nbsp
+        input.form-control(name='waterHeaterModel', ng-model='systems.waterHeaterModel', type='text')
     .form-group
-      label(for='acreage') Acreage
-        input.form-control(name='acreage', model='house.general.acreage', type='number', placeholder='2.0', step='any')
-  fieldset.misc
+      label(for='heating') Heating Systems &nbsp
+        select.form-control(name='heating', ng-model='systems.heating')
+          option(value='') Select One
+          option(ng-repeat='heating in heatingTypes') {{heating}}
     .form-group
-      label(for='airFilter') Size of Air Filter
-        input.form-control(name='airFilter', model='house.misc.airFilter', type='text', placeholder='25x40')
+      label(for='heaterBrand') Heater Brand &nbsp
+        input.form-control(name='heaterBrand', ng-model='systems.heaterBrand', type='text')
     .form-group
-      label(for='stoveWidth') Width of Stove
-        input.form-control(name='stoveWidth', model='house.misc.stoveWidth', type='text', placeholder='30 inches')
+      label(for='heaterModel') Heater Model &nbsp
+        input.form-control(name='heaterModel', ng-model='systems.heaterModel', type='text')
     .form-group
-      label(for='fridgeWidth') Width of Fridgerator
-        input.form-control(name='fridgeWidth', model='house.misc.fridgeWidth', type='text', placeholder='36 inches')
+      label(for='cooling') Cooling Systems &nbsp
+        select.form-control(name='cooling', ng-model='systems.cooling')
+          option(value='') Select One
+          option(ng-repeat='cooling in coolingTypes') {{cooling}}
     .form-group
-      label(for='fridgeHeight') Height of Fridgerator
-        input.form-control(name='fridgeHeight', model='house.misc.fridgeHeight', type='text', placeholder='69 inches')
+      label(for='acBrand') Cooling System Brand &nbsp
+        input.form-control(name='acBrand', ng-model='systems.acBrand', type='text')
     .form-group
-      label(for='airFilter') Size of Air Filter
-        input.form-control(name='airFilter', model='house.misc.airFilter', type='text', placeholder='25x40')
+      label(for='acModel') Cooling System Model &nbsp
+        input.form-control(name='acModel', ng-model='systems.acModel', type='text')
     .form-group
-      label(for='airFilter') Size of Air Filter
-        input.form-control(name='airFilter', model='house.misc.airFilter', type='text', placeholder='25x40')
-  fieldset.features
+      label(for='airFilter') Air Filter Size &nbsp
+        input.form-control(name='airFilter', ng-model='systems.airFilter', type='text')
     .form-group
-      label(for='isGutters') Gutters? &nbsp
-        input(name='isGutters', model='house.feat.isGutters', type='checkbox')
-    .form-group
-      label(for='isFireplace') Fireplace? &nbsp
-        input(name='isFireplace', model='house.feat.isFireplace', type='checkbox')
-    .form-group
-      label(for='isBasement') Basement? &nbsp
-        input(name='isBasement', model='house.feat.isBasement', type='checkbox')
-    .form-group
-      label(for='isFenced') Fenced? &nbsp
-        input(name='isFenced', model='house.feat.isFenced', type='checkbox')
-    .form-group
-      label(for='isPool') Pool? &nbsp
-        input(name='isPool', model='house.feat.isPool', type='checkbox')
+      label(for='notes') Notes
+      textarea.form-control(name='notes', rows='3', ng-model='systems.notes')
+    button.btn.btn-primary(ng-click='updateSystems()') Save

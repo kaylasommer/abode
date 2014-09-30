@@ -18,8 +18,8 @@
       return $http.get('/house');
     }
 
-    function update(houseId){
-      return $http.put('/house/' + houseId);
+    function update(houseId, house){
+      return $http.put('/house/' + houseId, house);
     }
 
     return{create:create, getUsersHouse:getUsersHouse, update:update};

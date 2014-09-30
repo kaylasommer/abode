@@ -2,13 +2,13 @@
   "_id" : {"$oid":"a00000000000000000000001"},
   "loc" : 37207,
   "userId" : {"$oid":"000000000000000000000001"},
-  "specs" : [],
+  "specs" : {},
   "photo" : "/assets/img/default.jpg"
 }
 {
   "_id" : {"$oid":"a00000000000000000000002"},
   "loc" : 37216,
   "userId" : {"$oid":"000000000000000000000002"},
-  "specs" : [],
+  "specs" : {},
   "photo" : "/assets/img/example/house.jpg"
 }

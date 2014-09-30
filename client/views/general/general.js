@@ -2,9 +2,11 @@
   'use strict';
 
   angular.module('abode')
-  .controller('GeneralCtrl', ['$scope', '$routeParams', 'House', function($scope, $routeParams, House){
+  .controller('GeneralCtrl', ['$scope', '$routeParams', '$location', 'House', function($scope, $routeParams, $location, House){
 
-    $scope.types = ['Craftsman', 'Foresquare', 'Queen Anne', 'Bungalow', 'Cottage', 'Gable Front','Greek Revival', 'Log Cabin', 'Ranch', 'Split-Level', 'Victorian', 'Tudor', 'Duplex'];
+    $scope.types = ['Craftsman', 'Foresquare', 'Queen Anne', 'Bungalow', 'Cottage', 'Gable Front','Greek Revival', 'Log Cabin', 'Ranch', 'Split-Level', 'Victorian', 'Tudor', 'Duplex', 'Other'];
+    $scope.sidings = ['Stucco', 'Stone', 'Brick', 'Wood', 'Metal', 'Vinyl', 'Fiber Cement', 'Other'];
+    $scope.windows = ['Casement', 'Double-Hung', 'Awning', 'Specialty', 'Picture', 'Gliding', 'Stationary', 'Bay', 'Other'];
     $scope.house= {};
     $scope.houseId = $routeParams.houseId;
 
@@ -13,14 +15,14 @@
     });
 
     $scope.updateGeneral = function(){
-      var general = $scope.general;
-      debugger;
-      $scope.house.specs.push(general);
-      House.update($scope.houseId, $scope.general).then(function(response){
+      $scope.house.specs.general = $scope.general;
+      House.update($scope.houseId, $scope.house).then(function(response){
         if(response){
           $scope.general = {};
+          toastr.success('You succesfully edited your Homefolio!');
+          $location.path('/house');
         } else {
-          alert('Sorry we failed to do something.');
+          toastr.error('Sorry something went wrong on our side.');
         }
       });
     };

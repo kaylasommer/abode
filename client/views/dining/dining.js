@@ -2,9 +2,32 @@
   'use strict';
 
   angular.module('abode')
-  .controller('SpecsCtrl', ['$scope', function($scope){
+  .controller('DiningCtrl', ['$scope', '$location', '$routeParams', 'House', function($scope, $location, $routeParams, House){
 
-  $scope.types = ['Craftsman', 'Foresquare', 'Queen Anne', 'Bungalow', 'Cottage', 'Gable Front','Greek Revival', 'Log Cabin', 'Ranch', 'Split-Level', 'Victorian', 'Tudor', 'Duplex'];
+    $scope.wallcoverings = ['Exposed Brick', 'Paint', 'Tile', 'Wallpaper', 'Wood', 'Other'];
+    $scope.floorings = ['Bamboo', 'Carpet', 'Concrete', 'Cork', 'Hardwood', 'Laminate', 'Linoleum/Vinyl', 'Porcelian/Ceramic Tile', 'Stone Tile', 'Other'];
+
+    $scope.house= {};
+    $scope.houseId = $routeParams.houseId;
+
+    House.getUsersHouse().then(function(response){
+      $scope.house = response.data.house;
+    });
+
+    $scope.updateDining = function(){
+      $scope.house.specs.dining = $scope.dining;
+      House.update($scope.houseId, $scope.house).then(function(response){
+        if(response){
+          $scope.extras = {};
+          toastr.success('You succesfully edited your Homefolio!');
+          $location.path('/house');
+        } else {
+          toastr.error('Sorry something went wrong on our side.');
+        }
+      });
+    };
+
   }]);
 })();
+
 

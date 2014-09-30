@@ -1,47 +1,54 @@
 h4 General
-form.form(role='form', name='generalHouseForm', novalidate, ng-model='general')
+form.form(role='form', name='generalHouseForm', novalidate, ng-ng-model='general')
   fieldset
     .form-group
       label(for='built') Year Built
-        input.form-control(name='built', model='general.built', type='number', placeholder='1950')
+        input.form-control(name='built', ng-model='general.built', type='number', placeholder='1950')
     .form-group
       label(for='type') Type
-        select.form-control(name='type', model='general.type')
+        select.form-control(name='type', ng-model='general.type')
           option(value='') Select a House Type
           option(ng-repeat='type in types') {{type}}
     .form-group
       label(for='roofAge') When did you get a new roof? &nbsp
-        input.form-control(name='isBasement', model='general.roofAge', type='number')
+        input.form-control(name='isBasement', ng-model='general.roofAge', type='number')
   fieldset
     .form-group
       label(for='typeOfSiding') What type of Siding? &nbsp
-        input.form-control(name='typeOfSiding', model='general.typeOfSiding', type='text')
+        select.form-control(name='typeOfSiding', ng-model='general.typeOfSiding')
+          option(value='') Select a Siding
+          option(ng-repeat='siding in sidings') {{siding}}
     .form-group
       label(for='makeOfSiding') Make? &nbsp
-        input.form-control(name='makeOfSiding', model='general.makeOfSiding', type='text')
+        input.form-control(name='makeOfSiding', ng-model='general.makeOfSiding', type='text')
     .form-group
       label(for='modelSiding') Model Number? &nbsp
-        input.form-control(name='modelSiding', model='general.modelSiding', type='text')
+        input.form-control(name='modelSiding', ng-model='general.modelSiding', type='text')
   fieldset
     .form-group
       label(for='typeOfWindow') What type of Windows? &nbsp
-        input.form-control(name='typeOfWindow', model='general.typeOfWindow', type='text')
+        select.form-control(name='typeOfWindow', ng-model='general.typeOfWindow')
+          option(value='') Select a Window Type
+          option(ng-repeat='window in windows') {{window}}
     .form-group
       label(for='makeOfWindow') Make? &nbsp
-        input.form-control(name='makeOfWindow', model='general.makeOfWindow', type='text')
+        input.form-control(name='makeOfWindow', ng-model='general.makeOfWindow', type='text')
     .form-group
       label(for='modelWindow') Model Number? &nbsp
-        input.form-control(name='modelOfWindow', model='general.modelOfWindow', type='text')
+        input.form-control(name='modelOfWindow', ng-model='general.modelOfWindow', type='text')
   fieldset
       label(for='isGutters') Gutters? &nbsp
-        input.form-control(name='isGutters', model='general.isGutters', type='checkbox')
+        input.form-control(name='isGutters', ng-model='general.isGutters', type='checkbox')
     .form-group
       label(for='isBasement') Basement? &nbsp
-        input.form-control(name='isBasement', model='general.isBasement', type='checkbox')
+        input.form-control(name='isBasement', ng-model='general.isBasement', type='checkbox')
     .form-group
       label(for='isAttic') Attic? &nbsp
-        input.form-control(name='isAttic', model='general.isAttic', type='checkbox')
+        input.form-control(name='isAttic', ng-model='general.isAttic', type='checkbox')
     .form-group
       label(for='isYard') Yard? &nbsp
-        input.form-control(name='isYard', model='general.isYard', type='checkbox')
+        input.form-control(name='isYard', ng-model='general.isYard', type='checkbox')
+    .form-group
+      label(for='notes') Notes
+      textarea.form-control(name='notes', rows='3', ng-model='general.notes')
     button.btn.btn-primary(ng-click='updateGeneral()') Save
