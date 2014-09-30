@@ -10,5 +10,5 @@
   "loc" : 37216,
   "userId" : {"$oid":"000000000000000000000002"},
   "specs" : {},
-  "photo" : "/assets/img/example/house.jpg"
+  "photo" : "/assets/img/house.jpg"
 }

@@ -23,11 +23,11 @@ describe('Page', function(){
   describe('constructor', function(){
     it('should create a new Page object', function(){
       var o = {
-        _id : 'a00000000000000000000003',
+        _id : 'b00000000000000000000003',
         desc : 'I like the chair in the corner.',
         photo : 'fakepic.jpg',
         },
-      userId = '000000000000000000000001',
+      userId = '000000000000000000000002',
       p = new Page(o, userId);
       expect(p).to.be.instanceof(Page);
     });
@@ -41,18 +41,17 @@ describe('Page', function(){
         done();
       });
     });
-  });
+  });*/
 
-  describe('.findByUserId', function(){
-    it('should find a house by userId', function(done){
+  describe('.findAllByUserId', function(){
+    it('should find all pages belonging to user', function(done){
       var id = '000000000000000000000001';
-      House.findByUserId(id, function(err, house){
-        expect(house._id).to.be.instanceof(Mongo.ObjectID);
-        expect(house.loc).to.equal(37207);
+      Page.findAllByUserId(id, function(err, pages){
+        expect(pages.length).to.equal(3);
         done();
       });
     });
-  });*/
+  });
 
 });
 

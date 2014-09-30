@@ -1,0 +1,25 @@
+{
+  "_id" : {"$oid":"b00000000000000000000001"},
+  "desc" : 'Beautiful Facade and Lighting.',
+  "userId" : {"$oid":"000000000000000000000001"},
+  "photo" : "/assets/example/modern-ranch.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000002"},
+  "desc" : 'Definitely want a Fireplace like this Stone one.',
+  "userId" : {"$oid":"000000000000000000000001"},
+  "photo" : "/assets/example/ranch-interior.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000003"},
+  "desc" : 'I like the Rug Pattern and Colors',
+  "userId" : {"$oid":"000000000000000000000001"},
+  "photo" : "/assets/example/ranch-rug.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000004"},
+  "desc" : 'Love the Little Stools!',
+  "userId" : {"$oid":"000000000000000000000002"},
+  "photo" : "/assets/example/shabby-stools.jpg"
+}
+
