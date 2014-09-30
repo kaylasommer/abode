@@ -4,7 +4,6 @@
   angular.module('abode')
   .controller('BookCtrl', ['$scope', 'Book', function($scope, Book){
     $scope.page = {};
-    $scope.pages = [];
 
     $scope.addPage = function(){
       Book.create($scope.page).then(function(response){

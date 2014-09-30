@@ -4,15 +4,15 @@
   angular.module('abode')
   .directive('kjSlick', [function(){
     return {
-      restrict: 'E',
+      restrict: 'A',
       scope: {
-        slides: '='
+        slides: '=kjSlick'
       },
       templateUrl: '/components/directives/kj-slick/kj-slick.html',
-      link: function(scope, el, attrs, fn){
-        scope.$watch(attrs.slides, function(value){
+      link: function(scope, elem, attrs, fn){
+        scope.$watch('slides', function(value){
           if (value){
-            el.slick({
+            elem.slick({
               infinite: true,
               arrows: true,
               fade:true
