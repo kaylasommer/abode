@@ -33,15 +33,15 @@ describe('Page', function(){
     });
   });
 
-  /*describe('.findById', function(){
-    it('should find a book', function(done){
-      var id = 'a00000000000000000000001';
-      House.findById(id, function(err, house){
-        expect(house.loc).to.equal(37207);
+  describe('.findById', function(){
+    it('should find a page by its id', function(done){
+      var id = 'b00000000000000000000001';
+      Page.findById(id, function(err, page){
+        expect(page.desc).to.equal('Beautiful Facade and Lighting.');
         done();
       });
     });
-  });*/
+  });
 
   describe('.findAllByUserId', function(){
     it('should find all pages belonging to user', function(done){
