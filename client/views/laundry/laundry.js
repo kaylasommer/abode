@@ -6,6 +6,7 @@
 
     $scope.wallcoverings = ['Exposed Brick', 'Paint', 'Tile', 'Wallpaper', 'Wood', 'Other'];
     $scope.floorings = ['Bamboo', 'Carpet', 'Concrete', 'Cork', 'Hardwood', 'Laminate', 'Linoleum/Vinyl', 'Porcelian/Ceramic Tile', 'Stone Tile', 'Other'];
+    $scope.counters = ['Concrete', 'Granite', 'Laminate', 'Limestone', 'Marble', 'Quartz', 'Soapstone', 'Solid Surface(Corian)', 'Tile', 'Stainless Steel', 'Wood', 'Other'];
 
     $scope.house= {};
     $scope.houseId = $routeParams.houseId;

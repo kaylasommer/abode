@@ -7,6 +7,7 @@
     $scope.types = ['Craftsman', 'Foresquare', 'Queen Anne', 'Bungalow', 'Cottage', 'Gable Front','Greek Revival', 'Log Cabin', 'Ranch', 'Split-Level', 'Victorian', 'Tudor', 'Duplex', 'Other'];
     $scope.sidings = ['Stucco', 'Stone', 'Brick', 'Wood', 'Metal', 'Vinyl', 'Fiber Cement', 'Other'];
     $scope.windows = ['Casement', 'Double-Hung', 'Awning', 'Specialty', 'Picture', 'Gliding', 'Stationary', 'Bay', 'Other'];
+    $scope.doors = ['Steel', 'Fiberglass Composite', 'Aluminum', 'Wood'];
     $scope.house= {};
     $scope.houseId = $routeParams.houseId;
 

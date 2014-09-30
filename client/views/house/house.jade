@@ -7,7 +7,7 @@ h2.text-center Homefolio
     h4 Help us cater our recommendations, tell us more about your house!
     p Edit your House Photo &nbsp
       button.btn.btn-default(ng-click='toggleHouseForm()'): i.fa.fa-fw.fa-pencil
-    .col-xs-12(ng-hide='house', ng-show='showHouseForm')
+    .col-xs-12.well.well-lg(ng-hide='house', ng-show='showHouseForm')
       h4 Tell Us About Your House
       form.form(role='form', ng-model='house', name='addHouseForm', novalidate)
         .form-group
@@ -45,34 +45,447 @@ h2.text-center Homefolio
 
     tab(heading='House Details')
       .specInfo
-        #general
-          h3 General
-          a.pull-right(href='/#/general/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #extras
-          h3 Extras
-          a.pull-right(href='/#/extras/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #systems
-          h3 Systems
-          a.pull-right(href='/#/systems/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #kitchen
-          h3 Kitchen
-          a.pull-right(href='/#/kitchen/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #bathroom
-          h3 Bathroom
-          a.pull-right(href='/#/bathroom/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #living
-          h3 Living
-          a.pull-right(href='/#/livingroom/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #laundry
-          h3 Laundry
-          a.pull-right(href='/#/laundry/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #dining
-          h3 Dining
-          a.pull-right(href='/#/dining/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #bedroom-one
-          h3 Bedroom One
-          a.pull-right(href='/#/bedroomOne/{{house._id}}'): i.fa.fa-fw.fa-pencil
-        #bedroom-two
-          h3 Bedroom Two
-          a.pull-right(href='/#/bedroomTwo/{{house._id}}'): i.fa.fa-fw.fa-pencil
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | General
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/general/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(colspan=2) Built
+                  td {{house.specs.general.built}}
+                  td
+                  td
+                tr
+                  th(colspan=2) Type
+                  td {{house.specs.general.type}}
+                  td
+                  td
+                tr
+                  th(rowspan=4) Siding
+                  tr
+                    th Type
+                    td {{house.specs.general.typeOfSiding}}
+                    td
+                    td
+                  tr
+                    th Style
+                    td {{house.specs.general.sidingStyle}}
+                    td
+                    td
+                  tr
+                    th Color
+                    td {{house.specs.general.sidingColor}}
+                    td
+                    td
+                tr
+                  th(rowspan=3) Windows
+                  tr
+                    th Type
+                    td {{house.specs.general.typeOfWindow}}
+                    td
+                    td
+                  tr
+                    th Brand
+                    td {{house.specs.general.windowBrand}}
+                    td
+                    td
 
+            .col-xs-6
+              table.table
+                tr
+                  th(rowspan=4) Front Door
+                  tr
+                    th Type
+                    td {{house.specs.general.typeOfFrontDoor}}
+                    td
+                    td
+                  tr
+                    th Color
+                    td {{house.specs.general.frontDoorColor}}
+                    td
+                    td
+                  tr
+                    th Measurements
+                    td {{house.specs.general.frontDoorMeasurements}}
+                    td
+                    td
+                  tr
+                    th(rowspan=4) Back Door
+                    tr
+                      th Type
+                      td {{house.specs.general.typeOfBackDoor}}
+                      td
+                      td
+                    tr
+                      th Color
+                      td {{house.specs.general.backDoorColor}}
+                      td
+                      td
+                    tr
+                      th Measurements
+                      td {{house.specs.general.backDoorMeasurements}}
+                      td
+                      td
+                  tr.notes
+                    th Notes
+                    td(colspan=2) {{house.specs.general.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Systems
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/systems/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                  tr
+                    th(colspan=2) Security
+                    td {{house.specs.systems.security}}
+                  tr
+                    th(rowspan=3) Water Heater
+                    tr
+                      th Type
+                      td {{house.specs.systems.waterHeater}}
+                    tr
+                      th Model
+                      td {{house.specs.systems.waterHeaterModel}}
+                  tr
+                    th(rowspan=4) Heating
+                    tr
+                      th Type
+                      td {{house.specs.systems.heating}}
+                    tr
+                      th Brand
+                      td {{house.specs.systems.heaterBrand}}
+                    tr
+                      th Model
+                      td {{house.specs.systems.heatingModel}}
+            .col-xs-6
+              table.table
+                tr
+                  th(rowspan=4) Cooling
+                  tr
+                    th Type
+                    td {{house.specs.systems.cooling}}
+                  tr
+                    th Brand
+                    td {{house.specs.systems.acBrand}}
+                  tr
+                    th Model
+                    td {{house.specs.systems.acModel}}
+                tr
+                  th(colspan=2) Air Filter Size
+                  td {{house.specs.systems.airFilter}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.systems.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Kitchen
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/kitchen/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.kitchen.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.kitchen.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.kitchen.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.kitchen.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.kitchen.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.kitchen.flooringColor}}
+                tr
+                  th(rowspan=4) Counter
+                  tr
+                    th Type
+                    td {{house.specs.kitchen.counter}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.kitchen.counterStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.kitchen.counterColor}}
+            .col-xs-6
+              table.table
+                tr
+                  th(rowspan=4) Stove
+                  tr
+                    th Brand
+                    td {{house.specs.kitchen.stoveBrand}}
+                  tr
+                    th Model
+                    td {{house.specs.kitchen.stoveModel}}
+                  tr
+                    th Width
+                    td {{house.specs.kitchen.stoveWidth}}
+                tr
+                  th(rowspan=5) Refrigerator
+                  tr
+                    th Brand
+                    td {{house.specs.kitchen.fridgeBrand}}
+                  tr
+                    th Model
+                    td {{house.specs.kitchen.fridgeModel}}
+                  tr
+                    th Width
+                    td {{house.specs.kitchen.fridgeWidth}}
+                  tr
+                    th Height
+                    td {{house.specs.kitchen.fridgeHeight}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.kitchen.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Bathroom
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/bathroom/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.bathroom.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bathroom.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bathroom.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.bathroom.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bathroom.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bathroom.flooringColor}}
+            .col-xs-6
+              table.table
+                tr
+                  th(rowspan=4) Counter
+                  tr
+                    th Type
+                    td {{house.specs.bathroom.counter}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bathroom.counterStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bathroom.counterColor}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.bathroom.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Living Room
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/livingroom/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.livingroom.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.livingroom.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.livingroom.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.livingroom.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.livingroom.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.livingroom.flooringColor}}
+            .col-xs-6
+              table.table
+                tr
+                  th(rowspan=4) Counter
+                  tr
+                    th Type
+                    td {{house.specs.livingroom.counter}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.livingroom.counterStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.livingroom.counterColor}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.livingroom.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Laundry
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/laundry/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.laundry.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.laundry.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.laundry.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.laundry.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.laundry.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.laundry.flooringColor}}
+            .col-xs-6
+              table.table
+                tr
+                  th(rowspan=4) Counter
+                  tr
+                    th Type
+                    td {{house.specs.laundry.counter}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.laundry.counterStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.laundry.counterColor}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.laundry.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Dining
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/dining/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.dining.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.dining.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.dining.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.dining.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.dining.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.dining.flooringColor}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.dining.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Bedroom One
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/bedroomOne/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.bedroomOne.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bedroomOne.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bedroomOne.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.bedroomOne.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bedroomOne.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bedroomOne.flooringColor}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.bedroomOne.notes}}
+        div(accordion)
+          accordion-group
+            accordion-heading
+              | Bedroom Two
+              i.fa.fa-fw.fa-chevron.pull-right
+            .col-xs-6
+              a(href='/#/bedroomTwo/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              table.table
+                tr
+                  th(rowspan=4) Wall-Covering
+                  tr
+                    th Type
+                    td {{house.specs.bedroomTwo.wallCovering}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bedroomTwo.wallCoveringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bedroomTwo.wallCoveringColor}}
+                tr
+                  th(rowspan=4) Flooring
+                  tr
+                    th Type
+                    td {{house.specs.bedroomTwo.flooring}}
+                  tr
+                    th Style/Brand
+                    td {{house.specs.bedroomTwo.flooringStyle}}
+                  tr
+                    th Color
+                    td {{house.specs.bedroomTwo.flooringColor}}
+                tr.notes
+                  th Notes
+                  td(colspan=2) {{house.specs.bedroomTwo.notes}}
