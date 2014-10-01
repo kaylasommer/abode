@@ -42,4 +42,14 @@ describe('User', function(){
     });
   });
 
+  describe('#setAvatar', function(){
+    it('should add an attribute to the user and increment by one', function(done){
+      var id = '000000000000000000000001';
+      User.findById(id, function(err, user){
+        user.setAvatar();
+        expect(user.completeGoals).to.equal(1);
+      });
+    });
+  });
+
 });

@@ -1,6 +1,7 @@
 'use strict';
 
 var Goal = require('../models/goal'),
+    User = require('../models/user'),
     Task = require('../models/task');
 
 exports.create = function(req, res){
@@ -26,12 +27,15 @@ exports.createTask = function(req, res){
 };
 
 exports.remove = function(req, res){
-  Goal.remove(req.params.goalId, function(err, response){
-    if(response) {
-      res.status(200).end();
-    } else {
-      res.status(500).end();
-    }
+  User.findById(req.user._id, function(err, user){
+    user.setAvatar();
+    Goal.remove(req.params.goalId, function(err, response){
+      if(response) {
+        res.status(200).end();
+      } else {
+        res.status(500).end();
+      }
+    });
   });
 };
 

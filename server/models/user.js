@@ -12,7 +12,10 @@ Object.defineProperty(User, 'collection', {
 
 User.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
-  User.collection.findOne({_id:_id}, cb);
+  User.collection.findOne({_id:_id}, function(err, response){
+    user = Object.create(User.prototype);
+    _.extend(user, response);
+    cb(err, user);
 };
 
 User.register = function(o, cb){
@@ -30,6 +33,11 @@ User.login = function(o, cb){
     if(!isOk){return cb();}
     cb(null, user);
   });
+};
+
+User.prototype.setAvatar = function(){
+  user[completeGoals] = count++;
+  console.log(user);
 };
 
 module.exports = User;

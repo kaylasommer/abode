@@ -24,7 +24,6 @@ exports.create = function(req, res){
 };
 
 exports.update = function(req, res){
-  console.log(req.body);
   House.update(req.body, function(err, response){
       if(response) {
         res.status(200).end();
