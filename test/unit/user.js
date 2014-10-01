@@ -47,7 +47,9 @@ describe('User', function(){
       var id = '000000000000000000000001';
       User.findById(id, function(err, user){
         user.setAvatar();
-        expect(user.completeGoals).to.equal(1);
+        expect(user.completedGoals).to.equal(1);
+        expect(user.avatar).to.equal('/assets/avatars/measuring-tape.png');
+        done();
       });
     });
   });

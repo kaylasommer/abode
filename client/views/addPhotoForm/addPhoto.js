@@ -1,13 +1,13 @@
 (function(){
   'use strict';
   angular.module('abode')
-  .controller('AddPhotoCtrl', function ($scope, $modalInstance) {
+  .controller('AddPhotoCtrl', function($scope, $modalInstance){
 
-    $scope.ok = function () {
+    $scope.ok = function(){
       $modalInstance.close();
     };
 
-    $scope.cancel = function () {
+    $scope.cancel = function(){
       $modalInstance.dismiss('cancel');
     };
   });

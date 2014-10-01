@@ -5,14 +5,14 @@
   .controller('BookCtrl', ['$scope', 'Book', '$modal', function($scope, Book, $modal){
     $scope.page = {};
 
-    $scope.open = function (size) {
+    $scope.open = function(size){
 
       $modal.open({
         templateUrl: '/views/addPhotoForm/addPhoto.html',
         controller: 'AddPhotoCtrl',
         size: size,
         resolve: {
-          items: function () {
+          items: function(){
           return $scope.items;
           }
         }
