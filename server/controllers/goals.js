@@ -26,10 +26,10 @@ exports.createTask = function(req, res){
   });
 };
 
-exports.remove = function(req, res){
+exports.complete = function(req, res){
   User.findById(req.user._id, function(err, user){
-    user.setAvatar();
-    Goal.remove(req.params.goalId, function(err, response){
+    Goal.complete(req.params.goalId, function(err, response){
+      user.setAvatar();
       if(response) {
         res.status(200).end();
       } else {

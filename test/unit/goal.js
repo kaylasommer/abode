@@ -69,12 +69,12 @@ describe('Goal', function(){
     });
   });
 
-  describe('.remove', function(){
-    it('should delete a goal', function(done){
+  describe('.complete', function(){
+    it('should complete a goal', function(done){
       var id = '100000000000000000000001';
-      Goal.remove(id, function(err, response){
+      Goal.complete(id, function(err, response){
         Goal.findById(id, function(err, goal){
-          expect(goal).to.be.null;
+          expect(goal.isComplete).to.be.true;
           done();
         });
       });
@@ -93,6 +93,16 @@ describe('Goal', function(){
           expect(goal._id).to.be.instanceof(Mongo.ObjectID);
           done();
         });
+      });
+    });
+  });
+
+  describe('.getCompletedCount', function(){
+    it('should count the completed goals', function(done){
+      var userId = '000000000000000000000001';
+      Goal.getCompletedCount(userId, function(err, count){
+        expect(count).to.equal(0);
+        done();
       });
     });
   });

@@ -9,6 +9,7 @@ function Goal(o, userId){
                       return t.trim();
                     });
   this.tasks       = [];
+  this.isComplete  = false;
   this.userId      = userId;
 }
 
@@ -29,7 +30,7 @@ Goal.findById = function(id, cb){
 Goal.findAllByUserId = function(id, cb){
   var userId = Mongo.ObjectID(id),
       goal;
-  Goal.collection.find({userId:userId}).sort({createdDate:-1}).toArray(function(err, response){
+  Goal.collection.find({userId:userId, isComplete: false}).sort({createdDate:-1}).toArray(function(err, response){
     var goals = response.map(function(res){
       goal = Object.create(Goal.prototype);
       _.extend(goal, res);
@@ -39,8 +40,16 @@ Goal.findAllByUserId = function(id, cb){
   });
 };
 
-Goal.remove = function(id, cb){
-  Goal.collection.remove({_id: Mongo.ObjectID(id)}, cb);
+Goal.getCompletedCount = function(id, cb){
+  var userId = Mongo.ObjectID(id);
+  Goal.collection.count({userId:userId, isCompleted:true}, cb);
+};
+
+Goal.complete = function(id, cb){
+  Goal.findById(id, function(err, goal){
+    goal.isComplete = true;
+    Goal.collection.save(goal, cb);
+  });
 };
 
 Goal.update = function(goal, cb){

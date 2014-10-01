@@ -43,13 +43,13 @@ describe('User', function(){
   });
 
   describe('#setAvatar', function(){
-    it('should add an attribute to the user and increment by one', function(done){
+    it('should add an avatar attribute to the user', function(done){
       var id = '000000000000000000000001';
       User.findById(id, function(err, user){
-        user.setAvatar();
-        expect(user.completedGoals).to.equal(1);
-        expect(user.avatar).to.equal('/assets/avatars/measuring-tape.png');
-        done();
+        user.setAvatar(function(){
+          expect(user.avatar).to.equal('/assets/avatars/duct-tape.png');
+          done();
+        });
       });
     });
   });

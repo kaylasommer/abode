@@ -39,7 +39,7 @@ module.exports = function(app, express){
   app.post('/goal', goals.create);
   app.get('/goal', goals.index);
   app.get('/dashboard', dashboards.show);
-  app.delete('/goal/:goalId', goals.remove);
+  app.delete('/goal/:goalId', goals.complete);
   app.put('/goal/:goalId', goals.update);
   app.get('/book', pages.show);
   app.post('/book', pages.create);

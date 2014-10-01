@@ -2,7 +2,8 @@
 
 var bcrypt = require('bcrypt'),
     _      = require('underscore'),
-    Mongo  = require('mongodb');
+    Mongo  = require('mongodb'),
+    Goal   = require('../models/goal');
 
 function User(){
 }
@@ -13,7 +14,7 @@ Object.defineProperty(User, 'collection', {
 
 User.findById = function(id, cb){
   var _id = Mongo.ObjectID(id),
-     user;
+      user;
   User.collection.findOne({_id:_id}, function(err, response){
     user = Object.create(User.prototype);
     _.extend(user, response);
@@ -25,7 +26,7 @@ User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(user || o.password.length < 3){return cb();}
     o.password = bcrypt.hashSync(o.password, 10);
-    o.completedGoals = 0;
+    user.setAvatar();
     User.collection.save(o, cb);
   });
 };
@@ -39,21 +40,23 @@ User.login = function(o, cb){
   });
 };
 
-User.prototype.setAvatar = function(){
-  console.log(this);
-  this.completedGoals = this.completedGoals + 1;
-  if(this.completedGoals === 0){
-    this.avatar = '/assets/avatars/duct-tape.png';
-  } else if(this.completedGoals >= 1 && this.completedGoals <= 3) {
-    this.avatar = '/assets/avatars/measuring-tape.png';
-  } else if(this.completedGoals >= 4 && this.completedGoals <= 6) {
-    this.avatar = '/assets/avatars/paint-roller.png';
-  } else if(this.completedGoals >= 7 && this.completedGoals <= 9) {
-    this.avatar = '/assets/avatars/hammer.png';
-  } else if(this.completedGoals >= 10 && this.completedGoals<= 12){
-    this.avatar = '/assets/avatars/saw.png';
-  }
-  console.log('after', this);
+User.prototype.setAvatar = function(cb){
+  var user = this;
+  Goal.getCompletedCount(this._id, function(err, completed){
+    console.log('completed: ', completed);
+    if(completed === 0){
+      user.avatar = '/assets/avatars/duct-tape.png';
+    } else if(completed >= 1 && completed <= 3) {
+      user.avatar = '/assets/avatars/measuring-tape.png';
+    } else if(completed >= 4 && completed <= 6) {
+      user.avatar = '/assets/avatars/paint-roller.png';
+    } else if(completed >= 7 && completed <= 9) {
+      user.avatar = '/assets/avatars/hammer.png';
+    } else if(completed >= 10 && completed <= 12){
+      user.avatar = '/assets/avatars/saw.png';
+    }
+    cb();
+  });
 };
 
 module.exports = User;
