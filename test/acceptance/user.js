@@ -16,7 +16,7 @@ describe('users', function(){
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [process.env.DB], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       request(app)
-      .post('/register')
+      .post('/login')
       .send('email=bob@aol.com')
       .send('password=1234')
       .end(function(err, res){
@@ -32,17 +32,6 @@ describe('users', function(){
       .get('/')
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        done();
-      });
-    });
-  });
-
-  describe('get /house', function(){
-    it('should bounce an unauthorized user', function(done){
-      request(app)
-      .get('/house')
-      .end(function(err, res){
-        expect(res.status).to.equal(401);
         done();
       });
     });
