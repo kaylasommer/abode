@@ -9,3 +9,4 @@ if [ -z "$1" ] ; then
     mongoimport --jsonArray --drop --db $1 --collection users --file ../../db/users.json
     mongoimport --jsonArray --drop --db $1 --collection houses --file ../../db/houses.json
     mongoimport --jsonArray --drop --db $1 --collection pages --file ../../db/pages.json
+    mongoimport --jsonArray --drop --db $1 --collection recommendations --file ../../db/recommendations.json
