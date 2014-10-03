@@ -39,6 +39,7 @@ module.exports = function(app, express){
   app.post('/goal', goals.create);
   app.get('/goal', goals.index);
   app.get('/dashboard', dashboards.show);
+  app.get('/dashboard/recommend', dashboards.recommendations);
   app.delete('/goal/:goalId', goals.complete);
   app.put('/goal/:goalId', goals.update);
   app.get('/book', pages.show);

@@ -8,7 +8,11 @@
       return $http.get('/dashboard');
     }
 
-    return {findAll:findAll};
+    function getRecommendations(){
+      return $http.get('dashboard/recommend');
+    }
+
+    return {findAll:findAll, getRecommendations:getRecommendations};
   }]);
 })();
 

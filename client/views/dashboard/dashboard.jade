@@ -1,10 +1,10 @@
 #dashboard
   .header
     .col-xs
-      img.house-img.img-rounded(src='{{house.photo}}')
+      img.house-img.img-rounded(ng-src='{{house.photo}}')
     .row
       .col-xs-4
-        img.avatar(src='{{user.avatar}}')
+        img.avatar(ng-src='{{user.avatar}}')
       .col-xs-4.user-info
         p {{user.name}}
       .col-xs-4
@@ -54,7 +54,17 @@
                 label(for='taskComplete') {{task.name}}
                   input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
       .house
-        h3 Reccomendations
+        h3 Recommendations for Today
+        p()
+        h3 Your Recommendations
+        p()
+        h3 Be wary of renovations that can actually decrease the value of your home.
+        ul
+          li Permanently converting a bedroom into anything other than a bedroom.
+          li Textured walls.
+          li Extravagent Kitchen and Bathroom renovations.
+          li Putting in a Pool or a Hottub.
+          li Over the top landscaping.
     .col-xs-6
       .trending
         .houzz

@@ -42,7 +42,7 @@ Goal.findAllByUserId = function(id, cb){
 
 Goal.getCompletedCount = function(id, cb){
   var userId = Mongo.ObjectID(id);
-  Goal.collection.count({userId:userId, isCompleted:true}, cb);
+  Goal.collection.count({userId:userId, isComplete:true}, cb);
 };
 
 Goal.complete = function(id, cb){

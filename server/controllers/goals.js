@@ -29,12 +29,9 @@ exports.createTask = function(req, res){
 exports.complete = function(req, res){
   User.findById(req.user._id, function(err, user){
     Goal.complete(req.params.goalId, function(err, response){
-      user.setAvatar();
-      if(response) {
-        res.status(200).end();
-      } else {
-        res.status(500).end();
-      }
+      user.setAvatar(function(user){
+        res.send({user:user});
+      });
     });
   });
 };

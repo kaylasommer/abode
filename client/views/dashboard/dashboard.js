@@ -8,6 +8,10 @@
     $scope.goal = {};
     $scope.user = {};
     $scope.house = {};
+    $scope.recommendations = {};
+
+    /*Dashboard.getRecommendations().then(function(response){
+    });*/
 
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
@@ -44,6 +48,7 @@
       var goalId = goal._id,
       index = _.indexOf($scope.goals, goal);
       Goal.goalComplete(goalId).then(function(response){
+        $scope.user = response.data.user;
         $scope.goals.splice(index, 1);
       });
     };

@@ -42,7 +42,7 @@ User.login = function(o, cb){
 
 User.prototype.setAvatar = function(cb){
   var user = this;
-  Goal.getCompletedCount(this._id, function(err, completed){
+  Goal.getCompletedCount(user._id, function(err, completed){
     console.log('completed: ', completed);
     if(completed === 0){
       user.avatar = '/assets/avatars/duct-tape.png';
@@ -55,7 +55,9 @@ User.prototype.setAvatar = function(cb){
     } else if(completed >= 10 && completed <= 12){
       user.avatar = '/assets/avatars/saw.png';
     }
-    cb();
+    User.collection.save(user, function(err, response){
+      cb(user);
+    });
   });
 };
 
