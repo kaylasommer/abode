@@ -1,6 +1,6 @@
 h4 General
 a.btn.btn-default.btn-back(href='/#/house') Back
-form.form(role='form', name='generalHouseForm', novalidate, ng-ng-model='general')
+form.form(role='form', name='generalHouseForm', novalidate)
   fieldset
     .form-group
       label(for='built') Year Built
@@ -54,17 +54,6 @@ form.form(role='form', name='generalHouseForm', novalidate, ng-ng-model='general
       label(for='backDoorMeasurements') Backdoor Measurements &nbsp
         input.form-control(name='backDoorMeasurements', ng-model='general.backDoorMeasurements', type='text')
   fieldset
-      label(for='isGutters') Gutters &nbsp
-        input.form-control(name='isGutters', ng-model='general.isGutters', type='checkbox')
-    .form-group
-      label(for='isBasement') Basement &nbsp
-        input.form-control(name='isBasement', ng-model='general.isBasement', type='checkbox')
-    .form-group
-      label(for='isAttic') Attic &nbsp
-        input.form-control(name='isAttic', ng-model='general.isAttic', type='checkbox')
-    .form-group
-      label(for='isYard') Yard &nbsp
-        input.form-control(name='isYard', ng-model='general.isYard', type='checkbox')
     .form-group
       label(for='notes') Notes
       textarea.form-control(name='notes', rows='3', ng-model='general.notes')

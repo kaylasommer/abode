@@ -1,18 +1,19 @@
 'use strict';
 
-var morgan         = require('morgan'),
-    bodyParser     = require('body-parser'),
-    methodOverride = require('express-method-override'),
-    session        = require('express-session'),
-    RedisStore     = require('connect-redis')(session),
-    debug          = require('../lib/debug'),
-    security       = require('../lib/security'),
-    home           = require('../controllers/home'),
-    users          = require('../controllers/users'),
-    goals          = require('../controllers/goals'),
-    dashboards     = require('../controllers/dashboards'),
-    houses         = require('../controllers/houses'),
-    pages          = require('../controllers/pages');
+var morgan          = require('morgan'),
+    bodyParser      = require('body-parser'),
+    methodOverride  = require('express-method-override'),
+    session         = require('express-session'),
+    RedisStore      = require('connect-redis')(session),
+    debug           = require('../lib/debug'),
+    security        = require('../lib/security'),
+    home            = require('../controllers/home'),
+    users           = require('../controllers/users'),
+    goals           = require('../controllers/goals'),
+    dashboards      = require('../controllers/dashboards'),
+    houses          = require('../controllers/houses'),
+    recommendations = require('../controllers/recommendations'),
+    pages           = require('../controllers/pages');
 
 module.exports = function(app, express){
   app.use(morgan('dev'));
@@ -35,11 +36,11 @@ module.exports = function(app, express){
   app.get('/house', houses.show);
   app.post('/house', houses.create);
   app.put('/house/:houseId', houses.update);
+  app.get('/house/:houseId/recommendations', recommendations.byHouse);
   app.post('/task', goals.createTask);
   app.post('/goal', goals.create);
   app.get('/goal', goals.index);
   app.get('/dashboard', dashboards.show);
-  app.get('/dashboard/recommend', dashboards.recommendations);
   app.delete('/goal/:goalId', goals.complete);
   app.put('/goal/:goalId', goals.update);
   app.get('/book', pages.show);

@@ -3,6 +3,7 @@
   "loc" : 37207,
   "userId" : {"$oid":"000000000000000000000001"},
   "specs" : {},
+  "features": [  { "feature": "gutters", "has": false },  { "feature": "basement", "has": false },  { "feature": "attic", "has": false },  { "feature": "yard", "has": false },  { "feature": "garage", "has": false },  { "feature": "driveway", "has": false },  { "feature": "pool", "has": false },  { "feature": "deck", "has": false },  { "feature": "fireplace", "has": false },  { "feature": "sprinklers", "has": false },  { "feature": "septic tank", "has": false }],
   "photo" : "/assets/img/default.jpg"
 }
 {
@@ -10,5 +11,6 @@
   "loc" : 37216,
   "userId" : {"$oid":"000000000000000000000002"},
   "specs" : {},
+  "features": [  { "feature": "gutters", "has": false },  { "feature": "basement", "has": false },  { "feature": "attic", "has": false },  { "feature": "yard", "has": false },  { "feature": "garage", "has": false },  { "feature": "driveway", "has": false },  { "feature": "pool", "has": false },  { "feature": "deck", "has": false },  { "feature": "fireplace", "has": false },  { "feature": "sprinklers", "has": false },  { "feature": "septic tank", "has": false }],
   "photo" : "/assets/img/house.jpg"
 }

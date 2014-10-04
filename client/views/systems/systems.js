@@ -12,6 +12,7 @@
 
     House.getUsersHouse().then(function(response){
       $scope.house = response.data.house;
+      $scope.systems = $scope.house.specs.systems;
     });
 
     $scope.updateSystems = function(){

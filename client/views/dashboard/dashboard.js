@@ -10,14 +10,15 @@
     $scope.house = {};
     $scope.recommendations = {};
 
-    /*Dashboard.getRecommendations().then(function(response){
-    });*/
-
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
+      Dashboard.getRecommendations($scope.house._id).then(function(response){
+        $scope.recommendations = response.data.recommendations;
+      });
     });
+
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){

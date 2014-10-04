@@ -9,6 +9,19 @@ function House(o, userId){
   this.loc      = o.loc * 1;
   this.userId   = userId;
   this.specs    = {};
+  this.features = [
+    {feature: 'gutters', has: false},
+    {feature: 'basement', has: false},
+    {feature: 'attic', has: false},
+    {feature: 'yard', has: false},
+    {feature: 'garage', has: false},
+    {feature: 'driveway', has: false},
+    {feature: 'pool', has: false},
+    {feature: 'deck', has: false},
+    {feature: 'fireplace', has: false},
+    {feature: 'sprinklers', has: false},
+    {feature: 'septic tank', has: false}
+  ];
 }
 
 Object.defineProperty(House, 'collection', {

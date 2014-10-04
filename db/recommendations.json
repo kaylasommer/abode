@@ -6,7 +6,7 @@
   "maxTemperature" : "85",
   "season" : ["spring" , "fall"],
   "area" : "outdoors",
-  "necFeature" : "fence",
+  "necFeature" : "yard",
   "freq" : "yearly",
   "rec" : "Repair and paint/seal your fence."
 }
@@ -30,7 +30,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall"],
   "area" : "outdoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Walk around your house and check the foundation for any places where water can accumulate around the foundation. Also look for cracks."
 }
@@ -54,7 +54,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "both",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Clean your A/C drainage pipes both outdoors and indoors"
 }
@@ -66,7 +66,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Drain and flush out any deposits in your Hot Water Heater."
 }
@@ -114,7 +114,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Clean out your dryer vent. Begin where it first goes into the wall until it exits the house, be sure to check for birds nest as well."
 }
@@ -138,7 +138,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Clean behind your refrigerator."
 }
@@ -150,7 +150,7 @@
   "maxTemperature" : "85",
   "season" : ["spring", "summer", "fall"],
   "area" : "indoors",
-  "necFeature" : "counter",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Polish and seal countertops."
 }
@@ -162,7 +162,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Check that your fire estinguishers are in working order."
 }
@@ -198,7 +198,7 @@
   "maxTemperature" : "85",
   "season" : ["spring", "summer", "fall"],
   "area" : "outdoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Inspect your roof for leaks, buckles and missing shingles."
 }
@@ -246,7 +246,7 @@
   "maxTemperature" : "80",
   "season" : ["spring", "fall"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "biyearly",
   "rec" : "Check and repair weather-stripping and caulk."
 }
@@ -270,7 +270,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "biyearly",
   "rec" : "Seal your grout and redo the caulking."
 }
@@ -282,7 +282,7 @@
   "maxTemperature" : "90",
   "season" : ["spring", "summer", "fall", "winter"],
   "area" : "both",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "biyearly",
   "rec" : "Clean your A/C units grills and coils."
 }
@@ -294,7 +294,7 @@
   "maxTemperature" : "90",
   "season" : ["spring",  "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "biyearly",
   "rec" : "Change your fire and carbon monoxide detectors batteries."
 }
@@ -306,7 +306,7 @@
   "maxTemperature" : "90",
   "season" : ["spring",  "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "monthly",
   "rec" : "Change you air filter."
 }
@@ -318,7 +318,7 @@
   "maxTemperature" : "90",
   "season" : ["spring",  "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "monthly",
   "rec" : "Clean filters in your HVAC and Furnace."
 }
@@ -330,7 +330,7 @@
   "maxTemperature" : "90",
   "season" : ["spring",  "summer", "fall", "winter"],
   "area" : "both",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "monthly",
   "rec" : "Check your plumbing for leaks to the supply line and the indoor plumbing."
 }
@@ -342,7 +342,7 @@
   "maxTemperature" : "90",
   "season" : ["spring",  "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "monthly",
   "rec" : "Clean your dishwasher drain bin."
 }
@@ -354,7 +354,7 @@
   "maxTemperature" : "90",
   "season" : ["spring",  "summer", "fall", "winter"],
   "area" : "indoors",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "monthly",
   "rec" : "Service your garbage disposal by crushing ice in it to sharpen it, and puting citrus rinds through it to freshen it."
 }
@@ -366,7 +366,7 @@
   "maxTemperature" : "80",
   "season" : ["spring", "fall"],
   "area" : "both",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "biyearly",
   "rec" : "Paint that room you have always wanted to spruce up!"
 }
@@ -378,7 +378,7 @@
   "maxTemperature" : "80",
   "season" : ["spring", "fall"],
   "area" : "both",
-  "necFeature" : "null",
+  "necFeature" : null,
   "freq" : "yearly",
   "rec" : "Paint your front door for an instant boost in curb appeal!"
 }

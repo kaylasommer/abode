@@ -1,6 +1,6 @@
 'use strict';
 
-    var Goal  = require('../models/goal');
+var Goal  = require('./goal');
 
 function Task(o){
   this.name = o.name;

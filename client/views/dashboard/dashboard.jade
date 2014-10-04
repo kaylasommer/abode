@@ -54,10 +54,10 @@
                 label(for='taskComplete') {{task.name}}
                   input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
       .house
-        h3 Recommendations for Today
-        p()
         h3 Your Recommendations
-        p()
+        ul
+          li(ng-repeat='recommendation in recommendations') {{recommendation.rec}}
+
         h3 Be wary of renovations that can actually decrease the value of your home.
         ul
           li Permanently converting a bedroom into anything other than a bedroom.

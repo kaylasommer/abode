@@ -12,6 +12,7 @@
 
     House.getUsersHouse().then(function(response){
       $scope.house = response.data.house;
+      $scope.dining = $scope.house.specs.dining;
     });
 
     $scope.updateDining = function(){

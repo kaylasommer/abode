@@ -2,8 +2,7 @@
 
 var House          = require('../models/house'),
     User           = require('../models/user'),
-    Goal           = require('../models/goal'),
-    Recommendation = require('../models/recommendation');
+    Goal           = require('../models/goal');
 
 exports.show = function(req, res){
   User.findById(req.user._id, function(err, user){
@@ -12,10 +11,5 @@ exports.show = function(req, res){
         res.send({user:user, house:house, goals:goals});
       });
     });
-  });
-};
-
-exports.recommendations = function(req, res){
-  Recommendation.allForUser(req.user._id, function(err, recs){
   });
 };

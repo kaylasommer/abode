@@ -1,23 +1,7 @@
 h4 Extras
 a.btn.btn-default.btn-back(href='/#/house') Back
-form.form(role='form', name='extraHouseForm', novalidate, ng-ng-model='extra')
-  fieldset
-    .form-group
-      label(for='isGarage') Garage &nbsp
-        input.form-control(name='isGarage', ng-model='extra.isGarage', type='checkbox')
-    .form-group
-      label(for='isDriveway') Driveway &nbsp
-        input.form-control(name='isDriveway', ng-model='extra.isDriveway', type='checkbox')
-    .form-group
-      label(for='isPool') Pool &nbsp
-        input.form-control(name='isPool', ng-model='extra.isPool', type='checkbox')
-    .form-group
-      label(for='isDeck') Deck or Patio &nbsp
-        input.form-control(name='isDeck', ng-model='extra.isDeck', type='checkbox')
-    .form-group
-      label(for='isFireplace') Fireplace &nbsp
-        input.form-control(name='isFireplace', ng-model='extra.isFireplace', type='checkbox')
-    .form-group
-      label(for='notes') Notes
-      textarea.form-control(name='notes', rows='3', ng-model='extras.notes')
-    button.btn.btn-primary(ng-click='updateExtras()') Save
+form.form(role='form', name='extraHouseForm', novalidate)
+  .form-group(ng-repeat='feature in features')
+    label(for='pool') {{feature.feature | titleCase}} &nbsp
+      input.form-control(name='{{feature.feature}}', ng-model='feature.has', type='checkbox')
+  button.btn.btn-primary(ng-click='updateExtras()') Save

@@ -8,8 +8,8 @@
       return $http.get('/dashboard');
     }
 
-    function getRecommendations(){
-      return $http.get('dashboard/recommend');
+    function getRecommendations(houseId){
+      return $http.get('house/'+houseId+'/recommendations');
     }
 
     return {findAll:findAll, getRecommendations:getRecommendations};

@@ -1,6 +1,6 @@
 h4 Systems
 a.btn.btn-default.btn-back(href='/#/house') Back
-form.form(role='form', name='systemsHouseForm', novalidate, ng-ng-model='systems')
+form.form(role='form', name='systemsHouseForm', novalidate)
   fieldset
     .form-group
       label(for='security') Security System &nbsp
@@ -36,12 +36,6 @@ form.form(role='form', name='systemsHouseForm', novalidate, ng-ng-model='systems
     .form-group
       label(for='airFilter') Air Filter Size &nbsp
         input.form-control(name='airFilter', ng-model='systems.airFilter', type='text')
-    .form-group
-      label(for='isSprinkler') Sprinkler System &nbsp
-        input.form-control(name='isSprinkler', ng-model='general.isSprinkler', type='checkbox')
-    .form-group
-      label(for='isSeptic') Septic Tank &nbsp
-        input.form-control(name='isSeptic', ng-model='general.isSeptic', type='checkbox')
     .form-group
       label(for='notes') Notes
       textarea.form-control(name='notes', rows='3', ng-model='systems.notes')
