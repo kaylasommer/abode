@@ -20,7 +20,11 @@
       return $http.get('/user');
     }
 
-    return {register:register, login:login, logout:logout, getCurrent:getCurrent};
+    function subscribeToRss(user){
+      return $http.put('/user', user);
+    }
+
+    return {register:register, login:login, logout:logout, getCurrent:getCurrent, subscribeToRss:subscribeToRss};
   }]);
 })();
 

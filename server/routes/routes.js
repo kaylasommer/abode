@@ -2,6 +2,8 @@
 
 var morgan          = require('morgan'),
     bodyParser      = require('body-parser'),
+    //FeedParser      = require('feedparser'),
+    //request         = require('request'),
     methodOverride  = require('express-method-override'),
     session         = require('express-session'),
     RedisStore      = require('connect-redis')(session),
@@ -33,6 +35,7 @@ module.exports = function(app, express){
   app.use(security.bounce);
   app.delete('/logout', users.logout);
   app.get('/user', users.show);
+  app.put('/user', users.subscribe);
   app.get('/house', houses.show);
   app.post('/house', houses.create);
   app.put('/house/:houseId', houses.update);

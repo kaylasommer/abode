@@ -19,7 +19,6 @@ Recommendation.findForHouse = function(houseId, cb){
     features = features.map(function(feature){
       return feature.feature;
     });
-    console.log(features);
     Recommendation.collection.find({
       $or:[
         {'necFeature': {$in: features}},

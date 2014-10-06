@@ -47,10 +47,18 @@ exports.logout = function(req, res){
   });
 };
 
-exports.show =function(req,res){
+exports.show = function(req, res){
   User.findById(req.user._id, function(err, user){
     user.password = undefined;
     res.send({user:user});
   });
 };
 
+exports.subscribe = function(req, res){
+  User.findById(req.user._id, function(err, user){
+    user.subscribe(req.body, function(user){
+      console.log('after fn >>>>>', user);
+      res.send({user:user});
+    });
+  });
+};

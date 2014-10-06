@@ -26,6 +26,7 @@ User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(user || o.password.length < 3){return cb();}
     o.password = bcrypt.hashSync(o.password, 10);
+    user.subscriptions = [];
     user.setAvatar();
     User.collection.save(o, cb);
   });
@@ -58,6 +59,13 @@ User.prototype.setAvatar = function(cb){
     User.collection.save(user, function(err, response){
       cb(user);
     });
+  });
+};
+
+User.prototype.subscribe = function(updatedUser, cb){
+  updatedUser._id = Mongo.ObjectID(updatedUser._id);
+  User.collection.save(updatedUser, function(err, response){
+    cb(updatedUser);
   });
 };
 

@@ -2,13 +2,22 @@
   'use strict';
 
   angular.module('abode')
-  .controller('DashboardCtrl', ['$scope', 'User', 'Goal', 'Dashboard', function($scope, User, Goal, Dashboard){
+  .controller('DashboardCtrl', ['$scope', 'User', 'Goal', 'Dashboard', '$location', function($scope, User, Goal, Dashboard, $location){
     $scope.oneAtATime = true;
     $scope.goals = [];
     $scope.goal = {};
     $scope.user = {};
     $scope.house = {};
     $scope.recommendations = {};
+    $scope.feeds = [
+      {name: 'Dwell on Kitchens', url: 'http://www.dwell.com/kitchens/feed'},
+      {name: 'Dwell Articles', url: 'http://www.dwell.com/articles/feed'},
+      {name: 'This Old House: Planning and Ideas', url:'http://feeds.thisoldhouse.com/ThisOldHousePlanningAndIdeas'},
+      {name: 'This Old House: How To and Repair', url: 'http://feeds.thisoldhouse.com/ThisOldHouseHow-toAndRepair'},
+      {name: 'Southern Living: Home and Garden', url: 'http://feeds.southernliving.com/SouthernLiving/homeandgarden?format=xml'},
+      {name: 'Southern Living: Editors Picks from My Home Ideas', url:'http://feeds.myhomeideas.com/myhome/latest-news?format=xml'},
+      {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
+    ];
 
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
@@ -19,6 +28,13 @@
       });
     });
 
+    $scope.subscribeUser = function(){
+      User.subscribeToRss($scope.user).then(function(response){
+        $scope.user = response.data.user;
+        toastr.success('Awesome! We will have your feeds up shortly!');
+        $location.path('/dashboard');
+      });
+    };
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){

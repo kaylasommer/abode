@@ -3,6 +3,7 @@
   "email" : "bob@aol.com",
   "name" : "Bobbie",
   "avatar" : "/assets/avatars/duct-tape.png",
+  "subscriptions" : [],
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2"
 }
 {
@@ -10,5 +11,6 @@
   "email" : "sue@aol.com",
   "name" : "Sue Bell",
   "avatar" : "/assets/avatars/duct-tape.png",
+  "subscriptions" : [],
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2"
 }
