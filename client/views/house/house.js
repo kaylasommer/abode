@@ -2,13 +2,17 @@
   'use strict';
 
   angular.module('abode')
-  .controller('HouseCtrl', ['$scope', 'House', function($scope, House){
+  .controller('HouseCtrl', ['$scope', 'House', '$modal', function($scope, House, $modal){
 
     $scope.house = {};
 
-    $scope.addHouse = function(){
-      House.create($scope.house).then(function(response){
-        $scope.house = response.data.house;
+
+    $scope.open = function(size){
+
+      $modal.open({
+        templateUrl: '/views/editHouseForm/editHouse.html',
+        controller: 'EditHouseCtrl',
+        size: size
       });
     };
 

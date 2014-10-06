@@ -6,8 +6,9 @@ var Mongo  = require('mongodb'),
     path   = require('path');
 
 function House(o, userId){
-  this.loc      = o.loc * 1;
-  this.userId   = userId;
+  this._id      = Mongo.ObjectID();
+  this.loc      = o.loc[0] * 1;
+  this.userId   = userId[0];
   this.specs    = {};
   this.features = [
     {feature: 'gutters', has: false},
@@ -28,11 +29,9 @@ Object.defineProperty(House, 'collection', {
   get: function(){return global.mongodb.collection('houses');}
 });
 
-House.create = function(o, userId, cb){
-  var house = new House(o, userId);
-  House.collection.save(house, function(err, house){
-    house.addPhoto(o.photo, cb);
-  });
+House.create = function(house, userId, cb){
+  if(!house._id[0]){house = new House(house, userId);}
+  House.addPhoto(house, cb);
 };
 
 House.findById = function(id, cb){
@@ -61,25 +60,31 @@ House.findByUserId = function(id, cb){
   });
 };
 
-House.prototype.addPhoto = function(file, cb){
-  if (!file || !file.size) { return; }
-  var dir = __dirname + '/../../client/assets/img/' + this._id,
+House.addPhoto = function(house, cb){
+  if (!house.photo.size) { return; }
+  var dir = __dirname + '/../../client/assets/img/' + house._id,
   exist = fs.existsSync(dir),
-  self = this;
+  self = house;
 
   if(!exist){
     fs.mkdirSync(dir);
   }
 
-  var ext = path.extname(file.path),
+  var ext = path.extname(house.photo.path),
       name = '/house',
       rel = '/assets/img/' + self._id + name + ext,
       abs = dir + name + ext;
 
-  fs.renameSync(file.path, abs);
-  self.photo = rel;
+  fs.renameSync(house.photo.path, abs);
 
-  House.collection.save(this, cb);
+  self.photo = rel;
+  self._id      = Mongo.ObjectID(self._id[0]);
+  self.loc      = self.loc[0] * 1;
+  self.userId   = Mongo.ObjectID(self.userId[0]);
+
+  House.collection.save(house, function(){
+    cb(null, self);
+  });
 };
 
 module.exports = House;

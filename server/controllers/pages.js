@@ -12,12 +12,10 @@ exports.show = function(req, res){
 exports.create = function(req, res){
   var form = new mp.Form();
   form.parse(req, function(err, fields, files){
-    var o = {
-      desc: fields.desc[0],
-      photo: files.photo[0]
-    };
 
-    Page.create(o, req.user._id, function(err, response){
+    fields.photo = files.photo[0];
+
+    Page.create(fields, req.user._id, function(err, response){
       res.send({response:response});
     });
   });

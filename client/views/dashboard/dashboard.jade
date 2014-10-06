@@ -1,7 +1,7 @@
 #dashboard
   .header
     .col-xs
-      img.house-img.img-rounded(ng-src='{{house.photo}}')
+      img.house-img.img-rounded(ng-src='{{house.photo}}' || '/assets/img/default.jpg')
     .row
       .col-xs-4
         img.avatar(ng-src='{{user.avatar}}')
@@ -74,7 +74,6 @@
         .twitter
           h3 TWITTER FEED
         .rss
-          pre {{feeds}}
           h2 RSS
           h3 Choose Your Feeds:
           p To select multiples hold down CMD for a Mac and CTRL for a P.
