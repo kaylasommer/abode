@@ -3,4 +3,5 @@
   div(ng-repeat='article in articles')
     h4 {{article.title}}
     p(ng-bind-html='article.content')
+    a(href='{{article.link}}') More
 

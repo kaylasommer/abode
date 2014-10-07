@@ -17,7 +17,7 @@
       };
     },
 
-    hostname = function(url){
+    hostname = function(){
       var a = document.createElement('a');
       return function(url){
         a.href = url;
