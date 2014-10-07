@@ -18,13 +18,10 @@
       {name: 'Southern Living: Editors Picks from My Home Ideas', url:'http://feeds.myhomeideas.com/myhome/latest-news?format=xml'},
       {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
     ];
-    $scope.feeds = [
-      'http://www.dwell.com/kitchens/feed',
-      'http://feeds.feedburner.com/inhabitat/interiors'
-    ];
 
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
+      $scope.feeds = $scope.user.subscriptions;
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
       //Dashboard.getRecommendations($scope.house._id).then(function(response){
@@ -35,10 +32,15 @@
     $scope.subscribeUser = function(){
       User.subscribeToRss($scope.user).then(function(response){
         $scope.user = response.data.user;
+        $scope.feeds = $scope.user.subscriptions;
         toastr.success('Awesome! We will have your feeds up shortly!');
         $location.path('/dashboard');
       });
     };
+
+    console.log($scope.user.subscriptions);
+    $scope.feeds = $scope.user.subscriptions;
+    console.log($scope.feeds);
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){

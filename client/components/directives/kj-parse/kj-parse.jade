@@ -1,5 +1,6 @@
 .RSSfeed
-  div(ng-repeat='feed in feeds')
+  h1 RSS FEED HERE
+  div(ng-repeat='article in articles')
     h4 {{article.title}}
     p(ng-bind-html='article.content')
 
