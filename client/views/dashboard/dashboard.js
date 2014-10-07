@@ -9,18 +9,19 @@
     $scope.user = {};
     $scope.house = {};
     $scope.recommendations = {};
-    $scope.feeds = [
+    $scope.subForm = {};
+    $scope.possibleFeeds = [
       {name: 'Dwell on Kitchens', url: 'http://www.dwell.com/kitchens/feed'},
       {name: 'Dwell Articles', url: 'http://www.dwell.com/articles/feed'},
-      {name: 'This Old House: Planning and Ideas', url:'http://feeds.thisoldhouse.com/ThisOldHousePlanningAndIdeas'},
-      {name: 'This Old House: How To and Repair', url: 'http://feeds.thisoldhouse.com/ThisOldHouseHow-toAndRepair'},
-      {name: 'Southern Living: Home and Garden', url: 'http://feeds.southernliving.com/SouthernLiving/homeandgarden?format=xml'},
-      {name: 'Southern Living: Editors Picks from My Home Ideas', url:'http://feeds.myhomeideas.com/myhome/latest-news?format=xml'},
+      {name: 'Mother Living: Your Natural Home', url:'http://www.motherearthliving.com/rss/blogs/your_natural_home.aspx'},
+      {name: 'Style At Home', url: 'http://www.styleathome.com/feeds/editorial_feed.xml'},
+      {name: 'House and Home: Design', url: 'http://houseandhome.com/rss/feeds/design'},
       {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
     ];
 
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
+      $scope.feeds = $scope.user.subscriptions;
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
       if($scope.goals === undefined){
@@ -33,10 +34,17 @@
     $scope.subscribeUser = function(){
       User.subscribeToRss($scope.user).then(function(response){
         $scope.user = response.data.user;
+        $scope.feeds = $scope.user.subscriptions;
         toastr.success('Awesome! We will have your feeds up shortly!');
         $location.path('/dashboard');
       });
     };
+
+    $scope.toggleSubscribe = function(){
+      $scope.subForm = !!!$scope.subForm;
+    };
+
+    $scope.feeds = $scope.user.subscriptions;
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){

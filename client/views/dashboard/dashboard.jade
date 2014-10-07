@@ -75,10 +75,12 @@
           h3 TWITTER FEED
         .rss
           h2 RSS
-          h3 Choose Your Feeds:
-          p To select multiples hold down CMD for a Mac and CTRL for a P.
-          form.form(role='form', name='rssForm', novalidate)
-            select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in feeds', multiple)
-              option.form-control(value='') Select Type
-            button.btn.btn-success(ng-click='subscribeUser()') Submit
+          button.btn.btn-primary(ng-click='toggleSubscribe()') Choose Your Feeds
+          .subscribe(ng-hide='subForm')
+            p To select multiples hold down CMD for a Mac and CTRL for a P.
+            form.form(role='form', name='rssForm', novalidate)
+              select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in possibleFeeds', multiple)
+                option.form-control(value='') Select Type
+              button.btn.btn-success(ng-click='subscribeUser()') Submit
+          kj-parse(feeds='feeds')
 
