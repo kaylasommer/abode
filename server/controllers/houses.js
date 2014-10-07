@@ -9,13 +9,13 @@ exports.show = function(req, res){
   });
 };
 
-exports.create = function(req, res){
+exports.updatePhoto = function(req, res){
   var form = new mp.Form();
   form.parse(req, function(err, fields, files){
-
     fields.photo = files.photo[0];
 
-    House.create(fields, req.user._id, function(err, house){
+    House.updatePhoto(fields, req.params.houseId, req.user._id, function(err, house){
+      console.log('Back to angular>>>>', house);
       res.send({house:house});
     });
   });

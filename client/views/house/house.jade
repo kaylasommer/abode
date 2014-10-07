@@ -5,7 +5,7 @@
 
   .col-xs-6(ng-show='house')
     .col-xs-6
-      img.house-img.img-rounded(ng-src='{{house.photo}}' || '/assets/img/default.jpg')
+      img.house-img.img-rounded(ng-src='{{house.photo}}')
       button.btn.btn-default(ng-click='open()'): i.fa.fa-fw.fa-pencil
 .row
   tabset(justified='true')

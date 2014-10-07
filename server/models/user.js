@@ -3,7 +3,8 @@
 var bcrypt = require('bcrypt'),
     _      = require('underscore'),
     Mongo  = require('mongodb'),
-    Goal   = require('../models/goal');
+    Goal   = require('./goal'),
+    House  = require('./house');
 
 function User(o){
   this.email = o.email;
@@ -31,7 +32,9 @@ User.register = function(o, cb){
     if(user || o.password.length < 3){return cb();}
     var newUser = new User(o);
     newUser.setAvatar(function(){
-      User.collection.save(newUser, cb);
+      User.collection.save(newUser, function(err, response){
+        House.save(new House(null, newUser._id), cb);
+      });
     });
   });
 };
@@ -46,18 +49,19 @@ User.login = function(o, cb){
 };
 
 User.prototype.setAvatar = function(cb){
+  var self = this;
   Goal.getCompletedCount(this._id, function(err, completed){
     console.log('completed: ', completed);
     if(completed === 0){
-      this.avatar = '/assets/avatars/duct-tape.png';
+      self.avatar = '/assets/avatars/duct-tape.png';
     } else if(completed >= 1 && completed <= 3) {
-      this.avatar = '/assets/avatars/measuring-tape.png';
+      self.avatar = '/assets/avatars/measuring-tape.png';
     } else if(completed >= 4 && completed <= 6) {
-      this.avatar = '/assets/avatars/paint-roller.png';
+      self.avatar = '/assets/avatars/paint-roller.png';
     } else if(completed >= 7 && completed <= 9) {
-      this.avatar = '/assets/avatars/hammer.png';
+      self.avatar = '/assets/avatars/hammer.png';
     } else if(completed >= 10 && completed <= 12){
-      this.avatar = '/assets/avatars/saw.png';
+      self.avatar = '/assets/avatars/saw.png';
     }
     cb();
   });

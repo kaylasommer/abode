@@ -6,13 +6,10 @@
 
     function create(house){
       var fd = new FormData();
-      fd.append('photo', house.photo);
+      fd.append('photo', house.photoUpload);
       fd.append('loc', house.loc);
-      fd.append('_id', house._id);
-      fd.append('specs', house.specs);
-      fd.append('features', house.features);
-      fd.append('userId', house.userId);
-      return $http.post('/house', fd, {
+
+      return $http.post('/house/' + house._id + '/photo', fd, {
         transformRequest: angular.identity,
         headers: {'Content-Type': undefined}
       });

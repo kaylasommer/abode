@@ -23,9 +23,11 @@
       $scope.user = response.data.user;
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
-      Dashboard.getRecommendations($scope.house._id).then(function(response){
-        $scope.recommendations = response.data.recommendations;
-      });
+      if($scope.goals === undefined){
+        Dashboard.getRecommendations($scope.house._id).then(function(response){
+          $scope.recommendations = response.data.recommendations;
+        });
+      }
     });
 
     $scope.subscribeUser = function(){

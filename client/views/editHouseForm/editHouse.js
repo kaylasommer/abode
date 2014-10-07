@@ -1,15 +1,15 @@
 (function(){
   'use strict';
   angular.module('abode')
-  .controller('EditHouseCtrl', ['$scope', '$modalInstance', 'House', function($scope, $modalInstance, House){
+  .controller('EditHouseCtrl', ['$scope', '$modalInstance', 'House', 'house', function($scope, $modalInstance, House, house){
 
-    House.getUsersHouse().then(function(response){
-      $scope.house = response.data.house;
-    });
+    $scope.house = house;
 
     $scope.addHouse = function(){
+      $modalInstance.close();
       House.create($scope.house).then(function(response){
-        $scope.house = response.data.house;
+        house.photo = response.data.house.photo;
+        toastr.success('Your Photo has been changed, it will load on refresh!');
       });
     };
 
@@ -17,9 +17,6 @@
       $modalInstance.close();
     };
 
-    $scope.cancel = function(){
-      $modalInstance.dismiss('cancel');
-    };
   }]);
 })();
 

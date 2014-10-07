@@ -37,7 +37,7 @@ module.exports = function(app, express){
   app.get('/user', users.show);
   app.put('/user', users.subscribe);
   app.get('/house', houses.show);
-  app.post('/house', houses.create);
+  app.post('/house/:houseId/photo', houses.updatePhoto);
   app.put('/house/:houseId', houses.update);
   app.get('/house/:houseId/recommendations', recommendations.byHouse);
   app.post('/task', goals.createTask);

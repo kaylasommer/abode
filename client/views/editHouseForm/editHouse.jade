@@ -7,6 +7,6 @@
         input.form-control(name='loc', ng-model='house.loc', type='number', required, ng-minlength='5', placeholder='{{house.loc}}' || '37216')
     .form-group
       label(for='photo') Photo
-        input.form-control(name='photo', kj-file-model='house.photo', type='file')
+        input.form-control(name='photo', kj-file-model='house.photoUpload', type='file')
     button.btn.btn-success(type='submit', ng-click='addHouse()') Save
 

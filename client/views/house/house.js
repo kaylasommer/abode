@@ -12,17 +12,21 @@
       $modal.open({
         templateUrl: '/views/editHouseForm/editHouse.html',
         controller: 'EditHouseCtrl',
-        size: size
+        size: size,
+        resolve: {
+          house: function(){
+            return $scope.house;
+          }
+        }
       });
     };
 
     House.getUsersHouse().then(function(response){
       $scope.house = response.data.house;
+      if (!$scope.house.photo) {
+        $scope.house.photo = '/assets/img/default.jpg';
+      }
     });
-
-    $scope.toggleHouseForm = function(){
-      $scope.showHouseForm = !!!$scope.showHouseForm;
-    };
 
   }]);
 })();
