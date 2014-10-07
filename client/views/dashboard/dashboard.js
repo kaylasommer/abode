@@ -9,7 +9,7 @@
     $scope.user = {};
     $scope.house = {};
     $scope.recommendations = {};
-    $scope.feeds = [
+    $scope.possibleFeeds = [
       {name: 'Dwell on Kitchens', url: 'http://www.dwell.com/kitchens/feed'},
       {name: 'Dwell Articles', url: 'http://www.dwell.com/articles/feed'},
       {name: 'This Old House: Planning and Ideas', url:'http://feeds.thisoldhouse.com/ThisOldHousePlanningAndIdeas'},
@@ -18,14 +18,18 @@
       {name: 'Southern Living: Editors Picks from My Home Ideas', url:'http://feeds.myhomeideas.com/myhome/latest-news?format=xml'},
       {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
     ];
+    $scope.feeds = [
+      'http://www.dwell.com/kitchens/feed',
+      'http://feeds.feedburner.com/inhabitat/interiors'
+    ];
 
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
-      Dashboard.getRecommendations($scope.house._id).then(function(response){
-        $scope.recommendations = response.data.recommendations;
-      });
+      //Dashboard.getRecommendations($scope.house._id).then(function(response){
+        //$scope.recommendations = response.data.recommendations;
+      //});
     });
 
     $scope.subscribeUser = function(){
