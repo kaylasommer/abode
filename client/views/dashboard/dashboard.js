@@ -9,6 +9,7 @@
     $scope.user = {};
     $scope.house = {};
     $scope.recommendations = {};
+    $scope.subForm = {};
     $scope.possibleFeeds = [
       {name: 'Dwell on Kitchens', url: 'http://www.dwell.com/kitchens/feed'},
       {name: 'Dwell Articles', url: 'http://www.dwell.com/articles/feed'},
@@ -37,9 +38,11 @@
       });
     };
 
-    console.log($scope.user.subscriptions);
+    $scope.toggleSubscribe = function(){
+      $scope.subForm = !!!$scope.subForm;
+    };
+
     $scope.feeds = $scope.user.subscriptions;
-    console.log($scope.feeds);
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){
