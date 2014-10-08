@@ -5,11 +5,13 @@
     .col-xs-5.board
       h6.lead Goals Completed:
       h6.lead Level: Duct Tape Master
-    .col-xs-4
       a.idea(href='/#/book') Have an Idea?
         .fui-bookmark.pull-left
       a.homefolio(href='/#/house') Update Your Homefolio
         .fui-folder.pull-left
+    .col-xs-4
+      .twitter
+        h3 TWITTER FEED
   .clearfix
   .row
     .col-xs-1
@@ -76,14 +78,14 @@
           div#hzroot9290900(style='width:480px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
             div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
             iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:385px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
-        .twitter
-          h3 TWITTER FEED
         .rss
           h2 RSS
-          h3 Choose Your Feeds:
-          p To select multiples hold down CMD for a Mac and CTRL for a P.
-          form.form(role='form', name='rssForm', novalidate)
-            select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in feeds', multiple)
-              option.form-control(value='') Select Type
-            button.btn.btn-success(ng-click='subscribeUser()') Submit
+          button.btn.btn-primary(ng-click='toggleSubscribe()') Choose Your Feeds
+          .subscribe(ng-hide='subForm')
+            p To select multiples hold down CMD for a Mac and CTRL for a P.
+            form.form(role='form', name='rssForm', novalidate)
+              select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in possibleFeeds', multiple)
+                option.form-control(value='') Select Type
+              button.btn.btn-success(ng-click='subscribeUser()') Submit
+          kj-parse(feeds='feeds')
     .col-xs-1
