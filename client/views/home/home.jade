@@ -1,33 +1,40 @@
-.banner
-  h1 Abode
-  h3 Your Home, Inspired.
-.row
-  .col-xs-12.forms
-    .col-xs-6.register
-      h4 Join Us
-      #registration
-      form(role='form', novalidate, name='newUserForm')
-        .form-group
-          label(for='newName') Name
-          input.form-control#newName(type='text', name='newName', ng-model='newUser.name', required, ng-minlength='3')
-        .form-group
-          label(for='newEmail') Email
-          input.form-control#newEmail(type='email', name='newEmail', ng-model='newUser.email', required)
-        .form-group
-          label(for='newPassword') Password
-          input.form-control#newPassword(type='password', name='newPassword', ng-model='newUser.password', required, ng-minlength='4')
-        button.btn.btn-primary(ng-show='newUserForm.$valid', ng-click='register()') Register
+.bkgrd-img
+  .banner
+    h1 Abode
+    h3.lead Your Home, Inspired.
+  .row.bar
+    h4(ng-click='toggleRegister()') Register
+    h4(ng-click='toggleLogin()') Login
 
-    .col-xs-6.login
-      h4 Login
-      #authentication
-      form(role='form', novalidate, name='userForm')
-        .form-group
-          label(for='email') Email
-          input.form-control#email(type='email', name='email', ng-model='user.email', required)
-        .form-group
-          label(for='password') Password
-          input.form-control#password(type='password', name='password', ng-model='user.password', required, ng-minlength='3')
-        button.btn.btn-primary(ng-show='userForm.$valid', ng-click='login()') Login
+  .row
+    .col-xs-12.forms
+      .col-xs-2
+      .col-xs-8.reg
+        #registration(ng-show='showRegister')
+          form(role='form', novalidate, name='newUserForm')
+            .form-group
+              label(for='newName') Name
+              input.form-control#newName(type='text', name='newName', ng-model='newUser.name', required, ng-minlength='3')
+            .form-group
+              label(for='newEmail') Email
+              input.form-control#newEmail(type='email', name='newEmail', ng-model='newUser.email', required)
+            .form-group
+              label(for='newPassword') Password
+              input.form-control#newPassword(type='password', name='newPassword', ng-model='newUser.password', required, ng-minlength='4')
+            button.btn.btn-primary(ng-show='newUserForm.$valid', ng-click='register()') Register
+      .col-xs-2
 
+
+      .col-xs-2
+      .col-xs-8.log
+        #authentication(ng-show='showLogin')
+          form(role='form', novalidate, name='userForm')
+            .form-group
+              label(for='email') Email
+              input.form-control#email(type='email', name='email', ng-model='user.email', required)
+            .form-group
+              label(for='password') Password
+              input.form-control#password(type='password', name='password', ng-model='user.password', required, ng-minlength='3')
+            button.btn.btn-primary(ng-show='userForm.$valid', ng-click='login()') Login
+      .col-xs-2
 
