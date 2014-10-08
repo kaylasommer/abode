@@ -11,6 +11,9 @@ function User(o){
   this.name = o.name;
   this.password = bcrypt.hashSync(o.password, 10);
   this.subscriptions = [];
+  this.completed = 0;
+  this.avatar = '/assets/avatars/duct-tape.png';
+  this.level = 'Duct Tape Engineer';
 }
 
 Object.defineProperty(User, 'collection', {
@@ -31,10 +34,8 @@ User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(user || o.password.length < 3){return cb();}
     var newUser = new User(o);
-    newUser.setAvatar(function(){
-      User.collection.save(newUser, function(err, response){
-        House.save(new House(null, newUser._id), cb);
-      });
+    User.collection.save(newUser, function(err, response){
+      House.save(new House(null, newUser._id), cb);
     });
   });
 };
@@ -51,18 +52,24 @@ User.login = function(o, cb){
 User.prototype.setAvatar = function(cb){
   var self = this;
   Goal.getCompletedCount(this._id, function(err, completed){
-    if(completed === 0){
-      self.avatar = '/assets/avatars/duct-tape.png';
-    } else if(completed >= 1 && completed <= 3) {
+    self.completed = completed;
+
+    if(completed >= 1 && completed <= 3) {
       self.avatar = '/assets/avatars/measuring-tape.png';
+      self.level = 'Carpenter\'s Apprentice';
     } else if(completed >= 4 && completed <= 6) {
-      self.avatar = '/assets/avatars/paint-roller.png';
-    } else if(completed >= 7 && completed <= 9) {
       self.avatar = '/assets/avatars/hammer.png';
+      self.level = 'DIY Ninja';
+    } else if(completed >= 7 && completed <= 9) {
+      self.avatar = '/assets/avatars/paint-roller.png';
+      self.level = 'Artisian';
     } else if(completed >= 10 && completed <= 12){
       self.avatar = '/assets/avatars/saw.png';
+      self.level = 'Contractor';
     }
-    cb();
+    User.collection.save(self, function(){
+      cb(self);
+    });
   });
 };
 

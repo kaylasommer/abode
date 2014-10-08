@@ -3,8 +3,8 @@
     .col-xs-3
       img.avatar(ng-src='{{user.avatar}}')
     .col-xs-5.board
-      h6.lead Goals Completed:
-      h6.lead Level: Duct Tape Master
+      h6.lead Goals Completed: {{user.completed}}
+      h6.lead Level: {{user.level}}
       a.idea(href='/#/book') Have an Idea?
         .fui-bookmark.pull-left
       a.homefolio(href='/#/house') Update Your Homefolio
@@ -82,7 +82,7 @@
           h4.lead RSS feed
             button.btn.btn-primary.pull-right(ng-click='toggleSubscribe()') Choose Your Feeds
           .subscribe(ng-hide='subForm')
-            small To select multiples hold down CMD for a Mac and CTRL for a P.
+            small To select multiples hold down CMD for a Mac and CTRL for a PC.
             form.form(role='form', name='rssForm', novalidate)
               select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in possibleFeeds', multiple)
                 option.form-control(value='') Select Type
