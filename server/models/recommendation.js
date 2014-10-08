@@ -1,7 +1,7 @@
 'use strict';
 
-//var House  = require('./house'),
-  //  _      = require('underscore');
+var House  = require('./house'),
+    _      = require('underscore');
 
 function Recommendation(){
 }
@@ -11,7 +11,7 @@ Object.defineProperty(Recommendation, 'collection', {
   get: function(){return global.mongodb.collection('recommendations');}
 });
 
-/*Recommendation.findForHouse = function(houseId, cb){
+Recommendation.findForHouse = function(houseId, cb){
   House.findById(houseId, function(err, house){
     var features = house.features.filter(function(feature){
       return feature.has;
@@ -28,7 +28,7 @@ Object.defineProperty(Recommendation, 'collection', {
       cb(err, recommendations);
     });
   });
-};*/
+};
 
 module.exports = Recommendation;
 
