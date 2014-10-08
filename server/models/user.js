@@ -51,7 +51,6 @@ User.login = function(o, cb){
 User.prototype.setAvatar = function(cb){
   var self = this;
   Goal.getCompletedCount(this._id, function(err, completed){
-    console.log('completed: ', completed);
     if(completed === 0){
       self.avatar = '/assets/avatars/duct-tape.png';
     } else if(completed >= 1 && completed <= 3) {

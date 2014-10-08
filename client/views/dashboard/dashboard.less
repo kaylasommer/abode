@@ -1,14 +1,14 @@
+@import '../../variables.less';
 #dashboard {
-
+  background-color: @white;
   .header{
     height: 300px;
     width: 100%;
+    border-bottom: 3px solid @dkred;
+    padding: 15px 40px;
+    margin-bottom: 40px;
 
-    .img {
-      width: 250px;
-      height: 250px;
-    }
-    .reccomendation {
+    .recomendation {
       width: 100%;
       height: 70px;
       background-color: white;
@@ -16,23 +16,48 @@
       padding: 10px;
     }
     .avatar {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       background-color: white;
+      border: 3px solid #F39C12;
+      margin-top: 15px;
     }
-    .user-info {
-      font-size: 30px;
+    .board {
+      margin-top: 85px;
+    }
+    .idea, .homefolio {
+      display: block;
+      width: 100%;
+      height: 100px;
+      border: 3px solid @red;
+      font-size: 1.5em;
+      text-align: center;
+      padding-top: 22px;
+      background-color: @red;
+      color: white;
+      margin: 5px;
     }
   }
-  .goal{
+  .goal {
+    padding: 20px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    min-height: 470px;
+
     .panel-default > .panel-heading {
       cursor: pointer;
     }
     .goal-list{
+      .goal-complete-btn {
+        height: 40px;
+      }
       .complete{
         color: grey;
       }
+    }
+    .tags {
+      padding: 0 10px;
     }
     .task-list {
       list-style: none;
@@ -43,19 +68,31 @@
       padding: 2px;
     }
     .task-add-btn {
-      padding-left: 10px;
       margin-top: 5px;
     }
     label {
       display: block;
     }
   }
-  .house{}
+  .house{
+    padding: 20px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    margin-top: 40px;
+    h3, h4, h6 {
+      color: @red;
+      padding: 0 40px;
+    }
+    ul {
+      list-style: none;
+    }
+  }
   .trending{
     .twitter {
       width: 100%;
       height: 300px;
-      background-color: white;
+      background-color: @verywhite;
+      border: 2px solid @grey;
       padding: 20px;
     }
     .houzz {
@@ -63,11 +100,10 @@
     }
     .rss {
       width: 100%;
-      height: 600px;
-      background-color: white;
+      height: 300px;
+      background-color: @verywhite;
+      border: 2px solid @grey;
       padding: 20px;
-      overflow: scroll;
-
     }
   }
 }
