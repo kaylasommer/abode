@@ -1,19 +1,21 @@
 #dashboard
   .header
-    .col-xs
-      img.house-img.img-rounded(ng-src='{{house.photo}}' || '/assets/img/default.jpg')
-    .row
-      .col-xs-4
-        img.avatar(ng-src='{{user.avatar}}')
-      .col-xs-4.user-info
-        p {{user.name}}
-      .col-xs-4
-        a.btn.btn-primary.pull-right(href='/#/book') Inspiration Book
-        a.btn.btn-primary.pull-right(href='/#/house') Homefolio
+    .col-xs-3
+      img.avatar(ng-src='{{user.avatar}}')
+    .col-xs-5.board
+      h6.lead Goals Completed:
+      h6.lead Level: Duct Tape Master
+    .col-xs-4
+      a.idea(href='/#/book') Have an Idea?
+        .fui-bookmark.pull-left
+      a.homefolio(href='/#/house') Update Your Homefolio
+        .fui-folder.pull-left
   .clearfix
   .row
-    .col-xs-6
+    .col-xs-1
+    .col-xs-5
       .goal
+        h4 Goals
         div(accordion close-others='oneAtATime')
           accordion-group
             accordion-heading
@@ -21,12 +23,12 @@
               i.fa.fa-fw.fa-plus.pull-right
             form.form#goal-form(role='form', name='goalForm', novalidate)
               .form-group
-                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title')
+                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title', focus)
               .form-group
                 input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tags')
               .form-group
                 button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
-        h3 Goals
+        h5 Find a specific goal
         .filter
           form.form-inline#filter(role='form', name='filterForm')
           .form-group
@@ -39,33 +41,36 @@
             accordion-heading
               | {{goal.title}}
               i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
+            span.tags(ng-repeat='tag in goal.tags') {{tag}}
             p.goal-complete-btn: a.btn.btn-warning.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
-             i.fa.fa-fw.fa-trash-o
+              span.fui-check
             form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
               .form-group.no-margin
                 .col-xs-11.task-name
                   label(for='taskName')
                   input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
                 .col-xs-1.task-add-btn
-                  button.btn(ng-click='addTask(goal)') +
+                  button.btn.fui-plus(ng-click='addTask(goal)')
             form.form(role='form', name='taskToggleForm')
             ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
               li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
                 label(for='taskComplete') {{task.name}}
                   input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
       .house
-        h3 Your Recommendations
+        h3 Recommendations
         ul
-          li(ng-repeat='recommendation in recommendations') {{recommendation.rec}}
-
-        h3 Be wary of renovations that can actually decrease the value of your home.
+          li.fui-star(ng-repeat='recommendation in recommendations') &nbsp {{recommendation.rec}}
+        hr
+        hr
+        h4.lead Not Advised
+        h6 Be wary of renovations that can actually decrease the value of your home.
         ul
-          li Permanently converting a bedroom into anything other than a bedroom.
-          li Textured walls.
-          li Extravagent Kitchen and Bathroom renovations.
-          li Putting in a Pool or a Hottub.
-          li Over the top landscaping.
-    .col-xs-6
+          li.fui-star &nbsp Permanently converting a bedroom into anything other than a bedroom.
+          li.fui-star &nbsp Textured walls.
+          li.fui-star &nbsp Extravagent Kitchen and Bathroom renovations.
+          li.fui-star &nbsp Putting in a Pool or a Hottub.
+          li.fui-star &nbsp Over the top landscaping.
+    .col-xs-5
       .trending
         .houzz
           div#hzroot9290900(style='width:480px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
@@ -75,12 +80,10 @@
           h3 TWITTER FEED
         .rss
           h2 RSS
-          button.btn.btn-primary(ng-click='toggleSubscribe()') Choose Your Feeds
-          .subscribe(ng-hide='subForm')
-            p To select multiples hold down CMD for a Mac and CTRL for a P.
-            form.form(role='form', name='rssForm', novalidate)
-              select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in possibleFeeds', multiple)
-                option.form-control(value='') Select Type
-              button.btn.btn-success(ng-click='subscribeUser()') Submit
-          kj-parse(feeds='feeds')
-
+          h3 Choose Your Feeds:
+          p To select multiples hold down CMD for a Mac and CTRL for a P.
+          form.form(role='form', name='rssForm', novalidate)
+            select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in feeds', multiple)
+              option.form-control(value='') Select Type
+            button.btn.btn-success(ng-click='subscribeUser()') Submit
+    .col-xs-1

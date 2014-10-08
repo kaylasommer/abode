@@ -24,7 +24,7 @@
       $scope.feeds = $scope.user.subscriptions;
       $scope.house = response.data.house;
       $scope.goals = response.data.goals;
-      if($scope.goals === undefined){
+      if($scope.goals !== undefined){
         Dashboard.getRecommendations($scope.house._id).then(function(response){
           $scope.recommendations = response.data.recommendations;
         });

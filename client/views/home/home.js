@@ -36,6 +36,17 @@
       User.register($scope.newUser).then(newSuccess, newFailure);
     };
 
+    //toggle---------------------------------------------------
+    $scope.toggleRegister = function(){
+      $scope.showLogin = false;
+      $scope.showRegister = !!!$scope.showRegister;
+    };
+
+    $scope.toggleLogin = function(){
+      $scope.showRegister = false;
+      $scope.showLogin = !!!$scope.showLogin;
+    };
+
   }]);
 })();
 
