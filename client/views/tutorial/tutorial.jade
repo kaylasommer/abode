@@ -19,7 +19,7 @@
     .col-xs-1
     .col-xs-5
       .goal
-        h4(tooltip-placement='top', tooltip='Set goals for your home renovations and give each one a set of tags.') Goals
+        h4(tooltip-placement='top', tooltip='Set goals for your home renovations. Be sure to include tags so you can search goals easily.') Goals
         div(accordion close-others='oneAtATime')
           accordion-group
             accordion-heading
@@ -32,7 +32,7 @@
                 input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tags')
               .form-group
                 button.btn.btn-primary.pull-right(ng-show='goalForm.$valid') Add Goal
-        h5(tooltip-placement='top', tooltip='Filter by the title of the goals, tags and any word found in the tasks.') Find a specific goal
+        h5(tooltip-placement='top', tooltip='Search for goals.') Find a specific goal
         .filter
           form.form-inline#filter(role='form', name='filterForm')
           .form-group
@@ -41,7 +41,7 @@
               .input-group-addon: i.fa.fa-fw.fa-filter
               input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
         div.goal-list(accordion, close-others='oneAtATime', tooltip-placement='bottom', tooltip='')
-          accordion-group(ng-repeat='goal in goals | filter:searchGoals')
+          accordion-group(ng-repeat='goal in goals | filter:searchGoals', is-open='status.isFirstOpen')
             accordion-heading(ng-click='swivel()')
               | Your Super Awesome Goal Here
               i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
@@ -58,23 +58,37 @@
                 .col-xs-1.task-add-btn
                   button.btn.fui-plus
             form.form(role='form', name='taskToggleForm')
-            ul.task-list(ui-sortable='sortableOptions')
+            ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions', tooltip-placement='bottom', tooltip='Tasks can be reordered by clicking and dragging. Dont Forget to Check them off when your done!')
               li
-                label(for='taskComplete') This is Task One
-                  input#inline-checkbox.pull-right(type='checkbox')
+                label.checkbox(for='taskComplete') This is Task One
+                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox', checked)
+                  span.icons.pull-right
+                    span.icon-unchecked
+                    span.icon-checked
               li
-                label(for='taskComplete') This is Task Two
-                  input#inline-checkbox.pull-right(type='checkbox')
+                label.checkbox(for='taskComplete') This is Task Two
+                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox')
+                  span.icons
+                    span.icon-unchecked
+                    span.icon-checked
               li
-                label(for='taskComplete') This is Task Three
-                  input#inline-checkbox.pull-right(type='checkbox')
+                label.checkbox(for='taskComplete') This is Task Three
+                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox')
+                  span.icons
+                    span.icon-unchecked
+                    span.icon-checked
       .house
-        h3 Recommendations
+        h3(tooltip='A customized list of recommendations.', tooltip-placement='top') Recommendations
+        p We will cater recommendations based on the information you provide about your home.
         ul
-          li.fui-star(ng-repeat='recommendation in recommendations') &nbsp {{recommendation.rec}}
+         li Common things we filter by:
+         li.fui-star &nbsp Yard
+         li.fui-star &nbsp Garage
+         li.fui-star &nbsp Fireplace
+         li.fui-star &nbsp etc.
         hr
         hr
-        h4.lead Not Advised
+        h4.lead(tooltip='There are some renovations which are not worth doing.', tooltip-placement='bottom') Not Advised
         h6 Be wary of renovations that can actually decrease the value of your home.
         ul
           li.fui-star &nbsp Permanently converting a bedroom into anything other than a bedroom.

@@ -5,6 +5,10 @@
   .controller('TutorialCtrl', ['$scope', 'Dashboard', 'Goal', 'User', '$location', function($scope, Dashboard, Goal, User, $location){
 
     $scope.oneAtATime = true;
+    $scope.status = {
+      isFirstOpen: true,
+      isFirstDisabled: false
+    };
     $scope.goals = [];
     $scope.goal = {};
     $scope.user = {};

@@ -58,8 +58,11 @@
             form.form(role='form', name='taskToggleForm')
             ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
               li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
-                label(for='taskComplete') {{task.name}}
-                  input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
+                label.checkbox(for='taskComplete') {{task.name}}
+                  input#inline-checkbox.custom-checkbox(name='taskComplete', data-toggle='checkbox', type='checkbox', ng-model='task.isComplete', ng-click='taskComplete(goal)')
+                  span.icons
+                    span.icon-unchecked
+                    span.icon-checked
       .house
         h3 Recommendations
         ul
