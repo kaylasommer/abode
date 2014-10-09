@@ -2,7 +2,7 @@
   .header
     .col-xs-1
     .col-xs-3
-      img.avatar(ng-src='{{user.avatar}}')
+      img.avatar(ng-src='{{user.avatar}}', tooltip='This is your avatar. It will change depending on how many goals you complete!', tooltip-placement='bottom')
     .col-xs-2.board
       h5 {{user.name}}
       h6 Goals Completed: {{user.completed}}
@@ -12,14 +12,14 @@
         h3.lead Trending
     .col-xs-1
   .row
-    a.idea(href='/#/book'): div.fui-bookmark &nbsp Have an Idea?
-    a.homefolio(href='/#/house'): div.fui-folder &nbsp Update Your Homefolio
+    a.idea(href='/#/book', tooltip-placement='top', tooltip='Here you can save images that give you inspiration.'): div.fui-bookmark &nbsp Have an Idea?
+    a.homefolio(href='/#/house', tooltip-placement='bottom', tooltip='Here you can save information about your house.'): div.fui-folder &nbsp Update Your Homefolio
   .clearfix
   .row
     .col-xs-1
     .col-xs-5
       .goal
-        h4 Goals
+        h4(tooltip-placement='top', tooltip='Set goals for your home renovations and give each one a set of tags.') Goals
         div(accordion close-others='oneAtATime')
           accordion-group
             accordion-heading
@@ -31,8 +31,8 @@
               .form-group
                 input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tags')
               .form-group
-                button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
-        h5 Find a specific goal
+                button.btn.btn-primary.pull-right(ng-show='goalForm.$valid') Add Goal
+        h5(tooltip-placement='top', tooltip='Filter by the title of the goals, tags and any word found in the tasks.') Find a specific goal
         .filter
           form.form-inline#filter(role='form', name='filterForm')
           .form-group
@@ -40,13 +40,15 @@
             .input-group
               .input-group-addon: i.fa.fa-fw.fa-filter
               input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
-        div.goal-list(accordion, close-others='oneAtATime')
+        div.goal-list(accordion, close-others='oneAtATime', tooltip-placement='bottom', tooltip='')
           accordion-group(ng-repeat='goal in goals | filter:searchGoals')
             accordion-heading(ng-click='swivel()')
-              | {{goal.title}}
+              | Your Super Awesome Goal Here
               i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
-            small.tags(ng-repeat='tag in goal.tags') {{tag}}
-            p.goal-complete-btn: a.btn.btn-danger.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
+            small.tags Cool
+            small.tags Tags
+            small.tags Here
+            p.goal-complete-btn: a.btn.btn-danger.col-xs-12 I completed this goal! &nbsp;
               span.fui-check
             form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
               .form-group.no-margin
@@ -54,12 +56,18 @@
                   label(for='taskName')
                   input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
                 .col-xs-1.task-add-btn
-                  button.btn.fui-plus(ng-click='addTask(goal)')
+                  button.btn.fui-plus
             form.form(role='form', name='taskToggleForm')
-            ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
-              li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
-                label(for='taskComplete') {{task.name}}
-                  input#inline-checkbox.pull-right(name='taskComplete', type='checkbox', ng-model='task.isComplete', ng-change='taskComplete(goal)')
+            ul.task-list(ui-sortable='sortableOptions')
+              li
+                label(for='taskComplete') This is Task One
+                  input#inline-checkbox.pull-right(type='checkbox')
+              li
+                label(for='taskComplete') This is Task Two
+                  input#inline-checkbox.pull-right(type='checkbox')
+              li
+                label(for='taskComplete') This is Task Three
+                  input#inline-checkbox.pull-right(type='checkbox')
       .house
         h3 Recommendations
         ul
@@ -82,7 +90,7 @@
             iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:457px;padding-top:40px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
         .rss
           h4.lead
-            i.fa.fa-fw.fa-2x.fa-rss
+            i.fa.fa-fw.fa-2x.fa-rss(tooltip-placement='right', tooltip='Choose an RSS feed to follow and stay informed.')
             button.btn.btn-primary.pull-right(ng-click='toggleSubscribe()') Choose Your Feeds
           .subscribe(ng-hide='subForm')
             small To select multiples hold down CMD for a Mac and CTRL for a PC.
