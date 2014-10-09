@@ -34,7 +34,6 @@
           var entries = _.map(data.data.responseData.feed.entries, function(el){
             return parseEntry(el);
           });
-          console.log('entries in update model>>', entries);
           resolve(entries);
         });
       });
@@ -52,12 +51,9 @@
           if(value && value.length > 0){
             scope.articles = [];
             _.each(value, function(url){
-              console.log('URL in link each fn', url);
               updateModel(url).then(function(articles){
-                console.log('after updateModel', articles);
                 scope.articles = scope.articles.concat(articles);
                 scope.articles = _.shuffle(scope.articles);
-                console.log('after shuffle', scope.articles);
               });
             });
           }
@@ -66,7 +62,6 @@
 
     };
   }]);
-    // update initially
 
     //then update every 30 secs
     // $interval(function() {

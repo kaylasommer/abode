@@ -4,9 +4,7 @@
   .header{
     height: 300px;
     width: 100%;
-    border-bottom: 3px solid @dkred;
     padding: 15px 40px;
-    margin-bottom: 40px;
 
     .recomendation {
       width: 100%;
@@ -19,25 +17,36 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background-color: white;
-      border: 3px solid #F39C12;
-      margin-top: 15px;
+      background-color: @verywhite;
+      border: 3px solid @grey;
+      margin-top: 45px;
     }
     .board {
       margin-top: 85px;
+      margin-left: -40px;
+      margin-right: 40px;
     }
-    .idea, .homefolio {
-      display: block;
-      width: 100%;
-      height: 100px;
-      border: 3px solid @red;
-      font-size: 1.5em;
-      text-align: center;
-      padding-top: 22px;
-      background-color: @red;
-      color: white;
-      margin: 5px;
-    }
+  }
+  .idea, .homefolio {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    font-size: 1.5em;
+    color: white;
+  }
+  .idea {
+    background-color: @red;
+    padding-left: 130px;
+    padding-top: 7px;
+  }
+  .homefolio {
+    background-color: @orange;
+    padding-left: 115px;
+    margin-bottom: 30px;
+    padding-top: 7px;
+  }
+  .fui-folder {
+    margin: 0 15px;
   }
   .goal {
     padding: 20px;
@@ -57,7 +66,14 @@
       }
     }
     .tags {
-      padding: 0 10px;
+      padding: 5px 10px;
+      background-color: @yellow;
+      border-radius: 30px;
+      color: white;
+      margin: 0 3px;
+    }
+    .goal-complete-btn {
+      margin-top: 10px;
     }
     .task-list {
       list-style: none;
@@ -80,6 +96,8 @@
     border: 2px solid @grey;
     margin-top: 40px;
     height: 900px;
+    overflow: auto;
+    margin-bottom: 20px;
 
     h3, h4, h6 {
       color: @red;
@@ -89,23 +107,16 @@
       list-style: none;
     }
   }
+  .twitter {
+    width: 100%;
+    height: 250px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    padding: 20px;
+  }
   .trending{
-    .twitter {
-      width: 100%;
-      height: 300px;
-      background-color: @verywhite;
-      border: 2px solid @grey;
-      padding: 20px;
-    }
     .houzz {
       margin: 0 auto;
-    }
-    .selectRSS {
-      height: 100px;
-      width: 100%;
-      background-color: @verywhite;
-      border: 2px solid @grey;
-      padding: 20px;
     }
     .rss {
       width: 100%;
@@ -113,7 +124,12 @@
       border: 2px solid @grey;
       padding: 20px;
       height: 900px;
+      margin-top: 40px;
+      overflow: auto;
 
+      h4 {
+        color: @orange;
+      }
       .subscribe {
         padding: 20px;
 

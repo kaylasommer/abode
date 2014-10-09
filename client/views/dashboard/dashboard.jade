@@ -1,17 +1,19 @@
 #dashboard
   .header
+    .col-xs-1
     .col-xs-3
       img.avatar(ng-src='{{user.avatar}}')
-    .col-xs-5.board
-      h6.lead Goals Completed: {{user.completed}}
-      h6.lead Level: {{user.level}}
-      a.idea(href='/#/book') Have an Idea?
-        .fui-bookmark.pull-left
-      a.homefolio(href='/#/house') Update Your Homefolio
-        .fui-folder.pull-left
-    .col-xs-4
+    .col-xs-2.board
+      h5 {{user.name}}
+      h6 Goals Completed: {{user.completed}}
+      h6 Level: {{user.level}}
+    .col-xs-5
       .twitter
-        h3 TWITTER FEED
+        h3.lead Trending
+    .col-xs-1
+  .row
+    a.idea(href='/#/book'): div.fui-bookmark &nbsp Have an Idea?
+    a.homefolio(href='/#/house'): div.fui-folder &nbsp Update Your Homefolio
   .clearfix
   .row
     .col-xs-1
@@ -43,8 +45,8 @@
             accordion-heading
               | {{goal.title}}
               i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
-            span.tags(ng-repeat='tag in goal.tags') {{tag}}
-            p.goal-complete-btn: a.btn.btn-warning.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
+            small.tags(ng-repeat='tag in goal.tags') {{tag}}
+            p.goal-complete-btn: a.btn.btn-danger.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
               span.fui-check
             form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
               .form-group.no-margin
@@ -75,11 +77,12 @@
     .col-xs-5
       .trending
         .houzz
-          div#hzroot9290900(style='width:480px;text-align:center;font-size:12px;padding:0;border:0;margin:0;')
+          div#hzroot9290900(style='text-align:center;font-size:12px;padding:0;margin:0;background-color:#fff;border:2px solid #E3E6E7;')
             div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
-            iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:385px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
+            iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:457px;padding-top:40px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
         .rss
-          h4.lead RSS feed
+          h4.lead
+            i.fa.fa-fw.fa-2x.fa-rss
             button.btn.btn-primary.pull-right(ng-click='toggleSubscribe()') Choose Your Feeds
           .subscribe(ng-hide='subForm')
             small To select multiples hold down CMD for a Mac and CTRL for a PC.
