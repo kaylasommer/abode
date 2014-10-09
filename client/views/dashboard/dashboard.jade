@@ -42,9 +42,9 @@
               input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
         div.goal-list(accordion, close-others='oneAtATime')
           accordion-group(ng-repeat='goal in goals | filter:searchGoals')
-            accordion-heading
+            accordion-heading(ng-click='swivel()')
               | {{goal.title}}
-              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
+              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
             small.tags(ng-repeat='tag in goal.tags') {{tag}}
             p.goal-complete-btn: a.btn.btn-danger.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
               span.fui-check

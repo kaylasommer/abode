@@ -31,6 +31,10 @@
       }
     });
 
+    $scope.swivel = function(){
+      $scope.status.open = !!!$scope.status.open;
+    };
+
     $scope.subscribeUser = function(){
       User.subscribeToRss($scope.user).then(function(response){
         $scope.user = response.data.user;
