@@ -1,16 +1,54 @@
+@import '../../variables.less';
+.header {
+  padding: 60px;
+
+  h4 {
+    font-weight: lighter;
+  }
+}
 .house-img {
-  width: 300px;
-  height: 300px;
-  border-radius: 40px;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  position: relative;
+}
+.edit {
+  position: absolute;
+  cursor: pointer;
+  left: 180px;
+  top: 0;
+}
+.edit:hover {
+  color: @teal;
 }
 .specForms {
-  margin: 70px;
+  padding: 70px 165px;
+  background-color: @verywhite;
 }
 #general, #extras, #systems, #kitchen, #bathroom,
 #living, #laundry, #dining, #bedroom-one, #bedroom-two {
-  width: 250px;
-  height: 250px;
-  border: 1px solid grey;
+  width: 200px;
+  height: 200px;
+  border: 1px solid @red;
   display: inline-block;
   margin: 10px 20px;
+  border-radius: 10px;
+  background-color: @dkred;
+  color: @verywhite;
+  font-weight: lighter;
+
+  h3 {
+    text-align: center;
+    padding-top: 40px;
+  }
+}
+#general:hover, #extras:hover, #systems:hover, #kitchen:hover, #bathroom:hover,
+#living:hover, #laundry:hover, #dining:hover, #bedroom-one:hover, #bedroom-two:hover {
+  background-color: @red;
+  color: #FFD200;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: @grey;
+}
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
 }

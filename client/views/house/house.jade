@@ -1,12 +1,13 @@
-.row
-  .col-xs-6
+.row.header
+  .col-xs-1
+  .col-xs-5
     h2 Homefolio
     h4 Help us cater our recommendations, tell us more about your house!
 
-  .col-xs-6(ng-show='house')
-    .col-xs-6
-      img.house-img.img-rounded(ng-src='{{house.photo}}')
-      button.btn.btn-default(ng-click='open()'): i.fa.fa-fw.fa-pencil
+  .col-xs-1
+  .col-xs-5(ng-show='house')
+    img.house-img.img-rounded(ng-src='{{house.photo}}')
+    .edit.fui-new(ng-click='open()')
 .row
   tabset(justified='true')
     tab(heading='Edit House', active='tab.active')
