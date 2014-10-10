@@ -24,6 +24,12 @@
       {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
     ];
 
+    $scope.tasks = [
+      'This is Task One',
+      'This is Task Two',
+      'This is Task Three'
+    ];
+
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
       $scope.feeds = $scope.user.subscriptions;

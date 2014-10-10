@@ -18,7 +18,7 @@
       {name: 'House and Home: Design', url: 'http://houseandhome.com/rss/feeds/design'},
       {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
     ];
-
+    $scope.subForm = false;
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
       $scope.feeds = $scope.user.subscriptions;
@@ -31,16 +31,11 @@
       }
     });
 
-    $scope.swivel = function(){
-      $scope.status.open = !!!$scope.status.open;
-    };
-
     $scope.subscribeUser = function(){
       User.subscribeToRss($scope.user).then(function(response){
         $scope.user = response.data.user;
         $scope.feeds = $scope.user.subscriptions;
         toastr.success('Awesome! We will have your feeds up shortly!');
-        $location.path('/dashboard');
       });
     };
 
@@ -48,7 +43,6 @@
       $scope.subForm = !!!$scope.subForm;
     };
 
-    $scope.feeds = $scope.user.subscriptions;
 
     $scope.addGoal = function(){
       Goal.create($scope.goal).then(function(response){

@@ -34,17 +34,17 @@
                 button.btn.btn-primary.pull-right(ng-show='goalForm.$valid') Add Goal
         h5(tooltip-placement='top', tooltip='Search for goals.') Find a specific goal
         .filter
-          form.form-inline#filter(role='form', name='filterForm')
+          form.form-inline#filter(role='form', name='filterForm', disabled)
           .form-group
             label.sr-only(for='filter')
             .input-group
               .input-group-addon: i.fa.fa-fw.fa-filter
               input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
-        div.goal-list(accordion, close-others='oneAtATime', tooltip-placement='bottom', tooltip='')
-          accordion-group(ng-repeat='goal in goals | filter:searchGoals', is-open='status.isFirstOpen')
-            accordion-heading(ng-click='swivel()')
+        div.goal-list(accordion, close-others='oneAtATime')
+          accordion-group(is-open='status.isFirstOpen')
+            accordion-heading(tooltip-placement='top', tooltip='Manage your goals here.')
               | Your Super Awesome Goal Here
-              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
+              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
             small.tags Cool
             small.tags Tags
             small.tags Here
@@ -58,23 +58,11 @@
                 .col-xs-1.task-add-btn
                   button.btn.fui-plus
             form.form(role='form', name='taskToggleForm')
-            ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions', tooltip-placement='bottom', tooltip='Tasks can be reordered by clicking and dragging. Dont Forget to Check them off when your done!')
-              li
-                label.checkbox(for='taskComplete') This is Task One
+            ul.task-list(ng-model='tasks', ui-sortable='sortableOptions', tooltip-placement='bottom', tooltip='Tasks can be reordered by clicking and dragging. Dont Forget to Check them off when your done!')
+              li(ng-repeat='task in tasks')
+                label.checkbox(for='taskComplete') {{task}}
                   input#inline-checkbox.custom-checkbox.pull-right(type='checkbox', checked)
                   span.icons.pull-right
-                    span.icon-unchecked
-                    span.icon-checked
-              li
-                label.checkbox(for='taskComplete') This is Task Two
-                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox')
-                  span.icons
-                    span.icon-unchecked
-                    span.icon-checked
-              li
-                label.checkbox(for='taskComplete') This is Task Three
-                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox')
-                  span.icons
                     span.icon-unchecked
                     span.icon-checked
       .house
@@ -98,7 +86,7 @@
           li.fui-star &nbsp Over the top landscaping.
     .col-xs-5
       .trending
-        .houzz
+        .houzz(tooltip-placement='top', tooltip='Find Inspiration!')
           div#hzroot9290900(style='text-align:center;font-size:12px;padding:0;margin:0;background-color:#fff;border:2px solid #E3E6E7;')
             div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
             iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:457px;padding-top:40px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")

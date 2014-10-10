@@ -13,6 +13,7 @@ Object.defineProperty(Recommendation, 'collection', {
 
 Recommendation.findForHouse = function(houseId, cb){
   House.findById(houseId, function(err, house){
+    if(!house.features.filter){cb(); return;}
     var features = house.features.filter(function(feature){
       return feature.has;
     });

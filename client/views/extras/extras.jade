@@ -7,8 +7,11 @@
   .col-xs-10
     form.form(role='form', name='extraHouseForm', novalidate)
       .form-group(ng-repeat='feature in features')
-        label.checkbox-inline.extra-form.pull-left(for='pool') {{feature.feature | titleCase}} &nbsp
-          input.form-control(name='{{feature.feature}}', ng-model='feature.has', type='checkbox')
+        label.checkbox.checkbox-inline.extra-form.pull-left(for='pool') {{feature.feature | titleCase}} &nbsp
+          input.form-control#large-checkbox.custom-checkbox(name='{{feature.feature}}', ng-model='feature.has', type='checkbox')
+          span.icons.pull-right
+            span.icon-unchecked
+            span.icon-checked
       .clearfix
       button.btn.btn-primary.pull-right.save-btn(ng-click='updateExtras()') Save
   .col-xs-1
