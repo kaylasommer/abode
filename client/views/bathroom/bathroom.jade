@@ -1,45 +1,53 @@
-h4 Bathroom
-a.btn.btn-default.btn-back(href='/#/house') Back
-form.form(role='form', name='bathroomHouseForm', novalidate)
-  fieldset
-    .form-group
-      label(for='wallCovering') Wall-covering &nbsp
-        select.form-control(name='wallCovering', ng-model='bathroom.wallCovering')
-          option(value='') Select a Wall-covering
-          option(ng-repeat='wallcover in wallcoverings') {{wallcover}}
-    .form-group
-      label(for='wallCoveringStyle') Wall-covering Style/Brand &nbsp
-        input.form-control(name='wallCoveringStyle', ng-model='bathroom.wallCoveringStyle', type='text')
-    .form-group
-      label(for='wallCoveringColor') Wall-covering Color &nbsp
-        input.form-control(name='wallCoveringColor', ng-model='bathroom.wallCoveringColor', type='text')
+.back
+  a.fui-arrow-left(href='/#/house') &nbsp Back
+.title
+  h4.text-center Bathroom
+.row
+  .col-md-2
+  .col-md-2
+    form.form(role='form', name='bathroomHouseForm', novalidate)
+      fieldset
+        .form-group
+          label(for='wallCovering') Wall-covering &nbsp
+            select.form-control(name='wallCovering', ng-model='bathroom.wallCovering')
+              option(value='') Select a Wall-covering
+              option(ng-repeat='wallcover in wallcoverings') {{wallcover}}
+        .form-group
+          label(for='wallCoveringStyle') Wall-covering Style/Brand &nbsp
+            input.form-control(name='wallCoveringStyle', ng-model='bathroom.wallCoveringStyle', type='text')
+        .form-group
+          label(for='wallCoveringColor') Wall-covering Color &nbsp
+            input.form-control(name='wallCoveringColor', ng-model='bathroom.wallCoveringColor', type='text')
+  .col-md-2
 
-    .form-group
-      label(for='flooring') Flooring &nbsp
-        select.form-control(name='flooring', ng-model='bathroom.flooring')
-          option(value='') Select a Flooring
-          option(ng-repeat='floor in floorings') {{floor}}
-    .form-group
-      label(for='flooringStyle') Flooring Style/Brand &nbsp
-        input.form-control(name='flooringStyle', ng-model='bathroom.flooringStyle', type='text')
-    .form-group
-      label(for='flooringColor') Flooring Color &nbsp
-        input.form-control(name='flooringColor', ng-model='bathroom.flooringColor', type='text')
+        .form-group
+          label(for='flooring') Flooring &nbsp
+            select.form-control(name='flooring', ng-model='bathroom.flooring')
+              option(value='') Select a Flooring
+              option(ng-repeat='floor in floorings') {{floor}}
+        .form-group
+          label(for='flooringStyle') Flooring Style/Brand &nbsp
+            input.form-control(name='flooringStyle', ng-model='bathroom.flooringStyle', type='text')
+        .form-group
+          label(for='flooringColor') Flooring Color &nbsp
+            input.form-control(name='flooringColor', ng-model='bathroom.flooringColor', type='text')
+  .col-md-2
 
-    .form-group
-      label(for='counter') Counter &nbsp
-        select.form-control(name='counter', ng-model='bathroom.counter')
-          option(value='') Select a Counter
-          option(ng-repeat='counter in counters') {{counter}}
-    .form-group
-      label(for='counterStyle') Counter Style/Brand &nbsp
-        input.form-control(name='counterStyle', ng-model='bathroom.counterStyle', type='text')
-    .form-group
-      label(for='counterColor') Counter Color &nbsp
-        input.form-control(name='counterColor', ng-model='bathroom.counterColor', type='text')
-    .form-group
-      label(for='notes') Notes
-      textarea.form-control(name='notes', rows='3', ng-model='bathroom.notes')
-    button.btn.btn-primary(ng-click='updateBathroom()') Save
-
+        .form-group
+          label(for='counter') Counter &nbsp
+            select.form-control(name='counter', ng-model='bathroom.counter')
+              option(value='') Select a Counter
+              option(ng-repeat='counter in counters') {{counter}}
+        .form-group
+          label(for='counterStyle') Counter Style/Brand &nbsp
+            input.form-control(name='counterStyle', ng-model='bathroom.counterStyle', type='text')
+        .form-group
+          label(for='counterColor') Counter Color &nbsp
+            input.form-control(name='counterColor', ng-model='bathroom.counterColor', type='text')
+  .col-md-2.bathroom-notes
+        .form-group
+          label(for='notes') Notes
+          textarea.form-control(name='notes', rows='3', ng-model='bathroom.notes')
+        button.btn.btn-primary(ng-click='updateBathroom()') Save
+  .col-xs-2
 

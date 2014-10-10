@@ -1,66 +1,71 @@
-h4 Kitchen
-a.btn.btn-default.btn-back(href='/#/house') Back
-form.form(role='form', name='kitchenHouseForm', novalidate)
-  fieldset
-    .form-group
-      label(for='wallCovering') Wall-covering &nbsp
-        select.form-control(name='wallCovering', ng-model='kitchen.wallCovering')
-          option(value='') Select a Wall-covering
-          option(ng-repeat='wallcover in wallcoverings') {{wallcover}}
-    .form-group
-      label(for='wallCoveringStyle') Wall-covering Style/Brand &nbsp
-        input.form-control(name='wallCoveringStyle', ng-model='kitchen.wallCoveringStyle', type='text')
-    .form-group
-      label(for='wallCoveringColor') Wall-covering Color &nbsp
-        input.form-control(name='wallCoveringColor', ng-model='kitchen.wallCoveringColor', type='text')
-
-    .form-group
-      label(for='flooring') Flooring &nbsp
-        select.form-control(name='flooring', ng-model='kitchen.flooring')
-          option(value='') Select a Flooring
-          option(ng-repeat='floor in floorings') {{floor}}
-    .form-group
-      label(for='flooringStyle') Flooring Style/Brand &nbsp
-        input.form-control(name='flooringStyle', ng-model='kitchen.flooringStyle', type='text')
-    .form-group
-      label(for='flooringColor') Flooring Color &nbsp
-        input.form-control(name='flooringColor', ng-model='kitchen.flooringColor', type='text')
-
-    .form-group
-      label(for='counter') Counter &nbsp
-        select.form-control(name='counter', ng-model='kitchen.counter')
-          option(value='') Select a Counter
-          option(ng-repeat='counter in counters') {{counter}}
-    .form-group
-      label(for='counterStyle') Counter Style/Brand &nbsp
-        input.form-control(name='counterStyle', ng-model='kitchen.counterStyle', type='text')
-    .form-group
-      label(for='counterColor') Counter Color &nbsp
-        input.form-control(name='counterColor', ng-model='kitchen.counterColor', type='text')
-
-    .form-group
-      label(for='stoveBrand') Stove Brand &nbsp
-        input.form-control(name='stoveBrand', ng-model='kitchen.stoveBrand', type='text')
-    .form-group
-      label(for='stoveModel') Stove Model &nbsp
-        input.form-control(name='stoveModel', ng-model='kitchen.stoveModel', type='text')
-    .form-group
-      label(for='stoveWidth') Stove Width &nbsp
-        input.form-control(name='stoveWidth', model='house.misc.stoveWidth', type='text', placeholder='30 inches')
-
-    .form-group
-      label(for='fridgeBrand') Refridgerator Brand &nbsp
-        input.form-control(name='fridgeBrand', ng-model='kitchen.fridgeBrand', type='text')
-    .form-group
-      label(for='fridgeModel') Refridgerator Model &nbsp
-        input.form-control(name='frigeModel', ng-model='kitchen.fridgeModel', type='text')
-    .form-group
-      label(for='fridgeWidth') Refridgerator Width &nbsp
-        input.form-control(name='fridgeWidth', model='house.misc.fridgeWidth', type='text', placeholder='36 inches')
-    .form-group
-      label(for='fridgeHeight') Refridgerator Height &nbsp
-        input.form-control(name='fridgeHeight', model='house.misc.fridgeHeight', type='text', placeholder='69 inches')
-    .form-group
-      label(for='notes') Notes
-      textarea.form-control(name='notes', rows='3', ng-model='kitchen.notes')
-    button.btn.btn-primary(ng-click='updateKitchen()') Save
+.back
+  a.fui-arrow-left(href='/#/house') &nbsp Back
+.title
+  h4.text-center Kitchen
+.row
+  .col-md-1
+  .col-md-2
+    form.form(role='form', name='kitchenHouseForm', novalidate)
+      fieldset
+        .form-group
+          label(for='wallCovering') Wall-covering &nbsp
+            select.form-control(name='wallCovering', ng-model='kitchen.wallCovering')
+              option(value='') Select a Wall-covering
+              option(ng-repeat='wallcover in wallcoverings') {{wallcover}}
+        .form-group
+          label(for='wallCoveringStyle') Wall-covering Style/Brand &nbsp
+            input.form-control(name='wallCoveringStyle', ng-model='kitchen.wallCoveringStyle', type='text')
+        .form-group
+          label(for='wallCoveringColor') Wall-covering Color &nbsp
+            input.form-control(name='wallCoveringColor', ng-model='kitchen.wallCoveringColor', type='text')
+        .form-group
+          label(for='flooring') Flooring &nbsp
+            select.form-control(name='flooring', ng-model='kitchen.flooring')
+              option(value='') Select a Flooring
+              option(ng-repeat='floor in floorings') {{floor}}
+  .col-md-2
+        .form-group
+          label(for='flooringStyle') Flooring Style/Brand &nbsp
+            input.form-control(name='flooringStyle', ng-model='kitchen.flooringStyle', type='text')
+        .form-group
+          label(for='flooringColor') Flooring Color &nbsp
+            input.form-control(name='flooringColor', ng-model='kitchen.flooringColor', type='text')
+        .form-group
+          label(for='counter') Counter &nbsp
+            select.form-control(name='counter', ng-model='kitchen.counter')
+              option(value='') Select a Counter
+              option(ng-repeat='counter in counters') {{counter}}
+        .form-group
+          label(for='counterStyle') Counter Style/Brand &nbsp
+            input.form-control(name='counterStyle', ng-model='kitchen.counterStyle', type='text')
+  .col-md-2
+        .form-group
+          label(for='counterColor') Counter Color &nbsp
+            input.form-control(name='counterColor', ng-model='kitchen.counterColor', type='text')
+        .form-group
+          label(for='stoveBrand') Stove Brand &nbsp
+            input.form-control(name='stoveBrand', ng-model='kitchen.stoveBrand', type='text')
+        .form-group
+          label(for='stoveModel') Stove Model &nbsp
+            input.form-control(name='stoveModel', ng-model='kitchen.stoveModel', type='text')
+        .form-group
+          label(for='stoveWidth') Stove Width &nbsp
+            input.form-control(name='stoveWidth', model='house.misc.stoveWidth', type='text', placeholder='30 inches')
+  .col-md-2
+        .form-group
+          label(for='fridgeBrand') Refridgerator Brand &nbsp
+            input.form-control(name='fridgeBrand', ng-model='kitchen.fridgeBrand', type='text')
+        .form-group
+          label(for='fridgeModel') Refridgerator Model &nbsp
+            input.form-control(name='frigeModel', ng-model='kitchen.fridgeModel', type='text')
+        .form-group
+          label(for='fridgeWidth') Refridgerator Width &nbsp
+            input.form-control(name='fridgeWidth', model='house.misc.fridgeWidth', type='text', placeholder='36 inches')
+        .form-group
+          label(for='fridgeHeight') Refridgerator Height &nbsp
+            input.form-control(name='fridgeHeight', model='house.misc.fridgeHeight', type='text', placeholder='69 inches')
+  .col-md-2.kitchen-notes
+        .form-group
+          label(for='notes') Notes
+          textarea.form-control(name='notes', rows='3', ng-model='kitchen.notes')
+        button.btn.btn-primary(ng-click='updateKitchen()') Save
