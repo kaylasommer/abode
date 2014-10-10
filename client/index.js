@@ -5,6 +5,7 @@
   .config(['$routeProvider', '$httpProvider', '$localForageProvider', function($routeProvider, $httpProvider, $localForageProvider){
     $routeProvider
     .when('/', {templateUrl:'/views/home/home.html', controller:'HomeCtrl'})
+    .when('/404', {templateUrl:'/views/404.html'})
     .when('/logout',   {templateUrl:'/views/logout/logout.html', controller:'LogoutCtrl'})
     .when('/dashboard',   {templateUrl:'/views/dashboard/dashboard.html', controller:'DashboardCtrl'})
     .when('/tutorial',   {templateUrl:'/views/tutorial/tutorial.html', controller:'TutorialCtrl'})

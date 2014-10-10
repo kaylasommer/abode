@@ -6,7 +6,7 @@
 
     function responseError(res){
       if(res.status === 401){
-        $location.path('/login');
+        $location.path('/404');
       }
 
       return $q.reject(res);
