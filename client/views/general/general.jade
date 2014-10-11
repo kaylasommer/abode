@@ -63,5 +63,5 @@
     .form-group
       label.notes(for='notes') Notes
         textarea.form-control.col-xs-12(name='notes', rows='1', cols='36', ng-model='general.notes')
-    button.btn.btn-primary.pull-right(ng-click='updateGeneral()') Save
+    button.btn.btn-primary.pull-right#gen-btn(ng-click='updateGeneral()') Save
   .col-xs-1

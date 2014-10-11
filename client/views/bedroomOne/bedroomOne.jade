@@ -32,8 +32,8 @@
   .col-md-2
         .form-group.bedroom-notes
           label(for='notes') Notes
-          textarea.form-control(name='notes', rows='3', ng-model='bedroomOne.notes')
-        button.btn.btn-primary(ng-click='updateBedroomOne()') Save
+          textarea.form-control.bedroom-textarea(name='notes', rows='10', ng-model='bedroomOne.notes')
+        button.btn.btn-primary.pull-right(ng-click='updateBedroomOne()') Save
   .col-md-3
 
 

@@ -6,11 +6,11 @@
 
   .col-xs-1
   .col-xs-5(ng-show='house')
-    img.house-img.img-rounded(ng-src='{{house.photo}}')
+    img.house-img.img-rounded(ng-src='{{house.photo}}' || 'assets/img/grey-house.jpg')
     .edit.fui-new(ng-click='open()')
 .row
   tabset(justified='true')
-    tab(heading='Edit House', active='tab.active')
+    tab.tab(heading='Edit House', active='tab.active')
       .specForms
         a#general(href='/#/general/{{house._id}}')
           h3 General
@@ -33,17 +33,18 @@
         a#bedroom-two(href='/#/bedroomTwo/{{house._id}}')
           h3 Bedroom Two
 
-    tab(heading='House Details')
+    tab.tab(heading='House Details')
       .specInfo
-        h3 Can't remember what color you painted the living room?
-          h4 Don't worry, we got you covered.
+        h3.spec-header.first-title Can't remember what color you painted the living room?
+        h4.spec-header.sub-title Don't worry, we got you covered.
         div(accordion)
           accordion-group
             accordion-heading
               | General
               i.fa.fa-fw.fa-chevron.pull-right
             .col-xs-6
-              a(href='/#/general/{{house._id}}'): i.fa.fa-fw.fa-pencil
+              .col-xs-12
+                a(href='/#/general/{{house._id}}'): i.fa.fa-fw.fa-pencil
               table.table
                 tr
                   th(colspan=2) Built
@@ -86,6 +87,7 @@
                     td
 
             .col-xs-6
+              .col-xs-12.margin-bar
               table.table
                 tr
                   th(rowspan=4) Front Door

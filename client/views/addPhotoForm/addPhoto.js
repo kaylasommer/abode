@@ -16,7 +16,7 @@
     };
 
     $scope.ok = function(){
-      $modalInstance.close();
+      $modalInstance.close($scope.page);
     };
 
     $scope.cancel = function(){

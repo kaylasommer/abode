@@ -44,8 +44,8 @@
   .col-md-2.laundry-notes
         .form-group
           label(for='notes') Notes
-          textarea.form-control(name='notes', rows='3', ng-model='laundry.notes')
-        button.btn.btn-primary(ng-click='updateLaundry()') Save
+          textarea.form-control.laundry-textarea(name='notes', rows='10', ng-model='laundry.notes')
+        button.btn.btn-primary.pull-right(ng-click='updateLaundry()') Save
   .col-md-2
 
 

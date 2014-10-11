@@ -7,10 +7,14 @@
 
     $scope.open = function(size){
 
-      $modal.open({
+      var modalInstance = $modal.open({
         templateUrl: '/views/addPhotoForm/addPhoto.html',
         controller: 'AddPhotoCtrl',
         size: size
+      });
+
+      modalInstance.result.then(function (page){
+        $scope.page = page;
       });
     };
 

@@ -32,8 +32,8 @@
   .col-md-2.livingroom-notes
         .form-group
           label(for='notes') Notes
-          textarea.form-control(name='notes', rows='3', ng-model='livingroom.notes')
-        button.btn.btn-primary(ng-click='updateLivingroom()') Save
+          textarea.form-control.living-textarea(name='notes', rows='10', ng-model='livingroom.notes')
+        button.btn.btn-primary.pull-right(ng-click='updateLivingroom()') Save
   .col-md-3
 
 

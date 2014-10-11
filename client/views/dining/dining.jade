@@ -34,7 +34,7 @@
   .col-md-2
         .form-group.dining-notes
           label(for='notes') Notes
-          textarea.form-control(name='notes', rows='3', ng-model='dining.notes')
-        button.btn.btn-primary(ng-click='updateDining()') Save
+          textarea.form-control.dining-textarea(name='notes', rows='10', ng-model='dining.notes')
+        button.btn.btn-primary.pull-right(ng-click='updateDining()') Save
   .col-md-3
 
