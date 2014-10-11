@@ -3,11 +3,18 @@
     .col-xs-1
     .col-xs-3
       img.avatar(ng-src='{{user.avatar}}', tooltip='This is your avatar. It will change depending on how many goals you complete!', tooltip-placement='bottom')
-    .col-xs-2.board
+    .col-xs-3.board
+      button.btn.btn-primary.modal-btn(ng-click='open()') Checkout the Tutorial!
+        i.fa.fa-fw.fa-info.fa-lg
       h5 {{user.name}}
-      h6 Goals Completed: {{user.completed}}
-      h6 Level: {{user.level}}
-    .col-xs-5
+      table.table.table-hover
+        tr
+          th Goals Completed:
+          td.number-score {{user.completed}}
+        tr
+          th Level:
+          td.level {{user.level}}
+    .col-xs-4
       .twitter
         h3.lead Trending
     .col-xs-1
@@ -65,6 +72,30 @@
                   span.icons.pull-right
                     span.icon-unchecked
                     span.icon-checked
+        div.goal-list(accordion, close-others='oneAtATime')
+          accordion-group
+            accordion-heading(tooltip-placement='top', tooltip='Manage your goals here.')
+              | Replace Window Screens
+              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
+            small.tags Windows
+            small.tags Weekend Project
+            p.goal-complete-btn: a.btn.btn-danger.col-xs-12 I completed this goal! &nbsp;
+              span.fui-check
+            form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
+              .form-group.no-margin
+                .col-xs-11.task-name
+                  label(for='taskName')
+                  input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
+                .col-xs-1.task-add-btn
+                  button.btn.fui-plus
+            form.form(role='form', name='taskToggleForm')
+            ul.task-list(ng-model='otherTasks', ui-sortable='sortableOptions')
+              li(ng-repeat='t in otherTasks')
+                label.checkbox(for='taskComplete') {{t}}
+                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox')
+                  span.icons.pull-right
+                    span.icon-unchecked
+                    span.icon-checked
       .house
         h3(tooltip='A customized list of recommendations.', tooltip-placement='top') Recommendations
         p We will cater recommendations based on the information you provide about your home.
@@ -103,4 +134,3 @@
             hr
           kj-parse(feeds='feeds')
     .col-xs-1
-

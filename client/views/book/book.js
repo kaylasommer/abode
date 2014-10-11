@@ -13,7 +13,7 @@
         size: size
       });
 
-      modalInstance.result.then(function (page){
+      modalInstance.result.then(function(page){
         $scope.page = page;
       });
     };

@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('abode')
-  .controller('TutorialCtrl', ['$scope', 'Dashboard', 'Goal', 'User', '$location', function($scope, Dashboard, Goal, User, $location){
-
+  .controller('TutorialCtrl', ['$scope', 'Dashboard', 'Goal', 'User', '$location', '$modal', function($scope, Dashboard, Goal, User, $location, $modal){
+    $scope.tutorial = true;
     $scope.oneAtATime = true;
     $scope.status = {
       isFirstOpen: true,
@@ -15,6 +15,7 @@
     $scope.house = {};
     $scope.recommendations = {};
     $scope.subForm = {};
+    $scope.subForm = false;
     $scope.possibleFeeds = [
       {name: 'Dwell on Kitchens', url: 'http://www.dwell.com/kitchens/feed'},
       {name: 'Dwell Articles', url: 'http://www.dwell.com/articles/feed'},
@@ -24,10 +25,27 @@
       {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
     ];
 
+    $scope.open = function(size){
+
+      $modal.open({
+        templateUrl: '/views/tutorialModal/tutorialModal.html',
+        controller: 'TutorialModalCtrl',
+        size: size
+      });
+
+    };
+
     $scope.tasks = [
       'This is Task One',
       'This is Task Two',
       'This is Task Three'
+    ];
+
+    $scope.otherTasks = [
+      'Measure current screens.',
+      'Order the screens from local Home Improvement Store.',
+      'Replace all the screens.',
+      'Recycle old screens.'
     ];
 
     Dashboard.findAll().then(function(response){
@@ -41,10 +59,6 @@
         });
       }
     });
-
-    $scope.swivel = function(){
-      $scope.status.open = !!!$scope.status.open;
-    };
 
     $scope.subscribeUser = function(){
       User.subscribeToRss($scope.user).then(function(response){
