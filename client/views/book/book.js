@@ -3,7 +3,10 @@
 
   angular.module('abode')
   .controller('BookCtrl', ['$scope', 'Book', '$modal', function($scope, Book, $modal){
-    $scope.page = {};
+
+    Book.getUsersPages().then(function(response){
+      $scope.pages = response.data.pages;
+    });
 
     $scope.open = function(size){
 
@@ -16,11 +19,9 @@
       modalInstance.result.then(function(page){
         $scope.page = page;
       });
+
     };
 
-    Book.getUsersPages().then(function(response){
-      $scope.pages = response.data.pages;
-    });
 
   }]);
 })();

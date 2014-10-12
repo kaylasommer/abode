@@ -45,9 +45,9 @@ Page.findAllByUserId = function(id, cb){
 
 Page.prototype.addPhoto = function(page, cb){
   if (!page.photo.size) { return; }
-  var self = this;
+  var self = this,
 
-  var dir = __dirname + '/../../client/assets/img/' + self._id,
+  dir = __dirname + '/../../client/assets/img/' + self._id,
     exist = fs.existsSync(dir);
 
   if(!exist){
@@ -64,7 +64,9 @@ Page.prototype.addPhoto = function(page, cb){
   self._id   = Mongo.ObjectID(self._id[0]);
   self.desc  = self.desc[0];
 
-  Page.collection.save(self, cb);
+  Page.collection.save(self, function(){
+    cb(null, self);
+  });
 };
 
 module.exports = Page;
