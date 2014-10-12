@@ -3,22 +3,17 @@
     .col-xs-1
     .col-xs-3
       img.avatar(ng-src='{{user.avatar}}')
-    .col-xs-3.board
+    .col-xs-2.board
       h5 {{user.name}}
-      table.table.table-hover
-        tr
-          th Goals Completed:
-          td.number-score {{user.completed}}
-        tr
-          th Level:
-          td.level {{user.level}}
-    .col-xs-4
+      h6 Goals Completed: {{user.completed}}
+      h6 Level: {{user.level}}
+    .col-xs-5
       .twitter
-        h3.lead Trending
+        kj-trending
     .col-xs-1
   .row
-    a.idea(href='/#/book'): div.fui-bookmark &nbsp Have an Idea?
-    a.homefolio(href='/#/house'): div.fui-folder &nbsp Update Your Homefolio
+    a.idea(href='/#/book'): div.fui-bookmark &nbsp Found a picture you absolutely love? Put it in your Ideabook!
+    a.homefolio(href='/#/house'): div.fui-folder &nbsp Recently purchased a house? Update Your Homefolio.
   .clearfix
   .row
     .col-xs-1
