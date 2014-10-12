@@ -4,12 +4,12 @@
   h4.text-center Extras
 .row
   .col-xs-1
-  .col-xs-10
+  .col-xs-10#extra-form-div
     form.form(role='form', name='extraHouseForm', novalidate)
       .form-group(ng-repeat='feature in features')
         label.checkbox.checkbox-inline.extra-form.pull-left(for='pool') {{feature.feature | titleCase}} &nbsp
           input.form-control#large-checkbox.custom-checkbox(name='{{feature.feature}}', ng-model='feature.has', type='checkbox')
-          span.icons.pull-right
+          span.icons.pull-right.extra-icons
             span.icon-unchecked
             span.icon-checked
       .clearfix
