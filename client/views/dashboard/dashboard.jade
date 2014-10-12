@@ -91,8 +91,8 @@
         .rss
           h4.lead
             i.fa.fa-fw.fa-2x.fa-rss
-            button.btn.btn-primary.pull-right(ng-click='toggleSubscribe()') Choose Your Feeds
-          .subscribe(ng-hide='subForm')
+            button.btn.btn-primary.pull-right(ng-click='subForm = !subForm') Choose Your Feeds
+          .subscribe(ng-show='subForm', ng-hide= 'user.subscriptions.length > 0')
             small To select multiples hold down CMD for a Mac and CTRL for a PC.
             form.form(role='form', name='rssForm', novalidate)
               select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in possibleFeeds', multiple)

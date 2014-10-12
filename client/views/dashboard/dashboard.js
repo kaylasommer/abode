@@ -15,10 +15,9 @@
       {name: 'Dwell Articles', url: 'http://www.dwell.com/articles/feed'},
       {name: 'Mother Living: Your Natural Home', url:'http://www.motherearthliving.com/rss/blogs/your_natural_home.aspx'},
       {name: 'Style At Home', url: 'http://www.styleathome.com/feeds/editorial_feed.xml'},
-      {name: 'House and Home: Design', url: 'http://houseandhome.com/rss/feeds/design'},
-      {name: 'Inhabitant: Sustainable Design Innovation on Interiors', url: 'http://feeds.feedburner.com/inhabitat/interiors'}
+      {name: 'House and Home: Design', url: 'http://houseandhome.com/rss/feeds/design'}
     ];
-    $scope.subForm = false;
+
     Dashboard.findAll().then(function(response){
       $scope.user = response.data.user;
       $scope.feeds = $scope.user.subscriptions;
@@ -37,10 +36,6 @@
         $scope.feeds = $scope.user.subscriptions;
         toastr.success('Awesome! We will have your feeds up shortly!');
       });
-    };
-
-    $scope.toggleSubscribe = function(){
-      $scope.subForm = !!!$scope.subForm;
     };
 
 
