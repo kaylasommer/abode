@@ -26,7 +26,11 @@ html(ng-app='abode', lang='en')
   body
     include nav
     .container
-      #container(ng-view)
+      #container(ng-view, ng-cloak)
+    .footer
+      .col-xs-12.signature
+        i.fa.fa-fw.fa-copyright
+        small Kayla Lyn Jones
 
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/jquery-ui/jquery-ui.min.js')

@@ -69,10 +69,6 @@
       });
     };
 
-    $scope.toggleSubscribe = function(){
-      $scope.subForm = !!!$scope.subForm;
-    };
-
     $scope.sortableOptions = {
       stop: function(e, ui){
         var goal = ui.item.scope().$parent.$parent.goal;
