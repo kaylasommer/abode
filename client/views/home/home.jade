@@ -8,8 +8,8 @@
 
   .row
     .col-xs-12.forms
-      .col-xs-2
-      .col-xs-8.reg
+      .col-xs-4
+      .col-xs-4.reg
         #registration(ng-show='showRegister')
           form(role='form', novalidate, name='newUserForm')
             .form-group
@@ -22,11 +22,11 @@
               label(for='newPassword')
               input.form-control#newPassword(type='password', name='newPassword', placeholder='Password', ng-model='newUser.password', required, ng-minlength='4')
             button.btn.btn-primary(ng-show='newUserForm.$valid', ng-click='register()') Register
-      .col-xs-2
+      .col-xs-4
 
 
-      .col-xs-2
-      .col-xs-8.log
+      .col-xs-4
+      .col-xs-4.log
         #authentication(ng-show='showLogin')
           form(role='form', novalidate, name='userForm')
             .form-group
@@ -36,5 +36,5 @@
               label(for='password')
               input.form-control#password(type='password', name='password', placeholder='Password', ng-model='user.password', required, ng-minlength='3')
             button.btn.btn-primary(ng-show='userForm.$valid', ng-click='login()') Login
-      .col-xs-2
+      .col-xs-4
 
