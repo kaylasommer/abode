@@ -43,25 +43,26 @@
             input.form-control(name='backDoorMeasurements', ng-model='general.backDoorMeasurements', type='text')
   .col-xs-4
     .col-xs-6
-        .form-group
-          label(for='typeOfWindow') Type of Windows &nbsp
-            select.form-control(name='typeOfWindow', ng-model='general.typeOfWindow')
-              option(value='') Select a Window Type
-              option(ng-repeat='window in windows') {{window}}
-        .form-group
-          label(for='windowBrand') Window Brand &nbsp
-            input.form-control(name='windowBrand', ng-model='general.windowBrand', type='text')
+      .form-group
+        label(for='typeOfWindow') Type of Windows &nbsp
+          select.form-control(name='typeOfWindow', ng-model='general.typeOfWindow')
+            option(value='') Select a Window Type
+            option(ng-repeat='window in windows') {{window}}
+      .form-group
+        label(for='windowBrand') Window Brand &nbsp
+          input.form-control(name='windowBrand', ng-model='general.windowBrand', type='text')
     .col-xs-6
-        .form-group
-          label(for='built') Year Built
-            input.form-control(name='built', ng-model='general.built', type='number', placeholder='1950')
-        .form-group
-          label(for='type') Type
-            select.form-control(name='type', ng-model='general.type')
-              option(value='') Select a House Type
-              option(ng-repeat='type in types') {{type}}
-    .form-group
-      label.notes(for='notes') Notes
-        textarea.form-control.col-xs-12(name='notes', rows='1', cols='36', ng-model='general.notes')
-    button.btn.btn-primary.pull-right#gen-btn(ng-click='updateGeneral()') Save
+      .form-group
+        label(for='built') Year Built
+          input.form-control(name='built', ng-model='general.built', type='number', placeholder='1950')
+      .form-group
+        label(for='type') Type
+          select.form-control(name='type', ng-model='general.type')
+            option(value='') Select a House Type
+            option(ng-repeat='type in types') {{type}}
+    .col-xs-12
+      .form-group
+        label.notes(for='notes') Notes
+          textarea.form-control.col-xs-12(name='notes', rows='1', cols='36', ng-model='general.notes')
+      button.btn.btn-primary.pull-right#gen-btn(ng-click='updateGeneral()') Save
   .col-xs-1
