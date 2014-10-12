@@ -6,15 +6,15 @@
     $scope.house = house;
 
     $scope.addHouse = function(){
-      $modalInstance.close();
+      $modalInstance.close($scope.house);
       House.create($scope.house).then(function(response){
         house.photo = response.data.house.photo;
         toastr.success('Your Photo has been changed, it will load on refresh!');
       });
     };
 
-    $scope.ok = function(){
-      $modalInstance.close();
+    $scope.cancel = function(){
+      $modalInstance.dismiss('cancel');
     };
 
   }]);
