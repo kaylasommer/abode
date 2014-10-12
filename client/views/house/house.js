@@ -9,7 +9,7 @@
 
     $scope.open = function(size){
 
-      $modal.open({
+      var modalInstance = $modal.open({
         templateUrl: '/views/editHouseForm/editHouse.html',
         controller: 'EditHouseCtrl',
         size: size,
@@ -18,6 +18,9 @@
             return $scope.house;
           }
         }
+      });
+      modalInstance.result.then(function(house){
+        $scope.house = house;
       });
     };
 
