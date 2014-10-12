@@ -1,0 +1,12 @@
+.col-xs-12.well.well-lg
+  .close.fui-cross-circle.pull-right(ng-click='ok()')
+  h4 Tell Us About Your House
+  form.form(role='form', ng-model='house', name='addHouseForm', novalidate)
+    .form-group
+      label(for='loc') Zip Code
+        input.form-control(name='loc', ng-model='house.loc', type='number', required, ng-minlength='5', placeholder='{{house.loc}}' || '37216')
+    .form-group
+      label(for='photo') Photo
+        input.form-control(name='photo', kj-file-model='house.photoUpload', type='file')
+    button.btn.btn-success(type='submit', ng-click='addHouse()') Save
+

@@ -1,0 +1,39 @@
+.back
+  a.fui-arrow-left(href='/#/house') &nbsp Back
+.title
+  h4.text-center Livingroom
+.row
+  .col-md-3
+  .col-md-2
+    form.form(role='form', name='livingroomHouseForm', novalidate)
+        .form-group
+          label(for='wallCovering') Wall-covering &nbsp
+            select.form-control(name='wallCovering', ng-model='livingroom.wallCovering')
+              option(value='') Select a Wall-covering
+              option(ng-repeat='wallcover in wallcoverings') {{wallcover}}
+        .form-group
+          label(for='wallCoveringStyle') Wall-covering Style/Brand &nbsp
+            input.form-control(name='wallCoveringStyle', ng-model='livingroom.wallCoveringStyle', type='text')
+        .form-group
+          label(for='wallCoveringColor') Wall-covering Color &nbsp
+            input.form-control(name='wallCoveringColor', ng-model='livingroom.wallCoveringColor', type='text')
+  .col-md-2
+        .form-group
+          label(for='flooring') Flooring &nbsp
+            select.form-control(name='flooring', ng-model='livingroom.flooring')
+              option(value='') Select a Flooring
+              option(ng-repeat='floor in floorings') {{floor}}
+        .form-group
+          label(for='flooringStyle') Flooring Style/Brand &nbsp
+            input.form-control(name='flooringStyle', ng-model='livingroom.flooringStyle', type='text')
+        .form-group
+          label(for='flooringColor') Flooring Color &nbsp
+            input.form-control(name='flooringColor', ng-model='livingroom.flooringColor', type='text')
+  .col-md-2.livingroom-notes
+        .form-group
+          label(for='notes') Notes
+          textarea.form-control.living-textarea(name='notes', rows='10', ng-model='livingroom.notes')
+        button.btn.btn-primary.pull-right(ng-click='updateLivingroom()') Save
+  .col-md-3
+
+

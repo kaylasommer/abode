@@ -1,0 +1,67 @@
+.back
+  a.fui-arrow-left(href='/#/house') &nbsp Back
+.title
+  h4.text-center General
+.row
+  .col-md-1
+  .col-md-2
+    form.form(role='form', name='generalHouseForm', novalidate)
+        .form-group
+          label(for='typeOfSiding') Type of Siding? &nbsp
+            select.form-control(name='typeOfSiding', ng-model='general.typeOfSiding')
+              option(value='') Select a Siding
+              option(ng-repeat='siding in sidings') {{siding}}
+        .form-group
+          label(for='sidingStyle') Siding Style/Brand &nbsp
+            input.form-control(name='sidingStyle', ng-model='general.sidingStyle', type='text')
+        .form-group
+          label(for='sidingColor') Siding Color &nbsp
+            input.form-control(name='sidingColor', ng-model='general.sidingColor', type='text')
+  .col-xs-2
+        .form-group
+          label(for='typeFrontDoor') Type of FrontDoor &nbsp
+            select.form-control(name='typeOfFrontDoor', ng-model='general.typeOfFrontDoor')
+              option(value='') Select a Door Type
+              option(ng-repeat='door in doors') {{door}}
+        .form-group
+          label(for='frontDoorColor') Frontdoor Color &nbsp
+            input.form-control(name='frontDoorColor', ng-model='general.frontDoorColor', type='text')
+        .form-group
+          label(for='frontDoorMeasurements') Frontdoor Measurements &nbsp
+            input.form-control(name='frontDoorMeasurements', ng-model='general.frontDoorMeasurements', type='text')
+  .col-xs-2
+        .form-group
+          label(for='typeBackDoor') Type of BackDoor &nbsp
+            select.form-control(name='typeOfBackDoor', ng-model='general.typeOfBackDoor')
+              option(value='') Select a Door Type
+              option(ng-repeat='door in doors') {{door}}
+        .form-group
+          label(for='backDoorColor') Backdoor Color &nbsp
+            input.form-control(name='backDoorColor', ng-model='general.backDoorColor', type='text')
+        .form-group
+          label(for='backDoorMeasurements') Backdoor Measurements &nbsp
+            input.form-control(name='backDoorMeasurements', ng-model='general.backDoorMeasurements', type='text')
+  .col-xs-4
+    .col-xs-6
+        .form-group
+          label(for='typeOfWindow') Type of Windows &nbsp
+            select.form-control(name='typeOfWindow', ng-model='general.typeOfWindow')
+              option(value='') Select a Window Type
+              option(ng-repeat='window in windows') {{window}}
+        .form-group
+          label(for='windowBrand') Window Brand &nbsp
+            input.form-control(name='windowBrand', ng-model='general.windowBrand', type='text')
+    .col-xs-6
+        .form-group
+          label(for='built') Year Built
+            input.form-control(name='built', ng-model='general.built', type='number', placeholder='1950')
+        .form-group
+          label(for='type') Type
+            select.form-control(name='type', ng-model='general.type')
+              option(value='') Select a House Type
+              option(ng-repeat='type in types') {{type}}
+    .form-group
+      label.notes(for='notes') Notes
+        textarea.form-control.col-xs-12(name='notes', rows='1', cols='36', ng-model='general.notes')
+    button.btn.btn-primary.pull-right#gen-btn(ng-click='updateGeneral()') Save
+  .col-xs-1

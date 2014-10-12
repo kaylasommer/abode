@@ -1,4 +1,40 @@
-h3 The MEAN Stack
-ul(ng-show='mean')
-  li(ng-repeat='technology in mean') {{technology}}
+.bkgrd-img
+  .banner
+    h1 Abode
+    h3.lead Your Home, Inspired.
+  .row.bar
+    h4(ng-click='toggleRegister()') Register
+    h4(ng-click='toggleLogin()') Login
+
+  .row
+    .col-xs-12.forms
+      .col-xs-4
+      .col-xs-4.reg
+        #registration(ng-show='showRegister')
+          form(role='form', novalidate, name='newUserForm')
+            .form-group
+              label(for='newName')
+              input.form-control#newName(type='text', name='newName', placeholder='Name', ng-model='newUser.name', required, ng-minlength='3')
+            .form-group
+              label(for='newEmail')
+              input.form-control#newEmail(type='email', name='newEmail', placeholder='Email', ng-model='newUser.email', required)
+            .form-group
+              label(for='newPassword')
+              input.form-control#newPassword(type='password', name='newPassword', placeholder='Password', ng-model='newUser.password', required, ng-minlength='4')
+            button.btn.btn-primary(ng-show='newUserForm.$valid', ng-click='register()') Register
+      .col-xs-4
+
+
+      .col-xs-4
+      .col-xs-4.log
+        #authentication(ng-show='showLogin')
+          form(role='form', novalidate, name='userForm')
+            .form-group
+              label(for='email')
+              input.form-control#email(type='email', name='email', placeholder='Email', ng-model='user.email', required)
+            .form-group
+              label(for='password')
+              input.form-control#password(type='password', name='password', placeholder='Password', ng-model='user.password', required, ng-minlength='3')
+            button.btn.btn-primary(ng-show='userForm.$valid', ng-click='login()') Login
+      .col-xs-4
 

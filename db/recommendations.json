@@ -1,0 +1,385 @@
+{
+  "_id" : {"$oid":"e00000000000000000000001"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "85",
+  "season" : ["spring" , "fall"],
+  "area" : "outdoors",
+  "necFeature" : "yard",
+  "freq" : "yearly",
+  "rec" : "Repair and paint/seal your fence."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000002"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "85",
+  "season" : ["spring", "fall"],
+  "area" : "outdoors",
+  "necFeature" : "deck",
+  "freq" : "yearly",
+  "rec" : "Clean, repair, and apply sealer to your deck."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000003"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall"],
+  "area" : "outdoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Walk around your house and check the foundation for any places where water can accumulate around the foundation. Also look for cracks."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000004"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall"],
+  "area" : "outdoors",
+  "necFeature" : "septic tank",
+  "freq" : "yearly",
+  "rec" : "Check to make sure your septic tank is in good condition, look for nearby trees whose roots can interfere. Hire a licensed and bonded septic-pumping contractor to test the tank and have the sludge pumped out when the scum and sludge layers equal 1/3 the total capacity of your septic tank."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000005"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "both",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Clean your A/C drainage pipes both outdoors and indoors"
+}
+{
+  "_id" : {"$oid":"e00000000000000000000006"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Drain and flush out any deposits in your Hot Water Heater."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000007"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "both",
+  "necFeature" : "garage",
+  "freq" : "yearly",
+  "rec" : " Lubricate your garage door springs."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000008"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "85",
+  "season" : ["spring", "fall"],
+  "area" : "outdoors",
+  "necFeature" : "yard",
+  "freq" : "yearly",
+  "rec" : "Aerate your lawn."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000009"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : "yard",
+  "freq" : "yearly",
+  "rec" : "Have your lawnmowers blades sharpened at your local lawncare center."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000010"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Clean out your dryer vent. Begin where it first goes into the wall until it exits the house, be sure to check for birds nest as well."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000011"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "40",
+  "maxTemperature" : "85",
+  "season" : ["fall"],
+  "area" : "indoors",
+  "necFeature" : "fireplace",
+  "freq" : "yearly",
+  "rec" : "Hire a chimney sweep."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000012"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Clean behind your refrigerator."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000013"},
+  "minHumidity" : "40",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "85",
+  "season" : ["spring", "summer", "fall"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Polish and seal countertops."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000014"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Check that your fire estinguishers are in working order."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000015"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : "basement",
+  "freq" : "yearly",
+  "rec" : "Make sure your sump pump is in working order."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000016"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "70",
+  "season" : ["spring", "fall"],
+  "area" : "indoors",
+  "necFeature" : "attic",
+  "freq" : "yearly",
+  "rec" : "Inspect your attic for rodents and leaks."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000017"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "85",
+  "season" : ["spring", "summer", "fall"],
+  "area" : "outdoors",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Inspect your roof for leaks, buckles and missing shingles."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000018"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "60",
+  "maxTemperature" : "85",
+  "season" : ["spring"],
+  "area" : "outdoors",
+  "necFeature" : "sprinkler",
+  "freq" : "yearly",
+  "rec" : "Check sprinkler heads for damage and trim the grass back that surrounds them."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000019"},
+  "minHumidity" : "0",
+  "maxHumidity" : "80",
+  "minTemperature" : "40",
+  "maxTemperature" : "80",
+  "season" : ["fall"],
+  "area" : "outdoors",
+  "necFeature" : "yard",
+  "freq" : "yearly",
+  "rec" : "Trim back bushes and plant new trees."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000020"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "33",
+  "maxTemperature" : "50",
+  "season" : ["fall", "winter"],
+  "area" : "outdoors",
+  "necFeature" : "yard",
+  "freq" : "yearly",
+  "rec" : "Disconnect and turn off waterhose before the first freeze."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000021"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "50",
+  "maxTemperature" : "80",
+  "season" : ["spring", "fall"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "biyearly",
+  "rec" : "Check and repair weather-stripping and caulk."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000022"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "80",
+  "season" : ["spring", "fall"],
+  "area" : "outdoors",
+  "necFeature" : "gutters",
+  "freq" : "biyearly",
+  "rec" : "Clean out gutters and perform necessary repairs."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000022"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "biyearly",
+  "rec" : "Seal your grout and redo the caulking."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000023"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring", "summer", "fall", "winter"],
+  "area" : "both",
+  "necFeature" : null,
+  "freq" : "biyearly",
+  "rec" : "Clean your A/C units grills and coils."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000024"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring",  "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "biyearly",
+  "rec" : "Change your fire and carbon monoxide detectors batteries."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000025"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring",  "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "monthly",
+  "rec" : "Change you air filter."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000026"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring",  "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "monthly",
+  "rec" : "Clean filters in your HVAC and Furnace."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000027"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring",  "summer", "fall", "winter"],
+  "area" : "both",
+  "necFeature" : null,
+  "freq" : "monthly",
+  "rec" : "Check your plumbing for leaks to the supply line and the indoor plumbing."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000028"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring",  "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "monthly",
+  "rec" : "Clean your dishwasher drain bin."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000029"},
+  "minHumidity" : "0",
+  "maxHumidity" : "100",
+  "minTemperature" : "40",
+  "maxTemperature" : "90",
+  "season" : ["spring",  "summer", "fall", "winter"],
+  "area" : "indoors",
+  "necFeature" : null,
+  "freq" : "monthly",
+  "rec" : "Service your garbage disposal by crushing ice in it to sharpen it, and puting citrus rinds through it to freshen it."
+}
+{
+  "_id" : {"$oid":"e00000000000000000000030"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "80",
+  "season" : ["spring", "fall"],
+  "area" : "both",
+  "necFeature" : null,
+  "freq" : "biyearly",
+  "rec" : "Paint that room you have always wanted to spruce up!"
+}
+{
+  "_id" : {"$oid":"e00000000000000000000031"},
+  "minHumidity" : "0",
+  "maxHumidity" : "70",
+  "minTemperature" : "50",
+  "maxTemperature" : "80",
+  "season" : ["spring", "fall"],
+  "area" : "both",
+  "necFeature" : null,
+  "freq" : "yearly",
+  "rec" : "Paint your front door for an instant boost in curb appeal!"
+}
+

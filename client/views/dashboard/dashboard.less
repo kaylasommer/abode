@@ -1,0 +1,155 @@
+@import '../../variables.less';
+#dashboard {
+  background-color: @white;
+  .header{
+    height: 300px;
+    width: 100%;
+    padding: 15px 40px;
+    margin-top: 80px;
+    .twitter {
+      overflow: auto;
+      padding: 20px;
+    }
+    .avatar {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: @verywhite;
+      border: 3px solid @grey;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+    .board {
+      margin-top: 85px;
+      margin-left: -40px;
+      margin-right: 40px;
+
+      .number-score {
+        font-size: 2em !important;
+        color: @orange;
+      }
+      .level{
+        color: @orange;
+      }
+    }
+  }
+  .idea, .homefolio {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    font-size: 1.5em;
+    color: white;
+  }
+  .idea {
+    background-color: @red;
+    padding-left: 130px;
+    padding-top: 7px;
+  }
+  .homefolio {
+    background-color: @orange;
+    padding-left: 115px;
+    margin-bottom: 30px;
+    padding-top: 7px;
+  }
+  .fui-folder {
+    margin: 0 15px;
+  }
+  .goal {
+    padding: 20px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    min-height: 470px;
+
+    .panel-default > .panel-heading {
+      cursor: pointer;
+    }
+    .goal-list{
+      .goal-complete-btn {
+        height: 40px;
+      }
+      .complete{
+        color: grey;
+      }
+    }
+    .tags {
+      padding: 5px 10px;
+      background-color: @yellow;
+      border-radius: 30px;
+      color: white;
+      margin: 0 3px;
+    }
+    .goal-complete-btn {
+      margin-top: 10px;
+    }
+    .task-list {
+      list-style: none;
+      padding: 0;
+      margin-left: 0;
+    }
+    .task-add-btn, .task-rank, .task-name {
+      padding: 2px;
+    }
+    .task-add-btn {
+      margin-top: 5px;
+    }
+    label {
+      display: block;
+    }
+  }
+  .house{
+    padding: 20px 60px 20px 20px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    margin-top: 40px;
+    height: 900px;
+    overflow: auto;
+    margin-bottom: 20px;
+
+    h3, h4, h6 {
+      color: @red;
+      padding: 0 40px;
+    }
+    p {
+      padding: 0 40px;
+    }
+    ul {
+      list-style: none;
+    }
+  }
+  .twitter {
+    width: 100%;
+    height: 250px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    padding: 20px;
+  }
+  .trending{
+    .houzz {
+      margin: 0 auto;
+    }
+    .rss {
+      width: 100%;
+      background-color: @verywhite;
+      border: 2px solid @grey;
+      padding: 20px;
+      height: 900px;
+      margin-top: 40px;
+      overflow: auto;
+
+      h4 {
+        color: @orange;
+      }
+      .subscribe {
+        padding: 20px;
+
+        select {
+          height: 125px;
+        }
+        button {
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+}
+

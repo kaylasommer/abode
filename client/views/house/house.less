@@ -1,0 +1,83 @@
+@import '../../variables.less';
+.header {
+  padding: 60px;
+
+  h4 {
+    font-weight: lighter;
+  }
+}
+.house-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  position: relative;
+  margin: 10px;
+}
+.edit {
+  position: absolute;
+  cursor: pointer;
+  left: 190px;
+  top: 20px;
+}
+.edit:hover {
+  color: @teal;
+}
+.specForms {
+  padding: 70px 165px;
+  background-color: @verywhite;
+  overflow: hidden;
+}
+.specInfo {
+  background-color: @verywhite;
+  margin: 0;
+
+  h3, h4 {
+    text-align: center;
+  }
+
+  .first-title {
+    padding-top: 50px;
+  }
+
+  .sub-title {
+    font-weight: lighter;
+  }
+
+  .spec-header {
+    color: @red;
+    margin-top: 0;
+  }
+}
+.margin-bar {
+  height: 30px;
+}
+#general, #extras, #systems, #kitchen, #bathroom,
+#living, #laundry, #dining, #bedroom-one, #bedroom-two {
+  width: 200px;
+  height: 200px;
+  border: 9px solid #FABDB7;
+  float: left;
+  margin: 10px 20px;
+  border-radius: 10px;
+  background-color: @verywhite;
+  color: @dkred;
+  font-weight: lighter;
+
+  h3 {
+    text-align: center;
+    padding-top: 35px;
+  }
+}
+#general:hover, #extras:hover, #systems:hover, #kitchen:hover, #bathroom:hover,
+#living:hover, #laundry:hover, #dining:hover, #bedroom-one:hover, #bedroom-two:hover {
+  background-color: @red;
+  color: #FFD200;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: @grey;
+}
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
+}
+.tab {
+  cursor: pointer;
+}

@@ -1,0 +1,136 @@
+#dashboard
+  .header
+    .col-xs-1
+    .col-xs-3
+      img.avatar(ng-src='{{user.avatar}}', tooltip='This is your avatar. It will change depending on how many goals you complete!', tooltip-placement='bottom')
+    .col-xs-3.board
+      button.btn.btn-primary.modal-btn(ng-click='open()') Checkout the Tutorial!
+        i.fa.fa-fw.fa-info.fa-lg
+      h5 {{user.name}}
+      table.table.table-hover
+        tr
+          th Goals Completed:
+          td.number-score {{user.completed}}
+        tr
+          th Level:
+          td.level {{user.level}}
+    .col-xs-4
+      .twitter(tooltip-placement='left', tooltip='Check out what is trending in home improvement!')
+        kj-trending
+    .col-xs-1
+  .row
+    a.idea(href='/#/book', tooltip-placement='top', tooltip='Here you can save images that give you inspiration.'): div.fui-bookmark &nbsp Have an Idea?
+    a.homefolio(href='/#/house', tooltip-placement='bottom', tooltip='Here you can save information about your house.'): div.fui-folder &nbsp Update Your Homefolio
+  .clearfix
+  .row
+    .col-xs-1
+    .col-xs-5
+      .goal
+        h4(tooltip-placement='top', tooltip='Set goals for your home renovations. Be sure to include tags so you can search goals easily.') Goals
+        div(accordion close-others='oneAtATime')
+          accordion-group
+            accordion-heading
+              | Set a Goal
+              i.fa.fa-fw.fa-plus.pull-right
+            form.form#goal-form(role='form', name='goalForm', novalidate)
+              .form-group
+                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title')
+              .form-group
+                input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tags')
+              .form-group
+                button.btn.btn-primary.pull-right(ng-show='goalForm.$valid') Add Goal
+        h5(tooltip-placement='top', tooltip='Search for goals.') Find a specific goal
+        .filter
+          form.form-inline#filter(role='form', name='filterForm', disabled)
+          .form-group
+            label.sr-only(for='filter')
+            .input-group
+              .input-group-addon: i.fa.fa-fw.fa-filter
+              input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
+        div.goal-list(accordion, close-others='oneAtATime')
+          accordion-group(is-open='status.isFirstOpen')
+            accordion-heading(tooltip-placement='top', tooltip='Manage your goals here.')
+              | Your Super Awesome Goal Here
+              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
+            small.tags Cool
+            small.tags Tags
+            small.tags Here
+            p.goal-complete-btn: a.btn.btn-danger.col-xs-12 I completed this goal! &nbsp;
+              span.fui-check
+            form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
+              .form-group.no-margin
+                .col-xs-11.task-name
+                  label(for='taskName')
+                  input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
+                .col-xs-1.task-add-btn
+                  button.btn.fui-plus
+            form.form(role='form', name='taskToggleForm')
+            ul.task-list(ng-model='tasks', ui-sortable='sortableOptions', tooltip-placement='bottom', tooltip='Tasks can be reordered by clicking and dragging. Dont Forget to Check them off when your done!')
+              li(ng-repeat='task in tasks')
+                label.checkbox(for='taskComplete') {{task}}
+                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox', checked)
+                  span.icons.pull-right
+                    span.icon-unchecked
+                    span.icon-checked
+        div.goal-list(accordion, close-others='oneAtATime')
+          accordion-group
+            accordion-heading(tooltip-placement='top', tooltip='Manage your goals here.')
+              | Replace Window Screens
+              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon
+            small.tags Windows
+            small.tags Weekend Project
+            p.goal-complete-btn: a.btn.btn-danger.col-xs-12 I completed this goal! &nbsp;
+              span.fui-check
+            form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
+              .form-group.no-margin
+                .col-xs-11.task-name
+                  label(for='taskName')
+                  input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
+                .col-xs-1.task-add-btn
+                  button.btn.fui-plus
+            form.form(role='form', name='taskToggleForm')
+            ul.task-list(ng-model='otherTasks', ui-sortable='sortableOptions')
+              li(ng-repeat='t in otherTasks')
+                label.checkbox(for='taskComplete') {{t}}
+                  input#inline-checkbox.custom-checkbox.pull-right(type='checkbox')
+                  span.icons.pull-right
+                    span.icon-unchecked
+                    span.icon-checked
+      .house
+        h3(tooltip='A customized list of recommendations.', tooltip-placement='top') Recommendations
+        p We will cater recommendations based on the information you provide about your home.
+        ul
+         li Common things we filter by:
+         li.fui-star &nbsp Yard
+         li.fui-star &nbsp Garage
+         li.fui-star &nbsp Fireplace
+         li.fui-star &nbsp etc.
+        hr
+        hr
+        h4.lead(tooltip='There are some renovations which are not worth doing.', tooltip-placement='bottom') Not Advised
+        h6 Be wary of renovations that can actually decrease the value of your home.
+        ul
+          li.fui-star &nbsp Permanently converting a bedroom into anything other than a bedroom.
+          li.fui-star &nbsp Textured walls.
+          li.fui-star &nbsp Extravagent Kitchen and Bathroom renovations.
+          li.fui-star &nbsp Putting in a Pool or a Hottub.
+          li.fui-star &nbsp Over the top landscaping.
+    .col-xs-5
+      .trending
+        .houzz(tooltip-placement='top', tooltip='Find Inspiration!')
+          div#hzroot9290900(style='text-align:center;font-size:12px;padding:0;margin:0;background-color:#fff;border:2px solid #E3E6E7;')
+            div(style='padding:0;margin:0;border:0;margin-bottom:3px;')
+            iframe(data-hzvt='MjAxNDA5MjM6Y2xhc3NpYy0yMDA0Oi1mb290ZXI=' name='HouzzWidget5836375' id='HouzzWidget5836375' border=0 frameborder='0' SCROLLING=NO style='border:0 none;width:480px;height:457px;padding-top:40px;' src="http://www.houzz.com/jsGalleryWidget/featured/new_window=yes/title_on=yes/width=480")
+        .rss
+          h4.lead
+            i.fa.fa-fw.fa-2x.fa-rss(tooltip-placement='right', tooltip='Choose an RSS feed to follow and stay informed.')
+            button.btn.btn-primary.pull-right(ng-click='subForm = !subForm') Choose Your Feeds
+          .subscribe(ng-hide= 'subForm && user.subscriptions.length > 0')
+            small To select multiples hold down CMD for a Mac and CTRL for a PC.
+            form.form(role='form', name='rssForm', novalidate)
+              select.form-control(name='feed', ng-model='user.subscriptions', ng-options='feed.url as feed.name for feed in possibleFeeds', multiple)
+                option.form-control(value='') Select Type
+              button.btn.btn-primary(ng-click='subscribeUser()') Submit
+            hr
+          kj-parse(feeds='feeds')
+    .col-xs-1
