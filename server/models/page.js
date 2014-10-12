@@ -15,11 +15,10 @@ Object.defineProperty(Page, 'collection', {
   get: function(){return global.mongodb.collection('pages');}
 });
 
-Page.create = function(page, userId, cb){
-  console.log('page in .create', page);
-  page = new Page(page, userId);
-  console.log('after cnstr', page);
-  Page.addPhoto(page, cb);
+Page.create = function(form, userId, cb){
+  console.log('page in .create', form);
+  var page = new Page(form, userId);
+  page.addPhoto(form, cb);
 };
 
 Page.findById = function(id, cb){
@@ -44,12 +43,12 @@ Page.findAllByUserId = function(id, cb){
   });
 };
 
-Page.addPhoto = function(page, cb){
+Page.prototype.addPhoto = function(page, cb){
   if (!page.photo.size) { return; }
+  var self = this;
 
-  var dir = __dirname + '/../../client/assets/img/' + page._id,
-  exist = fs.existsSync(dir),
-  self = page;
+  var dir = __dirname + '/../../client/assets/img/' + self._id,
+    exist = fs.existsSync(dir);
 
   if(!exist){
     fs.mkdirSync(dir);
