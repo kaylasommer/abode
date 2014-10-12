@@ -3,11 +3,16 @@
     .col-xs-1
     .col-xs-3
       img.avatar(ng-src='{{user.avatar}}')
-    .col-xs-2.board
+    .col-xs-3.board
       h5 {{user.name}}
-      h6 Goals Completed: {{user.completed}}
-      h6 Level: {{user.level}}
-    .col-xs-5
+      table.table.table-hover
+        tr
+          th Goals Completed:
+          td.number-score {{user.completed}}
+        tr
+          th Level:
+          td.level {{user.level}}
+    .col-xs-4
       .twitter
         h3.lead Trending
     .col-xs-1
