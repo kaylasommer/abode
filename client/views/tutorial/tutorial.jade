@@ -15,7 +15,7 @@
           th Level:
           td.level {{user.level}}
     .col-xs-4
-      .twitter
+      .twitter(tooltip-placement='left', tooltip='Check out what is trending in home improvement!')
         kj-trending
     .col-xs-1
   .row
@@ -34,7 +34,7 @@
               i.fa.fa-fw.fa-plus.pull-right
             form.form#goal-form(role='form', name='goalForm', novalidate)
               .form-group
-                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title', focus)
+                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title')
               .form-group
                 input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tags')
               .form-group
