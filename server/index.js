@@ -3,14 +3,18 @@
 var port    = process.env.PORT,
     db      = process.env.DB,
     express = require('express'),
-    app     = express();
+    app     = express(),
+    server  = require('http').Server(app);
 
 require('./lib/config')(app);
 require('./routes/routes')(app, express);
 
 require('./lib/mongodb')(db, function(){
-  app.listen(port);
+  require('./lib/sockets')(server, function(){
+    server.listen(port);
+  });
 });
+
 
 module.exports = app;
 

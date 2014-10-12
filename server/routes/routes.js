@@ -2,8 +2,6 @@
 
 var morgan          = require('morgan'),
     bodyParser      = require('body-parser'),
-    //FeedParser      = require('feedparser'),
-    //request         = require('request'),
     methodOverride  = require('express-method-override'),
     session         = require('express-session'),
     RedisStore      = require('connect-redis')(session),
