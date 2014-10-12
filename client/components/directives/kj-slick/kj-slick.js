@@ -15,6 +15,7 @@
             elem.slick({
               infinite: true,
               arrows: true,
+              dots: true,
               fade:true,
               accessibility: true,
               cssEase: 'ease-in-out'
