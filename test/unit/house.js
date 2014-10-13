@@ -37,7 +37,7 @@ describe('House', function(){
     it('should find a house', function(done){
       var id = 'a00000000000000000000001';
       House.findById(id, function(err, house){
-        expect(house.loc).to.equal(37207);
+        expect(house.loc).to.equal(37216);
         done();
       });
     });
@@ -48,7 +48,7 @@ describe('House', function(){
       var id = '000000000000000000000001';
       House.findByUserId(id, function(err, house){
         expect(house._id).to.be.instanceof(Mongo.ObjectID);
-        expect(house.loc).to.equal(37207);
+        expect(house.loc).to.equal(37216);
         done();
       });
     });
