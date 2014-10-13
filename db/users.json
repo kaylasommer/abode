@@ -1,7 +1,7 @@
 {
   "_id" : {"$oid":"000000000000000000000001"},
-  "email" : "bob@aol.com",
-  "name" : "Bobbie",
+  "email" : "frank@aol.com",
+  "name" : "Frank Rodriguez",
   "avatar" : "/assets/avatars/duct-tape.png",
   "subscriptions" : [],
   "level" : "Duct Tape Engineer",
@@ -10,10 +10,13 @@
 }
 {
   "_id" : {"$oid":"000000000000000000000002"},
-  "email" : "sue@aol.com",
-  "name" : "Sue Bell",
+  "email" : "anne@aol.com",
+  "name" : "Anne Phelps",
   "avatar" : "/assets/avatars/duct-tape.png",
-  "subscriptions" : [],
+  "subscriptions" : [
+     "http://www.dwell.com/kitchens/feed",
+     "http://www.dwell.com/articles/feed"
+    ],
   "level" : "Duct Tape Engineer",
   "completed" : "0",
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2"

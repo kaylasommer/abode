@@ -36,7 +36,7 @@ describe('User', function(){
       var id = '000000000000000000000001';
       User.findById(id, function(err, user){
         expect(user._id).to.be.instanceof(Mongo.ObjectID);
-        expect(user.email).to.be.equal('bob@aol.com');
+        expect(user.email).to.be.equal('frank@aol.com');
         done();
       });
     });

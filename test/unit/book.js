@@ -37,7 +37,7 @@ describe('Page', function(){
     it('should find a page by its id', function(done){
       var id = 'b00000000000000000000001';
       Page.findById(id, function(err, page){
-        expect(page.desc).to.equal('Beautiful Facade and Lighting.');
+        expect(page.desc).to.equal('Beautiful clean lines. Awesome Tub.');
         done();
       });
     });
@@ -47,7 +47,7 @@ describe('Page', function(){
     it('should find all pages belonging to user', function(done){
       var id = '000000000000000000000001';
       Page.findAllByUserId(id, function(err, pages){
-        expect(pages.length).to.equal(3);
+        expect(pages.length).to.equal(5);
         done();
       });
     });

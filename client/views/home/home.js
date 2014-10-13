@@ -24,7 +24,7 @@
 
     function newSuccess(response){
       toastr.success('User successfully registered.');
-      $location.path('/tutorial');
+      $location.path('/dashboard');
     }
 
     function newFailure(response){
