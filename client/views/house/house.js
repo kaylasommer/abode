@@ -27,7 +27,7 @@
     House.getUsersHouse().then(function(response){
       $scope.house = response.data.house;
       if (!$scope.house.photo) {
-        $scope.house.photo = '/assets/img/default.jpg';
+        $scope.house.photo = '/assets/img/grey-house.jpg';
       }
     });
 

@@ -1,25 +1,61 @@
 {
   "_id" : {"$oid":"b00000000000000000000001"},
-  "desc" : 'Beautiful Facade and Lighting.',
+  "desc" : 'Beautiful clean lines. Awesome Tub.',
   "userId" : {"$oid":"000000000000000000000001"},
-  "photo" : "/assets/example/modern-ranch.jpg"
+  "photo" : "/assets/example/bathtub.jpg"
 }
 {
   "_id" : {"$oid":"b00000000000000000000002"},
-  "desc" : 'Definitely want a Fireplace like this Stone one.',
+  "desc" : 'Neat wood panels.',
   "userId" : {"$oid":"000000000000000000000001"},
-  "photo" : "/assets/example/ranch-interior.jpg"
+  "photo" : "/assets/example/bedroom.jpg"
 }
 {
   "_id" : {"$oid":"b00000000000000000000003"},
-  "desc" : 'I like the Rug Pattern and Colors',
+  "desc" : 'Quiky red dog.',
   "userId" : {"$oid":"000000000000000000000001"},
-  "photo" : "/assets/example/ranch-rug.jpg"
+  "photo" : "/assets/example/bookshelf.jpg"
 }
 {
   "_id" : {"$oid":"b00000000000000000000004"},
-  "desc" : 'Love the Little Stools!',
+  "desc" : 'Very nice lighting.',
+  "userId" : {"$oid":"000000000000000000000001"},
+  "photo" : "/assets/example/livingroom.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000005"},
+  "desc" : 'Great for a laundry room.',
+  "userId" : {"$oid":"000000000000000000000001"},
+  "photo" : "/assets/example/shelfs.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000006"},
+  "desc" : 'Lovely white tile.',
   "userId" : {"$oid":"000000000000000000000002"},
-  "photo" : "/assets/example/shabby-stools.jpg"
+  "photo" : "/assets/example/dining.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000007"},
+  "desc" : 'Beautiful matte marble floors.',
+  "userId" : {"$oid":"000000000000000000000002"},
+  "photo" : "/assets/example/matte-flooring.jpg"
 }
 
+{
+  "_id" : {"$oid":"b00000000000000000000008"},
+  "desc" : 'Nice open layout and color scheme.',
+  "userId" : {"$oid":"000000000000000000000002"},
+  "photo" : "/assets/example/open-layout.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000009"},
+  "desc" : 'Great chairs.',
+  "userId" : {"$oid":"000000000000000000000002"},
+  "photo" : "/assets/example/patio.jpg"
+}
+{
+  "_id" : {"$oid":"b00000000000000000000010"},
+  "desc" : 'Unique stairs.',
+  "userId" : {"$oid":"000000000000000000000002"},
+  "photo" : "/assets/example/stairs.jpg"
+}
