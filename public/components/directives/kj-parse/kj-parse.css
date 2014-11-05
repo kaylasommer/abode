@@ -1,0 +1,13 @@
+.RSSfeed {
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+}
+.RSSfeed h1 {
+  font-size: 40px;
+}
+.RSSfeed img {
+  display: block;
+  margin: 0 auto;
+  width: 430px;
+}

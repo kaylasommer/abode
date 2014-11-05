@@ -1,0 +1,21 @@
+h1 {
+  margin: 0;
+}
+ul.trending {
+  list-style: none;
+  font-size: 14px;
+  padding: 10px 0 10px 20px;
+}
+ul.trending li {
+  background-color: #ECF0F1;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #b6b2b2;
+}
+ul.trending li .author {
+  display: block;
+  text-align: right;
+  padding: 5px;
+  font-style: oblique;
+}

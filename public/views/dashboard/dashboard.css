@@ -1,0 +1,149 @@
+#dashboard {
+  background-color: #ecf0f1;
+}
+#dashboard .header {
+  height: 300px;
+  width: 100%;
+  padding: 15px 40px;
+  margin-top: 80px;
+}
+#dashboard .header .twitter {
+  overflow: auto;
+  padding: 20px;
+}
+#dashboard .header .avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 3px solid #e3e6e7;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+#dashboard .header .board {
+  margin-top: 85px;
+  margin-left: -40px;
+  margin-right: 40px;
+}
+#dashboard .header .board .number-score {
+  font-size: 2em !important;
+  color: #f39c12;
+}
+#dashboard .header .board .level {
+  color: #f39c12;
+}
+#dashboard .idea,
+#dashboard .homefolio {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  font-size: 1.5em;
+  color: white;
+}
+#dashboard .idea {
+  background-color: #e74c3c;
+  padding-left: 130px;
+  padding-top: 7px;
+}
+#dashboard .homefolio {
+  background-color: #f39c12;
+  padding-left: 115px;
+  margin-bottom: 30px;
+  padding-top: 7px;
+}
+#dashboard .fui-folder {
+  margin: 0 15px;
+}
+#dashboard .goal {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 2px solid #e3e6e7;
+  min-height: 470px;
+}
+#dashboard .goal .panel-default > .panel-heading {
+  cursor: pointer;
+}
+#dashboard .goal .goal-list .goal-complete-btn {
+  height: 40px;
+}
+#dashboard .goal .goal-list .complete {
+  color: grey;
+}
+#dashboard .goal .tags {
+  padding: 5px 10px;
+  background-color: #f1c40f;
+  border-radius: 30px;
+  color: white;
+  margin: 0 3px;
+}
+#dashboard .goal .goal-complete-btn {
+  margin-top: 10px;
+}
+#dashboard .goal .task-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+#dashboard .goal .task-add-btn,
+#dashboard .goal .task-rank,
+#dashboard .goal .task-name {
+  padding: 2px;
+}
+#dashboard .goal .task-add-btn {
+  margin-top: 5px;
+}
+#dashboard .goal label {
+  display: block;
+}
+#dashboard .house {
+  padding: 20px 60px 20px 20px;
+  background-color: #ffffff;
+  border: 2px solid #e3e6e7;
+  margin-top: 40px;
+  height: 900px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+#dashboard .house h3,
+#dashboard .house h4,
+#dashboard .house h6 {
+  color: #e74c3c;
+  padding: 0 40px;
+}
+#dashboard .house p {
+  padding: 0 40px;
+}
+#dashboard .house ul {
+  list-style: none;
+}
+#dashboard .twitter {
+  width: 100%;
+  height: 250px;
+  background-color: #ffffff;
+  border: 2px solid #e3e6e7;
+  padding: 20px;
+}
+#dashboard .trending .houzz {
+  margin: 0 auto;
+}
+#dashboard .trending .rss {
+  width: 100%;
+  background-color: #ffffff;
+  border: 2px solid #e3e6e7;
+  padding: 20px;
+  height: 900px;
+  margin-top: 40px;
+  overflow: auto;
+}
+#dashboard .trending .rss h4 {
+  color: #f39c12;
+}
+#dashboard .trending .rss .subscribe {
+  padding: 20px;
+}
+#dashboard .trending .rss .subscribe select {
+  height: 125px;
+}
+#dashboard .trending .rss .subscribe button {
+  margin: 10px 0;
+}
