@@ -54,9 +54,7 @@
     "request": "^2.45.0",
     "resanitize": "^0.3.0",
     "socket.io": "^1.1.0",
-    "underscore": "^1.7.0"
-  },
-  "devDependencies": {
+    "underscore": "^1.7.0",
     "blanket": "^1.1.6",
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
