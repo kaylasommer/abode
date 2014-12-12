@@ -21,7 +21,7 @@ module.exports = function(app, express){
   app.use(bodyParser.urlencoded({extended:true}));
   app.use(bodyParser.json());
   app.use(methodOverride());
-  app.use(session({store:new RedisStore(), secret:'my super secret key', resave:true, saveUninitialized:true, cookie:{maxAge:null}}));
+  app.use(session({store:new RedisStore({host:process.env.REDISCLOUD_URL}), secret:'my super secret key', resave:true, saveUninitialized:true, cookie:{maxAge:null}}));
 
   app.use(security.authenticate);
   app.use(debug.info);

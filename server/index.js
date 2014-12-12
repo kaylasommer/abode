@@ -1,7 +1,7 @@
 'use strict';
 
 var port    = process.env.PORT,
-    db      = process.env.DB,
+    db      = process.env.MONGOLAB_URI,
     express = require('express'),
     app     = express(),
     server  = require('http').Server(app);
@@ -17,4 +17,3 @@ require('./lib/mongodb')(db, function(){
 
 
 module.exports = app;
-
