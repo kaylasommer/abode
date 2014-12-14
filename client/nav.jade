@@ -6,7 +6,7 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') Abode
+      a.navbar-brand(href='/#/') Abode
 
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right(ng-hide='email')
@@ -16,6 +16,5 @@
         li: a(href='/#/house') Homefolio
         li: a(href='/#/book') Ideabook
       ul.nav.navbar-nav.navbar-right(ng-show='email')
-        li: a.fui-user(href='javascript.void(0)')&nbsp {{email}}
+        li: a.fui-user &nbsp {{email}}
         li: a.fui-exit.fui-2x(href='/#/logout')
-
