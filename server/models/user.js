@@ -81,4 +81,3 @@ User.prototype.subscribe = function(updatedUser, cb){
 };
 
 module.exports = User;
-
