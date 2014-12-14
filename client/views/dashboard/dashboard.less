@@ -2,17 +2,21 @@
 #dashboard {
   background-color: @white;
   .header{
-    height: 300px;
-    width: 100%;
-    padding: 15px 40px;
+    height: 340px;
     margin-top: 80px;
+    padding: 0;
+
     .twitter {
       overflow: auto;
       padding: 20px;
+      height: 300px;
+      background-color: @verywhite;
+      border: 2px solid @grey;
+      padding: 20px;
     }
     .avatar {
-      width: 300px;
-      height: 300px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       background-color: @verywhite;
       border: 3px solid @grey;
@@ -20,25 +24,36 @@
       margin-bottom: 25px;
     }
     .board {
-      margin-top: 85px;
-      margin-left: -40px;
-      margin-right: 40px;
+      padding: 20px;
+      border-top: 2px solid @navy;
 
-      .number-score {
-        font-size: 2em !important;
-        color: @orange;
-      }
-      .level{
-        color: @orange;
+      h5 {
+        .completed {
+          color: @orange;
+          text-align: right;
+        }
+        .level {
+          color: @teal;
+          text-align: right;
+        }
       }
     }
+
   }
-  .idea, .homefolio {
-    display: inline-block;
-    width: 100%;
-    height: 60px;
-    font-size: 1.5em;
-    color: white;
+  #book, #homefolio {
+    padding: 20px;
+    background-color: @verywhite;
+    border: 2px solid @grey;
+    min-height: 200px;
+
+    .feature {
+      padding: 15px 20px;
+      border-left: 2px solid @white;
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
   }
   .idea {
     background-color: @red;
@@ -51,14 +66,26 @@
     margin-bottom: 30px;
     padding-top: 7px;
   }
-  .fui-folder {
-    margin: 0 15px;
+  .icon-row {
+    padding: 15px 0;
+  }
+  .icon {
+    width: 60px;
   }
   .goal {
     padding: 20px;
     background-color: @verywhite;
     border: 2px solid @grey;
     min-height: 470px;
+    margin-top: 40px;
+
+    .goal-header {
+      padding: 20px 0;
+
+      .goal-title {
+        padding-left: 15px;
+      }
+    }
 
     .panel-default > .panel-heading {
       cursor: pointer;
@@ -116,16 +143,10 @@
       list-style: none;
     }
   }
-  .twitter {
-    width: 100%;
-    height: 250px;
-    background-color: @verywhite;
-    border: 2px solid @grey;
-    padding: 20px;
-  }
   .trending{
     .houzz {
       margin: 0 auto;
+      margin-top: 40px;
     }
     .rss {
       width: 100%;

@@ -1,68 +1,98 @@
 #dashboard
-  .header
+  .row.header
     .col-xs-1
-    .col-xs-3
-      img.avatar(ng-src='{{user.avatar}}')
-    .col-xs-2.board
-      h5 {{user.name}}
-      h6 Goals Completed: {{user.completed}}
-      h6 Level: {{user.level}}
+    .col-xs-5
+      .row
+        .col-xs-4
+          img.avatar(ng-src='{{user.avatar}}')    
+        .col-xs-8
+          h3 Hello {{user.name}}!
+      .row
+        .col-xs-12.board
+          h5 Goals Completed: 
+            span.completed {{user.completed}}
+          h5 Level: 
+            span.level {{user.level}}
     .col-xs-5
       .twitter
         kj-trending
     .col-xs-1
+  .clearfix
   .row
-    a.idea(href='/#/book'): div.fui-bookmark &nbsp Found a picture you absolutely love? Put it in your Ideabook!
-    a.homefolio(href='/#/house'): div.fui-folder &nbsp Recently purchased a house? Update Your Homefolio.
+    .col-xs-1
+    .col-xs-5
+      #book
+        .col-xs-2.icon-row
+          img.icon(src='vendor/flat-ui/img/icons/png/Book.png')
+        .col-xs-10.feature
+          h4 Found a picture you absolutely love? 
+          a(href='/#/book'): h6 Put it in your Ideabook!
+    .col-xs-5
+      #homefolio
+        .col-xs-2.icon-row
+          img.icon(src='vendor/flat-ui/img/icons/png/Pensils.png')
+        .col-xs-10.feature
+          h4 Recently purchased a house? 
+          a(href='/#/house'): h6 Update Your Homefolio.
+    .col-xs-1
+    
   .clearfix
   .row
     .col-xs-1
     .col-xs-5
       .goal
-        h4 Goals
-        div(accordion close-others='oneAtATime')
-          accordion-group
-            accordion-heading
-              | Set a Goal
-              i.fa.fa-fw.fa-plus.pull-right
-            form.form#goal-form(role='form', name='goalForm', novalidate)
+        .row.goal-header
+          .col-xs-2.goal-icon
+            img.icon(src='vendor/flat-ui/img/icons/png/Clipboard.png')
+          .col-xs-10.goal-title
+            h4 Goals
+          
+        .row
+          .col-xs-12
+            div(accordion close-others='oneAtATime')
+              accordion-group
+                accordion-heading
+                  | Set a Goal
+                  i.fa.fa-fw.fa-plus.pull-right
+                form.form#goal-form(role='form', name='goalForm', novalidate)
+                  .form-group
+                    input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title')
+                  .form-group
+                    input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tag, Tag, Tag')
+                  .form-group
+                    button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
+            h5 Find a specific goal
+            .filter
+              form.form-inline#filter(role='form', name='filterForm')
               .form-group
-                input.form-control#goal-title(type='text', name='goalTitle', ng-model='goal.title', ng-minlength='5', required, placeholder='Goal Title')
-              .form-group
-                input.form-control#goal-tag.tagsinput-primary(type='text', name='goalTags', ng-model='goal.tags', ng-minlength='5', required, placeholder='Tag, Tag, Tag')
-              .form-group
-                button.btn.btn-primary.pull-right(ng-show='goalForm.$valid', ng-click='addGoal()') Add Goal
-        h5 Find a specific goal
-        .filter
-          form.form-inline#filter(role='form', name='filterForm')
-          .form-group
-            label.sr-only(for='filter')
-            .input-group
-              .input-group-addon: i.fa.fa-fw.fa-filter
-              input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
-        div.goal-list(accordion, close-others='oneAtATime')
-          accordion-group(ng-repeat='goal in goals | filter:searchGoals')
-            accordion-heading(ng-click='status.open = !!!status.open')
-              | {{goal.title}}
-              i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
-            small.tags(ng-repeat='tag in goal.tags') {{tag}}
-            p.goal-complete-btn: a.btn.btn-danger.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
-              span.fui-check
-            form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
-              .form-group.no-margin
-                .col-xs-11.task-name
-                  label(for='taskName')
-                  input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
-                .col-xs-1.task-add-btn
-                  button.btn.fui-plus(ng-click='addTask(goal)')
-            form.form(role='form', name='taskToggleForm')
-            ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
-              li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
-                label.checkbox(for='taskComplete') {{task.name}}
-                  input#inline-checkbox.custom-checkbox(name='taskComplete', data-toggle='checkbox', type='checkbox', ng-model='task.isComplete', ng-click='taskComplete(goal)')
-                  span.icons
-                    span.icon-unchecked
-                    span.icon-checked
+                label.sr-only(for='filter')
+                .input-group
+                  .input-group-addon: i.fa.fa-fw.fa-filter
+                  input.form-control(type='text', name='filter', placeholder='Filter By Tags', ng-model='searchGoals')
+            
+            div.goal-list(accordion, close-others='oneAtATime')
+              accordion-group(ng-repeat='goal in goals | filter:searchGoals')
+                accordion-heading(ng-click='status.open = !!!status.open')
+                  | {{goal.title}}
+                  i.fa.fa-fw.fa-chevron-down.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}")
+                small.tags(ng-repeat='tag in goal.tags') {{tag}}
+                p.goal-complete-btn: a.btn.btn-danger.col-xs-12(ng-click='goalComplete(goal)') I completed this goal! &nbsp;
+                  span.fui-check
+                form.form-horizontal.task-form(role='form', name='taskForm', novalidate)
+                  .form-group.no-margin
+                    .col-xs-11.task-name
+                      label(for='taskName')
+                      input.form-control#task-name(type='text', ng-model='goal.task.name', ng-minlength='3', required, placeholder='Add a Task')
+                    .col-xs-1.task-add-btn
+                      button.btn.fui-plus(ng-click='addTask(goal)')
+                form.form(role='form', name='taskToggleForm')
+                ul.task-list(ng-model='goal.tasks', ui-sortable='sortableOptions')
+                  li(ng-repeat='task in goal.tasks', ng-class='{complete:task.isComplete}')
+                    label.checkbox(for='taskComplete') {{task.name}}
+                      input#inline-checkbox.custom-checkbox(name='taskComplete', data-toggle='checkbox', type='checkbox', ng-model='task.isComplete', ng-click='taskComplete(goal)')
+                      span.icons
+                        span.icon-unchecked
+                        span.icon-checked
       .house
         h3 Recommendations
         ul
