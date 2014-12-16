@@ -1,7 +1,4 @@
 ## Abode
-### Code Badges
-[![Build Status](https://travis-ci.org/kaylalynjones/abode.svg)](https://travis-ci.org/kaylalynjones/abode)
-[![Coverage Status](https://coveralls.io/repos/kaylalynjones/abode/badge.png)](https://coveralls.io/r/kaylalynjones/abode)
 
 ### Screenshots
 ![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
